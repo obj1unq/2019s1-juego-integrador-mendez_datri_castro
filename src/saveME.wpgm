@@ -1,0 +1,16 @@
+import wollok.game.*
+import personaje.*
+import mundo.*
+import ecosistemas.*
+program SaveMe {
+// CONFIG 
+	game.title("Save Me")
+	game.height(15)
+	game.width(30)
+	game.ground("ground.png")
+	
+// VISUALES
+	game.addVisual(personaje)
+	
+	game.start()
+}
