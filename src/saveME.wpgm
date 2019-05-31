@@ -7,12 +7,16 @@ program SaveMe {
 	game.title("Save Me")
 	game.height(10)
 	game.width(20)
-	game.boardGround("ecosistemaFondo1.png")
+	game.boardGround(mundo.image())
 	
 // VISUALES
 	game.addVisual(personaje)
 	game.addVisual(mundo)
 
+//COLISIONES
+	
+
+	
 // TECLADO
 	keyboard.up().onPressDo   { personaje.move(personaje.position().up(1)) }
 	keyboard.down().onPressDo { personaje.move(personaje.position().down(1)) }
