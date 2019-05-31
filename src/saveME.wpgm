@@ -5,12 +5,22 @@ import ecosistemas.*
 program SaveMe {
 // CONFIG 
 	game.title("Save Me")
-	game.height(15)
-	game.width(30)
-	game.ground("ground.png")
+	game.height(10)
+	game.width(20)
+	game.boardGround("ecosistemaFondo1.png")
 	
 // VISUALES
 	game.addVisual(personaje)
+	game.addVisual(mundo)
+
+// TECLADO
+	keyboard.up().onPressDo   { personaje.move(personaje.position().up(1)) }
+	keyboard.down().onPressDo { personaje.move(personaje.position().down(1)) }
+	keyboard.left().onPressDo { personaje.move(personaje.position().left(1)) }
+	keyboard.right().onPressDo{ personaje.move(personaje.position().right(1)) }
+	keyboard.m().onPressDo 	  {	game.say(mundo, "Ayudame a salvar el planeta para ello, apreta la B asi me ayudas con el Bosque")}
+	keyboard.b().onPressDo 	  {	game.boardGround("sinArboles.png")}
 	
+// START
 	game.start()
 }
