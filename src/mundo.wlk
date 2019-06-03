@@ -1,7 +1,6 @@
 import wollok.game.*
 import fondo.*
 import personaje.*
-import bosque.*
 object mundo {
 	var aniosDeVida = 12
 	var property position = game.at(1,0)
