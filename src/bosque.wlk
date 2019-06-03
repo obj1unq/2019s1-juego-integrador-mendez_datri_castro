@@ -4,8 +4,13 @@ import mundo.*
 object bosque {
 	var property position = game.at(0,0)
 	var property vida = 0
+	const property arbolesPlantados = []
 	method sembrarYRegar(personaje) {
-		keyboard.s().onPressDo 	  { personaje.sembrar(new Arbol())}
+		keyboard.s().onPressDo 	  { 
+			arbolesPlantados.add(new Arbol())
+			personaje.sembrar(arbolesPlantados.last())
+			
+		}
 		keyboard.r().onPressDo    { personaje.regar()}
 	}
 	method estasSiendoSalvado() {
@@ -16,7 +21,9 @@ object bosque {
 		}
 	}
 	method sumarVida() { vida += 1}
-	
+	method eliminarArboles() {
+		arbolesPlantados.forEach({arbol => game.removeVisual(arbol)})
+	}
 }
 
 class Arbol {

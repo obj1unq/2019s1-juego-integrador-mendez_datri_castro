@@ -8,6 +8,7 @@ object mundo {
 	method image() = if (aniosDeVida <= 12) {"mundoInicial.png"} else "mundoSegundo.png"
 	method irAPantallaInicial() {
 		game.say(self, "Apreta espacio para continuar")
+		aniosDeVida ++
 	}
 	
 }

@@ -3,7 +3,6 @@ import personaje.*
 import mundo.*
 import bosque.*
 import fondo.*
-import borrador.*
 program SaveMe {
 	// CONFIG 
 	game.title("Save Me")
@@ -30,8 +29,8 @@ program SaveMe {
 								bosque.sembrarYRegar(personaje)
 	}
 	keyboard.space().onPressDo {
-		game.clear()
-		borrador.setear()
+		fondo.image("ecosistemaFondo1.png")
+		bosque.eliminarArboles()
 	}
 
 
