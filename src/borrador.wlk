@@ -1,26 +1,14 @@
 import wollok.game.*
-import personaje.*
-import mundo.*
-import bosque.*
 import fondo.*
-import borrador.*
-program SaveMe {
-	// CONFIG 
-	game.title("Save Me")
-	game.height(11)
-	game.width(18)
-	
-	
-// VISUALES
+import personaje.*
+import bosque.*
+import mundo.*
+object borrador {
+	method setear(){
+	fondo.image("ecosistemaFondo1.png")	
 	game.addVisual(fondo)
 	game.addVisual(personaje)
 	game.addVisual(mundo)
-
-//COLISIONES
-//	game.whenCollideDo({mundo, })
-
-	
-// TECLADO
 	keyboard.up().onPressDo   { personaje.move(personaje.position().up(1)) }
 	keyboard.down().onPressDo { personaje.move(personaje.position().down(1)) }
 	keyboard.left().onPressDo { personaje.move(personaje.position().left(1)) }
@@ -31,11 +19,7 @@ program SaveMe {
 	}
 	keyboard.space().onPressDo {
 		game.clear()
-		borrador.setear()
+		self.setear()
 	}
-
-
-// START
-	game.start()
-
+	}
 }

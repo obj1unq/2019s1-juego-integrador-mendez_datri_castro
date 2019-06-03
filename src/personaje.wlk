@@ -6,12 +6,14 @@ object personaje {
 	method image() = "player.png"
 	method move(nuevaPosicion)	{
 		position = nuevaPosicion 
-		mundo.sumarAniosDeVida()
 		game.removeVisual(self)
 		game.addVisual(self)
 	}
-		
-}
+	method sembrar(arbol) {
+		arbol.estasSiendoSembrado(self)
+	}
 	
-
-
+	method regar() {
+		game.colliders(self).forEach({arbol => arbol.estasSiendoRegado()})
+	}
+}
