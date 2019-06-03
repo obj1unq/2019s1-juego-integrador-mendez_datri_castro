@@ -3,6 +3,7 @@ import personaje.*
 import mundo.*
 import ecosistemas.*
 import fondo.*
+import candado.*
 program SaveMe {
 	// CONFIG 
 	game.title("Save Me")
@@ -14,9 +15,10 @@ program SaveMe {
 	game.addVisual(fondo)
 	game.addVisual(personaje)
 	game.addVisual(mundo)
+	game.addVisualIn(new Candado(), game.at(4,4))
 
 //COLISIONES
-//	game.whenCollideDo({mundo, })
+	game.whenCollideDo(personaje, {cosa => cosa.fuisteChocadaPor(personaje)})
 
 	
 // TECLADO
@@ -24,14 +26,11 @@ program SaveMe {
 	keyboard.down().onPressDo { personaje.move(personaje.position().down(1)) }
 	keyboard.left().onPressDo { personaje.move(personaje.position().left(1)) }
 	keyboard.right().onPressDo{ personaje.move(personaje.position().right(1)) }
-	keyboard.m().onPressDo 	  {	game.say(mundo, "Ayudame a salvar el planeta para ello")}
-	keyboard.b().onPressDo 	  { fondo.image("sinArboles.jpg") 
-								bosque.sembrarYRegar(personaje)
-	}
 	keyboard.space().onPressDo {
 		fondo.image("ecosistemaFondo1.png")
 		bosque.eliminarArboles()
 	}
+
 
 
 // START

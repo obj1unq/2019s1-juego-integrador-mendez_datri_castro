@@ -1,20 +1,26 @@
 import fondo.*
 import wollok.game.*
 import mundo.*
+import personaje.*
 
 //ECOSISTEMA BOSQUE
 object bosque {
 	var property position = game.at(0,0)
 	var property vida = 0
 	const property arbolesPlantados = []
+	method jugar() {
+		fondo.image("sinArboles.jpg") 
+		self.sembrarYRegar(personaje)
+		
+	}
 	method sembrarYRegar(personaje) {
 		keyboard.s().onPressDo 	  { 
 			arbolesPlantados.add(new Arbol())
 			personaje.sembrar(arbolesPlantados.last())
-			
-		}
+		}	
 		keyboard.r().onPressDo    { personaje.regar()}
 	}
+	
 	method estasSiendoSalvado() {
 		self.sumarVida()
 		if (vida >= 3){
@@ -36,6 +42,7 @@ class Arbol {
 		image = "arbolSanoCHiquito.png"
 		bosque.estasSiendoSalvado()					
 	}
+	method fuisteChocadaPor(personaje) {}
 }
 
 //ECOSISTEMA DESIERTO
