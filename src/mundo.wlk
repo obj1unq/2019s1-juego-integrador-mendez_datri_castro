@@ -9,6 +9,7 @@ object mundo {
 		game.say(self, "Apreta espacio para continuar")
 		aniosDeVida ++
 	}
+	method 
 	
 }
 
