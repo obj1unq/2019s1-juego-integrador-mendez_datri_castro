@@ -3,5 +3,7 @@ import	ecosistemas.*
 object fondo {
 	var property position = game.at(0,0)
 	var property image = "ecosistemaFondo1.png"
-	method fuisteChocadaPor(personaje) {}
+	
+	//CUANDO COLISIONA CON EL PERSONAJE
+	method fuisteChocadaPor(personaje) { /* No hace nada */}
 }
