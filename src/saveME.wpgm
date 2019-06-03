@@ -5,11 +5,10 @@ import ecosistemas.*
 import fondo.*
 import candado.*
 program SaveMe {
-	// CONFIG 
+// CONFIG 
 	game.title("Save Me")
 	game.height(11)
 	game.width(18)
-	
 	
 // VISUALES
 	game.addVisual(fondo)
@@ -20,7 +19,6 @@ program SaveMe {
 //COLISIONES
 	game.whenCollideDo(personaje, {cosa => cosa.fuisteChocadaPor(personaje)})
 
-	
 // TECLADO
 	keyboard.up().onPressDo   { personaje.move(personaje.position().up(1)) }
 	keyboard.down().onPressDo { personaje.move(personaje.position().down(1)) }
@@ -30,9 +28,7 @@ program SaveMe {
 		fondo.image("ecosistemaFondo1.png")
 		bosque.eliminarArboles()
 	}
-
-
-
+	
 // START
 	game.start()
 
