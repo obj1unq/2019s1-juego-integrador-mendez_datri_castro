@@ -1,7 +1,7 @@
 import wollok.game.*
 import personaje.*
 import mundo.*
-import bosque.*
+import ecosistemas.*
 import fondo.*
 program SaveMe {
 	// CONFIG 
