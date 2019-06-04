@@ -1,10 +1,12 @@
 import wollok.game.*
 import fondo.*
 import personaje.*
+import candado.*
+import ecosistemas.*
 object mundo {
 	var aniosDeVida = 12
 	var property position = game.at(1,0)
-	method image() = if (aniosDeVida <= 18) {"mundoInicial.png"} else "mundoSegundo.png"
+	method image() = if (aniosDeVida <= 15) {"mundoInicial.png"} else "mundoSegundo.png"
 	
 	//VOLVER A PANTALLA INICIAL al finalizar el juego.
 	method irAPantallaInicial() {
@@ -14,7 +16,13 @@ object mundo {
 	
 	//CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) {
-		game.say(self, "Ayudame a salvar el planeta para ello")
+		game.say(self, "Ayudame a salvar el planeta")
+	}
+	
+	//FINAL
+	method meSalvaste() {
+		if (aniosDeVida == 15)	{game.say(self, "MUCHAS GRACIAS, me has salvado")}
+		else {}
 	}
 }
 

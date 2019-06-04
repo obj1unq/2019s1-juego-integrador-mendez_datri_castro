@@ -2,7 +2,8 @@ import fondo.*
 import wollok.game.*
 import mundo.*
 import personaje.*
-
+import candado.*
+import mugre.*
 //ECOSISTEMA BOSQUE
 object bosque {
 	var property position = game.at(0,0)
@@ -11,18 +12,21 @@ object bosque {
 	
 	//POLIMORFISMO 
 	method jugar() {
-		fondo.image("sinArboles.jpg") 
+		self.inicializar()
 		self.sembrarYRegar(personaje)
-		
 	}
-	
+	method inicializar() {
+		personaje.position(game.origin())
+		fondo.image("sinArboles.jpg")
+		game.say(mundo,"Planata y riega arboles")
+	}
 	//PARA QUE NO SIEMBRE EN CUALQUIER LADO.
 	method sembrarYRegar(personaje) {
 		keyboard.s().onPressDo 	  { 
 			arbolesPlantados.add(new Arbol())
-			personaje.sembrar(arbolesPlantados.last())
+			self.sembrarArbol(personaje)
 		}	
-		keyboard.r().onPressDo    { personaje.regar()}
+		keyboard.r().onPressDo    {  }
 	}
 	
 	//CAMBIO DE IMAGEN
@@ -41,6 +45,10 @@ object bosque {
 	method eliminarArboles() {
 		arbolesPlantados.forEach({arbol => game.removeVisual(arbol)})
 	}
+	
+	//DIVISION DE SEMBRAR Y REGAR
+	method sembrarArbol(personaje) {arbolesPlantados.last().estasSiendoSembrado(personaje)}
+	method regarArbol(personaje)   {game.colliders(personaje).forEach({arbol => arbol.estasSiendoRegado()})}
 }
 // PARA EL BOSQUE
 class Arbol {
@@ -62,29 +70,77 @@ class Arbol {
 
 //ECOSISTEMA DESIERTO
 object desierto {
-	
+		method jugar() {
+		self.inicializar()
+	}
+	method inicializar() {
+		personaje.position(game.origin())
+		fondo.image("")
+		game.say(mundo,"")
+	}
 }
 
 //ECOSISTEMA AGUA
 object agua {
 	var property position = game.at(0,0)
-	var cantidadDeSuciedad 	
+	var cantidadDeMugre = 0
+	
+	//POLIMORFISMO 		
 	method jugar() {
-		fondo.image("aguacontaminada.jpg")
+		self.inicializar()
+		self.suciedadEnAgua()
 	}
+	method inicializar() {
+		personaje.position(game.origin())
+		fondo.image("fondoDeAgua.jpg")
+		game.say(mundo,"Recoleta la basura del oceano")
+	}
+	method estasSiendoSalvado() {
+		if (cantidadDeMugre == 0){
+			mundo.irAPantallaInicial()
+		}
+	}
+	method suciedadEnAgua() {
+		basura.aparecer()
+		botella.aparecer()
+		tablaDeComida.aparecer()
+	}
+	method agregarMugre() {cantidadDeMugre ++}
+	method sacarMugre() {cantidadDeMugre --}
 }
 
 //ECOSISTEMA SELVA
 object selva {
-	
+	method jugar() {
+		self.inicializar()
+	}
+	method inicializar() {
+		personaje.position(game.origin())
+		fondo.image("")
+		game.say(mundo,"")
+	}
 }
 
 //ECOSISTEMA NIEVE
 object nieve {
-	
+	method jugar() {
+		self.inicializar()
+	}
+	method inicializar() {
+		personaje.position(game.origin())
+		fondo.image("")
+		game.say(mundo,"")
+	}
 }
 
 //ECOSISTEMA CIUDAD
 object ciudad {
-	
+	method jugar() {
+		self.inicializar()
+	}
+	method inicializar() {
+		personaje.position(game.origin())
+		fondo.image("")
+		game.say(mundo,"")
+	}
 }
