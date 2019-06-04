@@ -67,7 +67,11 @@ object desierto {
 
 //ECOSISTEMA AGUA
 object agua {
-	
+	var property position = game.at(0,0)
+	var cantidadDeSuciedad 	
+	method jugar() {
+		fondo.image("aguacontaminada.jpg")
+	}
 }
 
 //ECOSISTEMA SELVA
