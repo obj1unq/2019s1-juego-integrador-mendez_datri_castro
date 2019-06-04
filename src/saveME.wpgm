@@ -29,6 +29,7 @@ program SaveMe {
 	keyboard.space().onPressDo {
 		fondo.image("ecosistemaFondo1.png")
 		bosque.eliminarArboles()
+//		agua.sacarTodaLaMugre()
 	}
 	
 // START

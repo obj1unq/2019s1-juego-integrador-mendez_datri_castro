@@ -14,4 +14,9 @@ class Candado {
 		ecosistema.jugar()
 		game.removeVisual(self)
 	}
+	method elEcosistemaNoFueSalvado() {
+		if (not ecosistema.fuisteSalvado()) {
+			game.addVisual(self)
+		}
+	}
 }

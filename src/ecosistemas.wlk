@@ -8,6 +8,7 @@ import mugre.*
 object bosque {
 	var property position = game.at(0,0)
 	var property vida = 0
+	var property fuisteSalvado = false
 	const property arbolesPlantados = []
 	
 	//POLIMORFISMO 
@@ -26,17 +27,19 @@ object bosque {
 			arbolesPlantados.add(new Arbol())
 			self.sembrarArbol(personaje)
 		}	
-		keyboard.r().onPressDo    {  }
+		keyboard.r().onPressDo    { self.regarArbol(personaje)}
 	}
 	
 	//CAMBIO DE IMAGEN
 	method estasSiendoSalvado() {
 		self.sumarVida()
-		if (vida >= 3){
+		if (vida < 3){
+			fuisteSalvado = true
 			fondo.image("bosqueSano.jpg")
-			mundo.irAPantallaInicial()
+			mundo.irAPantallaInicial(self) 
 		}
 	}
+	
 	
 	//DIVISION DE ESTAS SIENDO SALVADO.
 	method sumarVida() { vida += 1}
@@ -70,7 +73,8 @@ class Arbol {
 
 //ECOSISTEMA DESIERTO
 object desierto {
-		method jugar() {
+	var property fuisteSalvado = false
+	method jugar() {
 		self.inicializar()
 	}
 	method inicializar() {
@@ -78,12 +82,19 @@ object desierto {
 		fondo.image("")
 		game.say(mundo,"")
 	}
+	method estasSiendoSalvado() {
+		if ("algo" == "algo"){
+			fuisteSalvado = true
+			mundo.irAPantallaInicial(self)
+		}
+	}
 }
 
 //ECOSISTEMA AGUA
 object agua {
 	var property position = game.at(0,0)
 	var cantidadDeMugre = 0
+	var property fuisteSalvado = false
 	
 	//POLIMORFISMO 		
 	method jugar() {
@@ -97,20 +108,27 @@ object agua {
 	}
 	method estasSiendoSalvado() {
 		if (cantidadDeMugre == 0){
-			mundo.irAPantallaInicial()
+			fuisteSalvado = true
+			mundo.irAPantallaInicial(self)
 		}
 	}
 	method suciedadEnAgua() {
-		basura.aparecer()
-		botella.aparecer()
-		tablaDeComida.aparecer()
+		new Basura().aparecer()
+		new Botella().aparecer()
+		new TablaDeComida().aparecer()
 	}
 	method agregarMugre() {cantidadDeMugre ++}
 	method sacarMugre() {cantidadDeMugre --}
+//	method sacarTodaLaMugre() {	
+//		new Basura().desaparecer()
+//		new Botella().desaparecer()
+//		new TablaDeComida().desaparecer()
+//	}
 }
 
 //ECOSISTEMA SELVA
 object selva {
+	var property fuisteSalvado = false
 	method jugar() {
 		self.inicializar()
 	}
@@ -118,11 +136,18 @@ object selva {
 		personaje.position(game.origin())
 		fondo.image("")
 		game.say(mundo,"")
+	}
+		method estasSiendoSalvado() {
+		if ("algo" == "algo"){
+			mundo.irAPantallaInicial(self)
+			fuisteSalvado = true
+		}
 	}
 }
 
 //ECOSISTEMA NIEVE
 object nieve {
+	var property fuisteSalvado = false
 	method jugar() {
 		self.inicializar()
 	}
@@ -130,11 +155,18 @@ object nieve {
 		personaje.position(game.origin())
 		fondo.image("")
 		game.say(mundo,"")
+	}
+	method estasSiendoSalvado() {
+		if ("algo" == "algo"){
+			mundo.irAPantallaInicial(self)
+			fuisteSalvado = true
+		}
 	}
 }
 
 //ECOSISTEMA CIUDAD
 object ciudad {
+	var property fuisteSalvado = false
 	method jugar() {
 		self.inicializar()
 	}
@@ -142,5 +174,11 @@ object ciudad {
 		personaje.position(game.origin())
 		fondo.image("")
 		game.say(mundo,"")
+	}
+	method estasSiendoSalvado() {
+		if ("algo" == "algo"){
+			mundo.irAPantallaInicial(self)
+			fuisteSalvado = true
+		}
 	}
 }
