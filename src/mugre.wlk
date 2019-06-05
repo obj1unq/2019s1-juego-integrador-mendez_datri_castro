@@ -1,13 +1,15 @@
 import wollok.game.*
 import ecosistemas.*
+const botella = new Botella()
+const basura = new Basura()
+const tablaDeComida = new TablaDeComida()
 class Mugre {
 	var property position
 	var property image
 	// CUANDO EL PERSONAJE COLISIONA
 	method fuisteChocadaPor(personaje) {
-		agua.sacarMugre(self) 
 		game.removeVisual(self)
-		agua.sacarMugre()
+		agua.sacarMugre(self) 
 		agua.estasSiendoSalvado()
 	}
 	
@@ -15,7 +17,7 @@ class Mugre {
 	method aparecer() {
 		game.addVisual(self)
 		self.moverse()
-		agua.agregarMugre()	
+		agua.agregarMugre(self)	
 	}
 	
 	method desaparecer() {

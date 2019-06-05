@@ -4,15 +4,13 @@ import personaje.*
 import candado.*
 import ecosistemas.*
 object mundo {
-	var aniosDeVida = 12
+	var property aniosDeVida = 12
 	var property position = game.at(1,0)
-	var property candados = []
-	method image() = if (aniosDeVida <= 15) {"mundoInicial.png"} else "mundoSegundo.png"
+	method image() = if (aniosDeVida <= 14) {"mundoInicial.png"} else "mundoSegundo.png"
 	
 	//VOLVER A PANTALLA INICIAL al finalizar el juego.
 	method irAPantallaInicial() {
 		game.say(self, "GRACIAS! Apreta espacio para continuar")
-		aniosDeVida ++ 
 	}
 	
 	//CUANDO COLISIONA CON EL PERSONAJE
@@ -20,25 +18,12 @@ object mundo {
 		game.say(self, "Ayudame a salvar el planeta")
 	}
 	
-	// SOBRE CANDADOS
-	method agregarCandado(ecosistema) {
-		candados.add(ecosistema.candado())
-	}
-	method sacarCandadosDePantalla() {
-		candados.forEach{candado => game.removeVisual(candado)}
-	}
-	method agregarCadadosAPanatalla() {
-		candados.forEach{candado => game.addVisual(candado)}
-	}
-	method sacarCandadoDe(ecosistema) {
-		candados.remove(ecosistema.candado())
-	}
-	
-	method volverAInicio() {
-		fondo.image("ecosistemaFondo1.png")
-		bosque.eliminarArboles()
-		agua.sacarTodaLaMugre()
-		self.agregarCadadosAPanatalla()
+
+		
+	//Para que los arboles no sumen vida
+	method elEcosistemaFueSalvadoSumarVida(ecosistema) {
+		if (ecosistema.fuisteSalvado()) aniosDeVida ++
+		else aniosDeVida
 	}
 	//FINAL
 	method meSalvaste() {

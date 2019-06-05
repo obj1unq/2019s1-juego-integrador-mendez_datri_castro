@@ -16,34 +16,35 @@ object bosque {
 		if (not fuisteSalvado) {
 			self.inicializar()
 			self.sembrarYRegar(personaje)
-			mundo.sacarCandadosDePantalla()
-			mundo.sacarCandadoDe(self) 	
 		}
+		else {game.say(candado, "Ya jugaste este nivel")}
 	}
+	
 	method inicializar() {
+		fondo.sacarCandadosDePantalla()
+		candado.estaCerrado(true)
 		personaje.position(game.origin())
 		fondo.image("sinArboles.jpg")
 		game.say(mundo,"Planata y riega arboles")
 	}
+	
 	//PARA QUE NO SIEMBRE EN CUALQUIER LADO.
 	method sembrarYRegar(personaje) {
 		keyboard.s().onPressDo 	  { 
 			arbolesPlantados.add(new Arbol())
 			self.sembrarArbol(personaje)
-		}	
+		}
+			
 		keyboard.r().onPressDo    { self.regarArbol(personaje)}
 	}
 	
 	//CAMBIO DE IMAGEN
 	method estasSiendoSalvado() {
-		self.sumarVida()
-		if (vida < 3){
+		if (vida >= 3)
 			fuisteSalvado = true
 			fondo.image("bosqueSano.jpg")
 			mundo.irAPantallaInicial() 
-		}
 	}
-	
 	
 	//DIVISION DE ESTAS SIENDO SALVADO.
 	method sumarVida() { vida += 1}
@@ -51,12 +52,15 @@ object bosque {
 	//PARA QUE LOS ARBOLES NO QUEDEN EN OTRA PANTALLA
 	method eliminarArboles() {
 		if (not arbolesPlantados.isEmpty())
-		arbolesPlantados.forEach({arbol => game.removeVisual(arbol)}) 
+			arbolesPlantados.forEach({arbol => game.removeVisual(arbol)}) 
 	}
 	
 	//DIVISION DE SEMBRAR Y REGAR
 	method sembrarArbol(personaje) {arbolesPlantados.last().estasSiendoSembrado(personaje)}
-	method regarArbol(personaje)   {game.colliders(personaje).forEach({arbol => arbol.estasSiendoRegado()})}
+	method regarArbol(personaje)   {
+		game.colliders(personaje).forEach({arbol => arbol.estasSiendoRegado()})
+		self.estasSiendoSalvado()		
+	}
 }
 // PARA EL BOSQUE
 class Arbol {
@@ -69,7 +73,7 @@ class Arbol {
 	// DIVISION DE REGAR DEL PERSONAJE
 	method estasSiendoRegado() { 
 		image = "arbolSanoCHiquito.png"
-		bosque.estasSiendoSalvado()					
+		bosque.sumarVida()			
 	}
 	
 	// CUANDO EL PERSONAJE COLISIONA
@@ -80,14 +84,24 @@ class Arbol {
 object desierto {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(0,3))
+	
+	//POLIMORFISMO 		
 	method jugar() {
-		self.inicializar()
+		if (not fuisteSalvado) {
+			self.inicializar()
+		}
+		
+		else {game.say(candado, "Ya jugaste este nivel")}	
 	}
+	
 	method inicializar() {
+		fondo.sacarCandadosDePantalla()
+		candado.estaCerrado(true)
 		personaje.position(game.origin())
 		fondo.image("")
 		game.say(mundo,"")
 	}
+	
 	method estasSiendoSalvado() {
 		if ("algo" == "algo"){
 			fuisteSalvado = true
@@ -99,57 +113,49 @@ object desierto {
 //ECOSISTEMA AGUA
 object agua {
 	var property position = game.at(0,0)
-	var cantidadDeMugre = 0
 	var mugres = []
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(14,1))
-	const botella = new Botella()
-	const basura = new Basura()
-	const tablaDeComida = new TablaDeComida()
 	
 	//POLIMORFISMO 		
 	method jugar() {
 		if (not fuisteSalvado) {
 			self.inicializar()
 			self.suciedadEnAgua()
-			mundo.sacarCandadosDePantalla()
-			mundo.sacarCandadoDe(self) 	
-		}	 
+		}
+		else {game.say(candado, "Ya jugaste este nivel")}	 
 	}
 	
 	method inicializar() {
+		fondo.sacarCandadosDePantalla()
+		candado.estaCerrado(true)		
 		personaje.position(game.origin())
 		fondo.image("fondoDeAgua.jpg")
 		game.say(mundo,"Recoleta la basura del oceano")
 	}
+	
 	method estasSiendoSalvado() {
-		if (cantidadDeMugre == 0){
+		if (mugres.size() == 0)
 			fuisteSalvado = true
 			mundo.irAPantallaInicial()
-		}
 	}
+	
 	//PARA JUGAR
 	method suciedadEnAgua() {
 		basura.aparecer()
-		self.agregarMugre(basura)
 		botella.aparecer()
-		self.agregarMugre(botella)
 		tablaDeComida.aparecer()
-		self.agregarMugre(tablaDeComida)
 	}
 	
 	//DIVISION DE SUCIEDAD EN AGUA
-	method agregarMugre(_mugre) {mugres.add(_mugre) } 
-	method sacarMugre(_mugre) {mugres.remove(_mugre) } 
-	
-	// DIVISION DE ESTAS SIENDO SALVADO
-	method agregarMugre() {cantidadDeMugre ++}
-	method sacarMugre() {cantidadDeMugre --}
+	method agregarMugre(_mugre) {mugres.add(_mugre)} 
+	method sacarMugre(_mugre) {mugres.remove(_mugre)} 
 	
 	//POR si se vuelve al inicio
-	method sacarTodaLaMugre() {	
-		if(not mugres.isEmpty())
+	method eliminarMugre() {	
+		if(not mugres.isEmpty()) 
 		mugres.forEach{mugre => game.removeVisual(mugre)}
+		mugres = []
 	}
 }
 
@@ -157,19 +163,27 @@ object agua {
 object selva {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
+	
+	//POLIMORFSMO
 	method jugar() {
-		self.inicializar()
+	if (not fuisteSalvado) {
+			self.inicializar()
+		}
+		else {game.say(candado, "Ya jugaste este nivel") candado.estaCerrado(true)}	
 	}
+	
 	method inicializar() {
+		fondo.sacarCandadosDePantalla()
+		candado.estaCerrado(true)
 		personaje.position(game.origin())
 		fondo.image("")
 		game.say(mundo,"")
 	}
-		method estasSiendoSalvado() {
-		if ("algo" == "algo"){
+	
+	method estasSiendoSalvado() {
+		if ("algo" == "algo")
 			mundo.irAPantallaInicial()
 			fuisteSalvado = true
-		}
 	}
 }
 
@@ -177,19 +191,27 @@ object selva {
 object nieve {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(0,3))
+	
+	//POLIMORFSMO
 	method jugar() {
-		self.inicializar()
+		if (not fuisteSalvado) {
+			self.inicializar()
+		}
+		else {game.say(candado, "Ya jugaste este nivel")}	
 	}
+	
 	method inicializar() {
+		fondo.sacarCandadosDePantalla()
+		candado.estaCerrado(true)
 		personaje.position(game.origin())
 		fondo.image("")
 		game.say(mundo,"")
 	}
+	
 	method estasSiendoSalvado() {
-		if ("algo" == "algo"){
+		if ("algo" == "algo")
 			mundo.irAPantallaInicial()
 			fuisteSalvado = true
-		}
 	}
 }
 
@@ -197,18 +219,26 @@ object nieve {
 object ciudad {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(0,3))
+	
+	//POLIMORFSMO
 	method jugar() {
-		self.inicializar()
+		if (not fuisteSalvado) {
+			self.inicializar()
+		}
+		else {game.say(candado, "Ya jugaste este nivel")}	
 	}
+	
 	method inicializar() {
+		fondo.sacarCandadosDePantalla()
+		candado.estaCerrado(true)
 		personaje.position(game.origin())
 		fondo.image("")
 		game.say(mundo,"")
 	}
+	
 	method estasSiendoSalvado() {
-		if ("algo" == "algo"){
+		if ("algo" == "algo")
 			mundo.irAPantallaInicial()
 			fuisteSalvado = true
-		}
 	}
 }
