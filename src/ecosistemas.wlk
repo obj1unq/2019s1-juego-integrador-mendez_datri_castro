@@ -10,11 +10,15 @@ object bosque {
 	var property vida = 0
 	var property fuisteSalvado = false
 	const property arbolesPlantados = []
-	
+	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	//POLIMORFISMO 
 	method jugar() {
-		self.inicializar()
-		self.sembrarYRegar(personaje)
+		if (not fuisteSalvado) {
+			self.inicializar()
+			self.sembrarYRegar(personaje)
+			mundo.sacarCandadosDePantalla()
+			mundo.sacarCandadoDe(self) 	
+		}
 	}
 	method inicializar() {
 		personaje.position(game.origin())
@@ -36,7 +40,7 @@ object bosque {
 		if (vida < 3){
 			fuisteSalvado = true
 			fondo.image("bosqueSano.jpg")
-			mundo.irAPantallaInicial(self) 
+			mundo.irAPantallaInicial() 
 		}
 	}
 	
@@ -46,7 +50,8 @@ object bosque {
 	
 	//PARA QUE LOS ARBOLES NO QUEDEN EN OTRA PANTALLA
 	method eliminarArboles() {
-		arbolesPlantados.forEach({arbol => game.removeVisual(arbol)})
+		if (not arbolesPlantados.isEmpty())
+		arbolesPlantados.forEach({arbol => game.removeVisual(arbol)}) 
 	}
 	
 	//DIVISION DE SEMBRAR Y REGAR
@@ -74,6 +79,7 @@ class Arbol {
 //ECOSISTEMA DESIERTO
 object desierto {
 	var property fuisteSalvado = false
+	const property candado = new Candado(ecosistema = self, position = game.at(0,3))
 	method jugar() {
 		self.inicializar()
 	}
@@ -85,7 +91,7 @@ object desierto {
 	method estasSiendoSalvado() {
 		if ("algo" == "algo"){
 			fuisteSalvado = true
-			mundo.irAPantallaInicial(self)
+			mundo.irAPantallaInicial()
 		}
 	}
 }
@@ -94,13 +100,23 @@ object desierto {
 object agua {
 	var property position = game.at(0,0)
 	var cantidadDeMugre = 0
+	var mugres = []
 	var property fuisteSalvado = false
+	const property candado = new Candado(ecosistema = self, position = game.at(14,1))
+	const botella = new Botella()
+	const basura = new Basura()
+	const tablaDeComida = new TablaDeComida()
 	
 	//POLIMORFISMO 		
 	method jugar() {
-		self.inicializar()
-		self.suciedadEnAgua()
+		if (not fuisteSalvado) {
+			self.inicializar()
+			self.suciedadEnAgua()
+			mundo.sacarCandadosDePantalla()
+			mundo.sacarCandadoDe(self) 	
+		}	 
 	}
+	
 	method inicializar() {
 		personaje.position(game.origin())
 		fondo.image("fondoDeAgua.jpg")
@@ -109,26 +125,38 @@ object agua {
 	method estasSiendoSalvado() {
 		if (cantidadDeMugre == 0){
 			fuisteSalvado = true
-			mundo.irAPantallaInicial(self)
+			mundo.irAPantallaInicial()
 		}
 	}
+	//PARA JUGAR
 	method suciedadEnAgua() {
-		new Basura().aparecer()
-		new Botella().aparecer()
-		new TablaDeComida().aparecer()
+		basura.aparecer()
+		self.agregarMugre(basura)
+		botella.aparecer()
+		self.agregarMugre(botella)
+		tablaDeComida.aparecer()
+		self.agregarMugre(tablaDeComida)
 	}
+	
+	//DIVISION DE SUCIEDAD EN AGUA
+	method agregarMugre(_mugre) {mugres.add(_mugre) } 
+	method sacarMugre(_mugre) {mugres.remove(_mugre) } 
+	
+	// DIVISION DE ESTAS SIENDO SALVADO
 	method agregarMugre() {cantidadDeMugre ++}
 	method sacarMugre() {cantidadDeMugre --}
-//	method sacarTodaLaMugre() {	
-//		new Basura().desaparecer()
-//		new Botella().desaparecer()
-//		new TablaDeComida().desaparecer()
-//	}
+	
+	//POR si se vuelve al inicio
+	method sacarTodaLaMugre() {	
+		if(not mugres.isEmpty())
+		mugres.forEach{mugre => game.removeVisual(mugre)}
+	}
 }
 
 //ECOSISTEMA SELVA
 object selva {
 	var property fuisteSalvado = false
+	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
 	method jugar() {
 		self.inicializar()
 	}
@@ -139,7 +167,7 @@ object selva {
 	}
 		method estasSiendoSalvado() {
 		if ("algo" == "algo"){
-			mundo.irAPantallaInicial(self)
+			mundo.irAPantallaInicial()
 			fuisteSalvado = true
 		}
 	}
@@ -148,6 +176,7 @@ object selva {
 //ECOSISTEMA NIEVE
 object nieve {
 	var property fuisteSalvado = false
+	const property candado = new Candado(ecosistema = self, position = game.at(0,3))
 	method jugar() {
 		self.inicializar()
 	}
@@ -158,7 +187,7 @@ object nieve {
 	}
 	method estasSiendoSalvado() {
 		if ("algo" == "algo"){
-			mundo.irAPantallaInicial(self)
+			mundo.irAPantallaInicial()
 			fuisteSalvado = true
 		}
 	}
@@ -167,6 +196,7 @@ object nieve {
 //ECOSISTEMA CIUDAD
 object ciudad {
 	var property fuisteSalvado = false
+	const property candado = new Candado(ecosistema = self, position = game.at(0,3))
 	method jugar() {
 		self.inicializar()
 	}
@@ -177,7 +207,7 @@ object ciudad {
 	}
 	method estasSiendoSalvado() {
 		if ("algo" == "algo"){
-			mundo.irAPantallaInicial(self)
+			mundo.irAPantallaInicial()
 			fuisteSalvado = true
 		}
 	}

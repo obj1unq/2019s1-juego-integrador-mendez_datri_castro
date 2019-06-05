@@ -4,7 +4,8 @@ class Mugre {
 	var property position
 	var property image
 	// CUANDO EL PERSONAJE COLISIONA
-	method fuisteChocadaPor(personaje) { 
+	method fuisteChocadaPor(personaje) {
+		agua.sacarMugre(self) 
 		game.removeVisual(self)
 		agua.sacarMugre()
 		agua.estasSiendoSalvado()

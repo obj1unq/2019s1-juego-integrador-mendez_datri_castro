@@ -14,9 +14,12 @@ program SaveMe {
 	game.addVisual(fondo)
 	game.addVisual(personaje)
 	game.addVisual(mundo)
-	game.addVisualIn(new Candado(ecosistema = selva), game.at(4,4))
-	game.addVisualIn(new Candado(ecosistema = bosque), game.at(14,9))
-	game.addVisualIn(new Candado(ecosistema = agua), game.at(14,1))
+	game.addVisual(selva.candado())
+	game.addVisual(agua.candado())
+	game.addVisual(bosque.candado())
+	mundo.agregarCandado(selva)
+	mundo.agregarCandado(agua)
+	mundo.agregarCandado(bosque)
 
 //COLISIONES
 	game.whenCollideDo(personaje, {cosa => cosa.fuisteChocadaPor(personaje)})
@@ -27,9 +30,7 @@ program SaveMe {
 	keyboard.left().onPressDo { personaje.move(personaje.position().left(1)) }
 	keyboard.right().onPressDo{ personaje.move(personaje.position().right(1)) }
 	keyboard.space().onPressDo {
-		fondo.image("ecosistemaFondo1.png")
-		bosque.eliminarArboles()
-//		agua.sacarTodaLaMugre()
+		mundo.volverAInicio()
 	}
 	
 // START
