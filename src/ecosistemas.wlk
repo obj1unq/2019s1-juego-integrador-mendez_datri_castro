@@ -163,11 +163,18 @@ object agua {
 object selva {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
-	
+	const property animales = []
+	const property spots = []
+//							new Spot(position = game.at(4, 4)), 
+//							new Spot(position = game.at(8, 2)), 
+//							new Spot(position = game.at(2, 8)), 
+//							new Spot(position = game.at(9, 9))]	
 	//POLIMORFSMO
 	method jugar() {
 	if (not fuisteSalvado) {
 			self.inicializar()
+			self.ponerSpots()
+			self.teclas()
 		}
 		else {game.say(candado, "Ya jugaste este nivel") candado.estaCerrado(true)}	
 	}
@@ -176,15 +183,36 @@ object selva {
 		fondo.sacarCandadosDePantalla()
 		candado.estaCerrado(true)
 		personaje.position(game.origin())
-		fondo.image("")
-		game.say(mundo,"")
+		fondo.image("selva.jpg")
+		game.say(mundo,"Pon los animales en los lugares indicados")
 	}
 	
 	method estasSiendoSalvado() {
-		if ("algo" == "algo")
-			mundo.irAPantallaInicial()
+		if (spots.isEmpty())
 			fuisteSalvado = true
+			self.moverse()
+			mundo.irAPantallaInicial()
+			
 	}
+	method ponerSpots(){
+		spots.forEach({spot => game.addVisual(spot)})
+	}
+	method teclas() {
+		keyboard.d().onPressDo{
+			self.ponerAnimal()
+		}
+	}
+	method ponerAnimal(){
+		if (self.estaSobreUnSpot(personaje)){
+			game.addVisualIn(self.spotBajo(personaje), personaje.position())
+			game.removeVisual(self.spotBajo(personaje))
+			spots.remove(self.spotBajo(personaje))
+		}
+	}
+	method estaSobreUnSpot(personaje) = personaje.colliders().any({collider => spots.contain(collider)})
+	method spotBajo(personaje) = personaje.colliders().filter({collider => spots.contains(collider)}).head()
+	method moverse(){animales.forEach({animal => animal.moverse()})}
+	
 }
 
 //ECOSISTEMA NIEVE
