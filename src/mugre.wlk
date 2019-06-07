@@ -7,22 +7,22 @@ class Mugre {
 	var property position
 	var property image
 	// CUANDO EL PERSONAJE COLISIONA
-	method fuisteChocadaPor(personaje) {
+	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
+	
+	//DIVISION DE LIMPIAR AGUA
+	method estasSiendoLimpiada(){
+		console.println(agua)
 		game.removeVisual(self)
-		agua.sacarMugre(self) 
-		agua.estasSiendoSalvado()
+		agua.sacarMugre(self)
 	}
 	
 	// PARA EL JUGAR DEL ECOSISTEMA
 	method aparecer() {
+		agua.agregarMugre(self)	
 		game.addVisual(self)
 		self.moverse()
-		agua.agregarMugre(self)	
-	}
+	}	
 	
-	method desaparecer() {
-		game.removeVisual(self)
-	}
 	// DIVISION DEL APARECER
 	method moverse() {
 		game.onTick(2000, "mugreMoviendose", {=> self.move(self.position().right(1))})

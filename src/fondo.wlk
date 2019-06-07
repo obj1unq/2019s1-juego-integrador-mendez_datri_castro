@@ -5,6 +5,7 @@ object fondo {
 	var property image = "ecosistemaFondo1.png"
 	var property candados = []
 	
+//Volver a Inicio del Personaje
 	method ponerInicioLimpio() {
 		self.image("ecosistemaFondo1.png")
 		self.agregarCadadosAPanatalla()

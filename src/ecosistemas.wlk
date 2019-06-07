@@ -25,12 +25,12 @@ object bosque {
 		candado.estaCerrado(true)
 		personaje.position(game.origin())
 		fondo.image("sinArboles.jpg")
-		game.say(mundo,"Planata y riega arboles")
+		game.say(mundo,"Planta con la P y riega arboles con la R")
 	}
 	
 	//PARA QUE NO SIEMBRE EN CUALQUIER LADO.
 	method sembrarYRegar(personaje) {
-		keyboard.s().onPressDo 	  { 
+		keyboard.s().onPressDo 	  { //SIGUE SEMBRANDO DESPUES DE TERMINADO EL JUEGO
 			arbolesPlantados.add(new Arbol())
 			self.sembrarArbol(personaje)
 		}
@@ -126,30 +126,38 @@ object agua {
 		else {game.say(candado, "Ya jugaste este nivel")}	 
 	}
 	
+	//DIVISION DE JUGAR (POLIMORFICO)
 	method inicializar() {
 		fondo.sacarCandadosDePantalla()
 		candado.estaCerrado(true)		
 		personaje.position(game.origin())
 		fondo.image("fondoDeAgua.jpg")
-		game.say(mundo,"Recoleta la basura del oceano")
-	}
-	
-	method estasSiendoSalvado() {
-		if (mugres.size() == 0)
-			fuisteSalvado = true
-			mundo.irAPantallaInicial()
+		game.say(mundo,"Limpia la basura del oceano con la L")
 	}
 	
 	//PARA JUGAR
-	method suciedadEnAgua() {
+	method suciedadEnAgua() { //Como hacerlo mejor?
 		basura.aparecer()
 		botella.aparecer()
 		tablaDeComida.aparecer()
+		keyboard.l().onPressDo { self.limpiarAgua(personaje) }
 	}
 	
 	//DIVISION DE SUCIEDAD EN AGUA
-	method agregarMugre(_mugre) {mugres.add(_mugre)} 
-	method sacarMugre(_mugre) {mugres.remove(_mugre)} 
+	method agregarMugre(_mugre) {mugres.add(_mugre) } 
+	method sacarMugre(_mugre) {mugres.remove(_mugre) } 
+	method limpiarAgua(personaje) {
+		game.colliders(personaje).forEach{mugre => mugre.estasSiendoLimpiada()}
+		self.estasSiendoSalvado()
+	}
+	
+	//DIVISION DE LIMPIAR AGUA
+	method estasSiendoSalvado() {
+		if (mugres.size() == 0){
+			fuisteSalvado = true
+			mundo.irAPantallaInicial()
+		}
+	}
 	
 	//POR si se vuelve al inicio
 	method eliminarMugre() {	

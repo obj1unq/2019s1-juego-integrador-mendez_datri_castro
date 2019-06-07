@@ -15,7 +15,7 @@ object mundo {
 	
 	//CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) {
-		game.say(self, "Ayudame a salvar el planeta")
+		game.say(self, "Ayudame a salvar el planeta") //Se tilda y nunca se sale
 	}
 	
 
@@ -25,7 +25,8 @@ object mundo {
 		if (ecosistema.fuisteSalvado()) aniosDeVida ++
 		else aniosDeVida
 	}
-	//FINAL
+	
+	//FINAL???
 	method meSalvaste() {
 		if (aniosDeVida == 15)	{game.say(self, "MUCHAS GRACIAS, me has salvado")}
 		else {}
