@@ -15,5 +15,6 @@ object personaje {
 		self.position(game.origin())
 		mundo.elEcosistemaFueSalvadoSumarVida(agua)
 		mundo.elEcosistemaFueSalvadoSumarVida(bosque)
+		mundo.elEcosistemaFueSalvadoSumarVida(selva)
 	}
 }

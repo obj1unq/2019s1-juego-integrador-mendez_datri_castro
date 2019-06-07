@@ -9,8 +9,9 @@ object fondo {
 	method ponerInicioLimpio() {
 		self.image("ecosistemaFondo1.png")
 		self.agregarCadadosAPanatalla()
-		bosque.eliminarArboles()
+		bosque.eliminarArboles() 
 		agua.eliminarMugre()
+		selva.eliminarAnimales()
 	}
 	
 // SOBRE CANDADOS

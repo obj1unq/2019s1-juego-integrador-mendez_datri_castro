@@ -4,6 +4,8 @@ import mundo.*
 import personaje.*
 import candado.*
 import mugre.*
+import animales.*
+
 //ECOSISTEMA BOSQUE
 object bosque {
 	var property position = game.at(0,0)
@@ -172,11 +174,8 @@ object selva {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
 	const property animales = []
-	const property spots = []
-//							new Spot(position = game.at(4, 4)), 
-//							new Spot(position = game.at(8, 2)), 
-//							new Spot(position = game.at(2, 8)), 
-//							new Spot(position = game.at(9, 9))]	
+	const property spots = [spot1, spot2, spot3, spot4]
+	
 	//POLIMORFSMO
 	method jugar() {
 	if (not fuisteSalvado) {
@@ -192,7 +191,7 @@ object selva {
 		candado.estaCerrado(true)
 		personaje.position(game.origin())
 		fondo.image("selva.jpg")
-		game.say(mundo,"Pon los animales en los lugares indicados")
+		game.say(mundo,"Pon los animales en los lugares indicados con la tecla d")
 	}
 	
 	method estasSiendoSalvado() {
@@ -202,24 +201,25 @@ object selva {
 			mundo.irAPantallaInicial()
 			
 	}
-	method ponerSpots(){
-		spots.forEach({spot => game.addVisual(spot)})
-	}
+//
+
+	method ponerSpots(){ spots.forEach({spot => game.addVisual(spot)})}
 	method teclas() {
-		keyboard.d().onPressDo{
-			self.ponerAnimal()
-		}
+		keyboard.d().onPressDo{ self.ponerAnimal()}
 	}
 	method ponerAnimal(){
-		if (self.estaSobreUnSpot(personaje)){
-			game.addVisualIn(self.spotBajo(personaje), personaje.position())
-			game.removeVisual(self.spotBajo(personaje))
-			spots.remove(self.spotBajo(personaje))
+		if (self.estaSobreUnSpot()){
+			game.addVisual(self.animalCorrespondiente())
+			game.removeVisual(self.spotActual())
+			spots.remove(self.spotActual())
+			self.estasSiendoSalvado()
 		}
 	}
-	method estaSobreUnSpot(personaje) = personaje.colliders().any({collider => spots.contain(collider)})
-	method spotBajo(personaje) = personaje.colliders().filter({collider => spots.contains(collider)}).head()
+	method estaSobreUnSpot() = game.colliders(personaje).any({collider => spots.contain(collider)})
+	method animalCorrespondiente() = self.spotActual().animalCorrespondiente()
+	method spotActual() = game.colliders(personaje).find({collider => spots.contains(collider)})
 	method moverse(){animales.forEach({animal => animal.moverse()})}
+	method eliminarAnimales() {animales.forEach({animal => game.removeVisual(animal)})}
 	
 }
 
