@@ -1,10 +1,11 @@
 import wollok.game.*
 import ecosistemas.*
 
-const leon = new Leon()
-const mono = new Mono()
-const ave = new Ave()
-const elefante = new Elefante()
+
+const leon = new Animal(position = game.at(2,4), image = "leon.png")
+const mono = new Animal(position = game.at(2,8), image = "mono.png")
+const ave = new Animal(position = game.at(9,9), image = "pepita1.png")
+const elefante = new Animal(position = game.at(8,2), image = "elefante.png")
 const spot1 = new LugarParaPonerAnimal(animalCorrespondiente = leon, position = game.at(2,4))
 const spot2 = new LugarParaPonerAnimal(animalCorrespondiente = mono, position = game.at(2,8))
 const spot3 = new LugarParaPonerAnimal(animalCorrespondiente = ave, position = game.at(9,9))
@@ -14,39 +15,23 @@ const spot4 = new LugarParaPonerAnimal(animalCorrespondiente = elefante, positio
 class Animal {
 	var property image
 	var property position
+	var movimientos = 0
 	method fuisteChocadaPor(personaje){}
 	method moverse(){
 		game.onTick(2000, "animal moviendose", {=> self.mover()})
 	}
 	method mover() {
-		var movimientos = 0
-		if (movimientos <= 3){
+		if (movimientos < 3){
 			position = position.left(1)
 			movimientos ++
 		}
-		else if (movimientos > 3 and movimientos <= 6){
+		else if (movimientos >= 3 and movimientos <= 5){
 			position = position.right(1)
 			movimientos ++
 		}
 		else {movimientos = 0}
 	}
 	method estasInteractuandoCon(personaj){}
-}
-class Leon inherits Animal {
-	override method position() = game.at(2,4)
-	override method image() = "leon.png"
-}
-class Mono inherits Animal {
-	override method position() = game.at(2,8)
-	override method image() = "mono.png"
-}
-class Elefante inherits Animal {
-	override method position() = game.at(8,2)
-	override method image() = "elefante.png"
-}
-class Ave inherits Animal {
-	override method position() = game.at(9,9)
-	override method image() = "pepita1.png"
 }
 
 class LugarParaPonerAnimal {
