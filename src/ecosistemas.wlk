@@ -288,6 +288,8 @@ object ciudad {
 			fondo.image("ciudadLimpia.jpg")
 			mundo.irAPantallaInicial() 
 	}	
+	
+	}
 }
 
 
