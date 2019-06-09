@@ -222,7 +222,7 @@ object selva {
 			self.estasSiendoSalvado()
 		}
 	}
-	method estaSobreUnSpot() = game.colliders(personaje).any({collider => spots.contain(collider)})
+	method estaSobreUnSpot() = game.colliders(personaje).any({collider => spots.contains(collider)})
 	method animalCorrespondiente() = self.spotActual().animalCorrespondiente()
 	method spotActual() = game.colliders(personaje).find({collider => spots.contains(collider)})
 	method moverse(){animales.forEach({animal => animal.moverse()})}
