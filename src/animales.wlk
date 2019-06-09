@@ -13,7 +13,7 @@ const spot4 = new LugarParaPonerAnimal(animalCorrespondiente = elefante, positio
 class Animal {
 	var property image
 	var property position
-	method fuisteChodadaPor(personaje) {}
+	method fuisteChocadaPor(personaje){}
 	method moverse(){
 		game.onTick(2000, "animal moviendose", {=> self.mover()})
 	}
@@ -51,5 +51,5 @@ class LugarParaPonerAnimal {
 	var property animalCorrespondiente
 	var property position
 	var property image = "flecha.png"
-	method fuisteChodadaPor(personaje) {}
+	method fuisteChocadaPor(personaje) {}
 }
