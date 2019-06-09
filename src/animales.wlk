@@ -1,13 +1,14 @@
 import wollok.game.*
+
+const leon = new Leon()
+const mono = new Mono()
+const ave = new Ave()
+const elefante = new Elefante()
 const spot1 = new LugarParaPonerAnimal(animalCorrespondiente = leon, position = game.at(4,4))
 const spot2 = new LugarParaPonerAnimal(animalCorrespondiente = mono, position = game.at(2,8))
-const spot3 = new LugarParaPonerAnimal(animalCorrespondiente = pajaro, position = game.at(9,9))
+const spot3 = new LugarParaPonerAnimal(animalCorrespondiente = ave, position = game.at(9,9))
 const spot4 = new LugarParaPonerAnimal(animalCorrespondiente = elefante, position = game.at(8,2))
 
-const leon = new Animal(image = "leon.png", position = spot1.position())
-const mono = new Animal(image = "mono.png", position = spot2.position())
-const pajaro = new Animal(image = "pepita1.png", position = spot3.position())
-const elefante = new Animal(image = "elefante.png", position = spot4.position())
 
 class Animal {
 	var property image
@@ -29,10 +30,26 @@ class Animal {
 		else {movimientos = 0}
 	}
 }
+class Leon inherits Animal {
+	override method position() = game.at(4,4)
+	override method image() = "leon.png"
+}
+class Mono inherits Animal {
+	override method position() = game.at(2,8)
+	override method image() = "mono.png"
+}
+class Elefante inherits Animal {
+	override method position() = game.at(8,2)
+	override method image() = "elefante.png"
+}
+class Ave inherits Animal {
+	override method position() = game.at(9,9)
+	override method image() = "pepita1.png"
+}
 
 class LugarParaPonerAnimal {
 	var property animalCorrespondiente
 	var property position
-	const property image = "flecha.png"
+	var property image = "flecha.png"
 	method fuisteChodadaPor(personaje) {}
 }

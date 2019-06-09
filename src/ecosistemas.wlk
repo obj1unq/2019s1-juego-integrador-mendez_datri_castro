@@ -163,9 +163,10 @@ object agua {
 	
 	//POR si se vuelve al inicio
 	method eliminarMugre() {	
-		if(not mugres.isEmpty()) 
+		if(not mugres.isEmpty()) {
 		mugres.forEach{mugre => game.removeVisual(mugre)}
 		mugres = []
+		}
 	}
 }
 
@@ -174,7 +175,7 @@ object selva {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
 	const property animales = []
-	const property spots = [spot1, spot2, spot3, spot4]
+	const property spots = []
 	
 	//POLIMORFSMO
 	method jugar() {
@@ -195,15 +196,21 @@ object selva {
 	}
 	
 	method estasSiendoSalvado() {
-		if (spots.isEmpty())
+		if (spots.isEmpty()){
 			fuisteSalvado = true
 			self.moverse()
 			mundo.irAPantallaInicial()
-			
+		}
 	}
 //
 
-	method ponerSpots(){ spots.forEach({spot => game.addVisual(spot)})}
+	method ponerSpots(){ 
+		spots.add(spot1)
+		spots.add(spot2)
+		spots.add(spot3)
+		spots.add(spot4)
+		spots.forEach({spot => game.addVisual(spot)})
+	}
 	method teclas() {
 		keyboard.d().onPressDo{ self.ponerAnimal()}
 	}
@@ -219,7 +226,10 @@ object selva {
 	method animalCorrespondiente() = self.spotActual().animalCorrespondiente()
 	method spotActual() = game.colliders(personaje).find({collider => spots.contains(collider)})
 	method moverse(){animales.forEach({animal => animal.moverse()})}
-	method eliminarAnimales() {animales.forEach({animal => game.removeVisual(animal)})}
+	method eliminarAnimales() {
+		animales.forEach({animal => game.removeVisual(animal)})
+	
+	}
 	
 }
 

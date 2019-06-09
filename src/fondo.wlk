@@ -8,7 +8,7 @@ object fondo {
 //Volver a Inicio del Personaje
 	method ponerInicioLimpio() {
 		self.image("ecosistemaFondo1.png")
-		self.agregarCadadosAPanatalla()
+		self.agregarCandadosAPantalla()
 		bosque.eliminarArboles() 
 		agua.eliminarMugre()
 		selva.eliminarAnimales()
@@ -18,7 +18,7 @@ object fondo {
 	method agregarCandado(ecosistema) 	{ candados.add(ecosistema.candado()) }
 	method sacarCandadoDe(ecosistema) 	{	candados.remove(ecosistema.candado())}
 	method sacarCandadosDePantalla() 	{ candados.forEach{candado => game.removeVisual(candado)} }
-	method agregarCadadosAPanatalla() {
+	method agregarCandadosAPantalla() {
 		candados.forEach{candado => candado.fueSalvado()}
 		candados.forEach{candado => game.addVisual(candado)}
 	}
