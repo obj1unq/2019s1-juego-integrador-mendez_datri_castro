@@ -251,8 +251,9 @@ object nieve {
 
 //ECOSISTEMA CIUDAD
 object ciudad {
+	var property nubes = [new Nube(position = game.at(6,7))]
 	var property fuisteSalvado = false
-	const property candado = new Candado(ecosistema = self, position = game.at(0,3))
+	const property candado = new Candado(ecosistema = self, position = game.at(8,7))
 	
 	//POLIMORFSMO
 	method jugar() {
@@ -264,15 +265,29 @@ object ciudad {
 	
 	method inicializar() {
 		fondo.sacarCandadosDePantalla()
+		self.agregarToadasLasNubes()
 		candado.estaCerrado(true)
 		personaje.position(game.origin())
-		fondo.image("")
+		fondo.image("ciudadSucia.png")
 		game.say(mundo,"")
 	}
-	
-	method estasSiendoSalvado() {
-		if ("algo" == "algo")
-			mundo.irAPantallaInicial()
-			fuisteSalvado = true
+	method agregarToadasLasNubes(){
+		nubes.forEach({ nube => game.addVisual(nube) })
 	}
-}
+
+//	method estasSiendoSalvado() {
+//		if ("algo" == "algo")
+//			mundo.irAPantallaInicial()
+//			fuisteSalvado = true
+//	}
+//	
+	
+	//CAMBIO DE IMAGEN
+	method estasSiendoSalvado() {
+		if (nubes == null)
+			fuisteSalvado = true
+			fondo.image("ciudadLimpia.jpg")
+			mundo.irAPantallaInicial() 
+	}
+	
+
