@@ -212,7 +212,7 @@ object selva {
 	}
 
 	method sacarSpot(spot){spots.remove(spot)}
-	
+	method agregarAnimal(animal) {animales.add(animal)}
 	method moverse(){animales.forEach({animal => animal.moverse()})}
 	method eliminarAnimales() {
 		animales.forEach({animal => game.removeVisual(animal)})
