@@ -247,9 +247,8 @@ object nieve {
 			mundo.irAPantallaInicial()
 			fuisteSalvado = true
 	}
-}
-
-//ECOSISTEMA CIUDAD
+	
+	//ECOSISTEMA CIUDAD
 object ciudad {
 	var property nubes = [new Nube(position = game.at(6,7))]
 	var property fuisteSalvado = false
@@ -288,6 +287,8 @@ object ciudad {
 			fuisteSalvado = true
 			fondo.image("ciudadLimpia.jpg")
 			mundo.irAPantallaInicial() 
-	}
-	
+	}	
+}
+
+
 
