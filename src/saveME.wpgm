@@ -30,6 +30,7 @@ program SaveMe {
 	keyboard.left().onPressDo { personaje.move(personaje.position().left(1)) }
 	keyboard.right().onPressDo{ personaje.move(personaje.position().right(1)) }
 	keyboard.space().onPressDo{ personaje.volverAInicio() }
+	keyboard.e().onPessDo {personaje.interactuar()}
 	
 // START
 	game.start()

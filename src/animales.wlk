@@ -1,4 +1,5 @@
 import wollok.game.*
+import ecosistemas.*
 
 const leon = new Leon()
 const mono = new Mono()
@@ -29,6 +30,7 @@ class Animal {
 		}
 		else {movimientos = 0}
 	}
+	method estasInteractuandoCon(personaj){}
 }
 class Leon inherits Animal {
 	override method position() = game.at(4,4)
@@ -52,4 +54,10 @@ class LugarParaPonerAnimal {
 	var property position
 	var property image = "flecha.png"
 	method fuisteChocadaPor(personaje) {}
+	method estasInteractuandoCon(personaje){
+		game.addVisual(animalCorrespondiente)
+		game.removeVisual(self)
+		selva.sacarSpot(self)
+		selva.estasSiendoSalvado()
+	}
 }

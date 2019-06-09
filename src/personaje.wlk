@@ -17,4 +17,11 @@ object personaje {
 		mundo.elEcosistemaFueSalvadoSumarVida(bosque)
 		mundo.elEcosistemaFueSalvadoSumarVida(selva)
 	}
+	method interactuar(){
+		if (self.estaSobreUnObjeto()){
+			self.objetoDebajo().estasInteractuandoCon(self)
+		}
+	}
+	method estaSobreUnObjeto() = not game.colliders(self).isEmpty()
+	method objetoDebajo() = game.colliders(self).head()
 }

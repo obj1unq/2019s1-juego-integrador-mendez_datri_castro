@@ -182,7 +182,6 @@ object selva {
 	if (not fuisteSalvado) {
 			self.inicializar()
 			self.ponerSpots()
-			self.teclas()
 		}
 		else {game.say(candado, "Ya jugaste este nivel") candado.estaCerrado(true)}	
 	}
@@ -211,20 +210,9 @@ object selva {
 		spots.add(spot4)
 		spots.forEach({spot => game.addVisual(spot)})
 	}
-	method teclas() {
-		keyboard.d().onPressDo{ self.ponerAnimal()}
-	}
-	method ponerAnimal(){
-		if (self.estaSobreUnSpot()){
-			game.addVisual(self.animalCorrespondiente())
-			game.removeVisual(self.spotActual())
-			spots.remove(self.spotActual())
-			self.estasSiendoSalvado()
-		}
-	}
-	method estaSobreUnSpot() = game.colliders(personaje).any({collider => spots.contains(collider)})
-	method animalCorrespondiente() = self.spotActual().animalCorrespondiente()
-	method spotActual() = game.colliders(personaje).find({collider => spots.contains(collider)})
+
+	method sacarSpot(spot){spots.remove(spot)}
+	
 	method moverse(){animales.forEach({animal => animal.moverse()})}
 	method eliminarAnimales() {
 		animales.forEach({animal => game.removeVisual(animal)})
