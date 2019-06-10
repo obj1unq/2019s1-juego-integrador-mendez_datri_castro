@@ -1,9 +1,9 @@
 import wollok.game.*
-import ecosistemas.*
+import ciudad.*
 class Nube {
 	var property image = "nubeNegra.png"
 	var property position
-	var property estaActivada = true
+	var property estaActivada = false
 	
 	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
 	method estasSiendoProcesada(){

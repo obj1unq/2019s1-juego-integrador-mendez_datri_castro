@@ -1,7 +1,4 @@
-import fondo.*
-import ecosistemas.*
 import wollok.game.*
-import mundo.*
 class Candado {
 	var ecosistema
 	var property estaCerrado = true

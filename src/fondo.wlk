@@ -1,5 +1,8 @@
 import wollok.game.*
-import	ecosistemas.*
+import	ciudad.*
+import	agua.*
+import	bosque.*
+import	selva.*
 object fondo {
 	var property position = game.at(0,0)
 	var property image = "ecosistemaFondo1.png"
@@ -25,7 +28,12 @@ object fondo {
 		candados.forEach{candado => game.addVisual(candado)}
 	}
 	
-	
+	method agregarCandados() {
+		self.agregarCandado(ciudad)
+		self.agregarCandado(selva)
+		self.agregarCandado(agua)
+		self.agregarCandado(bosque)
+	}
 // CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) { /* No hace nada */}
 }

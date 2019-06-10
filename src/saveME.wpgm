@@ -1,9 +1,12 @@
 import wollok.game.*
 import personaje.*
 import mundo.*
-import ecosistemas.*
 import fondo.*
 import candado.*
+import bosque.*
+import agua.*
+import selva.*
+import ciudad.*
 program SaveMe {
 // CONFIG 
 	game.title("Save Me")
@@ -18,10 +21,7 @@ program SaveMe {
 	game.addVisual(agua.candado())
 	game.addVisual(bosque.candado())
 	game.addVisual(ciudad.candado())
-	fondo.agregarCandado(ciudad)
-	fondo.agregarCandado(selva)
-	fondo.agregarCandado(agua)
-	fondo.agregarCandado(bosque)
+	fondo.agregarCandados()
 
 //COLISIONES
 	game.whenCollideDo(personaje, {cosa => cosa.fuisteChocadaPor(personaje)})

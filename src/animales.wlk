@@ -1,6 +1,5 @@
 import wollok.game.*
-import ecosistemas.*
-
+import selva.*
 
 const leon = new Animal(position = game.at(2,4), image = "leon.png")
 const mono = new Animal(position = game.at(2,8), image = "mono.png")
@@ -10,7 +9,6 @@ const spot1 = new LugarParaPonerAnimal(animalCorrespondiente = leon, position = 
 const spot2 = new LugarParaPonerAnimal(animalCorrespondiente = mono, position = game.at(2,8))
 const spot3 = new LugarParaPonerAnimal(animalCorrespondiente = ave, position = game.at(9,9))
 const spot4 = new LugarParaPonerAnimal(animalCorrespondiente = elefante, position = game.at(8,2))
-
 
 class Animal {
 	var property image

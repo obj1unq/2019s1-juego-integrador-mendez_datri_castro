@@ -1,7 +1,4 @@
 import wollok.game.*
-import mundo.*
-import candado.*
-import ecosistemas.*
 import fondo.*
 object personaje {
 	var property position = game.at(0,0)
@@ -13,15 +10,14 @@ object personaje {
 	method volverAInicio() {
 		fondo.ponerInicioLimpio()
 		self.position(game.origin())
-		mundo.elEcosistemaFueSalvadoSumarVida(agua)
-		mundo.elEcosistemaFueSalvadoSumarVida(bosque)
-		mundo.elEcosistemaFueSalvadoSumarVida(selva)
 	}
+	
 	method interactuar(){
 		if (self.estaSobreUnObjeto()){
 			self.objetoDebajo().estasInteractuandoCon(self)
 		}
 	}
+	
 	method estaSobreUnObjeto() = not game.colliders(self).isEmpty()
-	method objetoDebajo() = game.colliders(self).head()
+	method objetoDebajo() = game.colliders(self).head() //TIENE QUE TOCAR A TODOS
 }
