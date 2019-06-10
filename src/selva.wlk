@@ -52,9 +52,11 @@ object selva {
 	method moverse(){animales.forEach({animal => animal.moverse()})}
 	method eliminarAnimales() {
 		animales.forEach({animal => game.removeVisual(animal)})
+		animales.clear()
 	}
 	method eliminarFlechas(){
 		spots.forEach({spot => game.removeVisual(spot)})
+		spots.clear()
 	}
 	
 }
