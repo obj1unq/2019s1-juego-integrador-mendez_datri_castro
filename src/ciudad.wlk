@@ -14,6 +14,7 @@ object ciudad {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(8,7))
 	
+	
 	//POLIMORFSMO
 	method jugar() {
 		if (not fuisteSalvado) {

@@ -9,6 +9,7 @@ class Candado {
 	method fuisteChocadaPor(personaje) {
 		estaCerrado = false
 		ecosistema.jugar()
+		personaje.ecosistemaActual(ecosistema)
 	}
 	
 //PARA QUE EL CADADO QUEDE ABIERTO. SE INICIALIZA EN LOS ECOSISTEMAS

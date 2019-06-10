@@ -19,6 +19,7 @@ object fondo {
 		agua.eliminarMugre()
 		selva.eliminarAnimales()
 		selva.eliminarFlechas()
+
 	}
 
 // SOBRE CANDADOS
