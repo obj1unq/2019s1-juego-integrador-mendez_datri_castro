@@ -27,4 +27,5 @@ class Candado {
 		}
 		else {game.say(self, "Ya jugaste este nivel")}	
 	}
+	
 }

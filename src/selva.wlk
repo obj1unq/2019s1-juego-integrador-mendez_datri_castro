@@ -47,6 +47,8 @@ object selva {
 			mundo.elEcosistemaFueSalvadoSumarVida(self)
 		}
 	}
+	
+
 //
 
 method listaSpot() {

@@ -19,7 +19,6 @@ program SaveMe {
 	game.addVisual(mundo)
 	fondo.agregarCandados()
 	
-
 //COLISIONES
 	game.whenCollideDo(personaje, {cosa => cosa.fuisteChocadaPor(personaje)})
 

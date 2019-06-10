@@ -14,6 +14,7 @@ object mundo {
 //		game.say(self, "Ayudame a salvar el planeta") //Se tilda y nunca se sale
 	}
 	
+	
 	//Para que los arboles no sumen vida
 	method elEcosistemaFueSalvadoSumarVida(ecosistema) {
 		if (ecosistema.fuisteSalvado()) aniosDeVida ++

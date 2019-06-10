@@ -38,6 +38,7 @@ object fondo {
 		ecosistema.elementos().clear()
 		}
 	}
+	
 
 // SOBRE CANDADOS
 	method agregarCandado(ecosistema) 	{ candados.add(ecosistema.candado()) }
