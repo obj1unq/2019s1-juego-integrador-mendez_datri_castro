@@ -9,8 +9,8 @@ import candado.*
 object selva {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
-	const property animales = []
-	const property spots = []
+	var property animales = []
+	var property spots = []
 	
 	//POLIMORFSMO
 	method jugar() {
@@ -52,10 +52,11 @@ object selva {
 	method moverse(){animales.forEach({animal => animal.moverse()})}
 	method eliminarAnimales() {
 		animales.forEach({animal => game.removeVisual(animal)})
-
+		animales = []
 	}
 	method eliminarFlechas(){
 		spots.forEach({spot => game.removeVisual(spot)})
+		spots = []
 	}
 	
 }
