@@ -18,6 +18,7 @@ object fondo {
 		bosque.eliminarArboles() 
 		agua.eliminarMugre()
 		selva.eliminarAnimales()
+
 	}
 	
 // SOBRE CANDADOS

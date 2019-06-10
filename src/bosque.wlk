@@ -8,13 +8,13 @@ object bosque {
 	var property position = game.at(0,0)
 	var property vida = 0
 	var property fuisteSalvado = false
-	const property arbolesPlantados = []
+	var property arbolesPlantados = []
 	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	
 	//POLIMORFISMO 
 	method jugar() {
 		if (not fuisteSalvado) {
-			personaje.ecosistemaActual(self)
+			
 			self.inicializar()
 			self.sembrar(personaje)
 		}
@@ -51,8 +51,10 @@ object bosque {
 	
 	//PARA QUE LOS ARBOLES NO QUEDEN EN OTRA PANTALLA
 	method eliminarArboles() {
-		if (not arbolesPlantados.isEmpty())
-			arbolesPlantados.forEach({arbol => game.removeVisual(arbol)}) 
+		if (not arbolesPlantados.isEmpty()){
+			arbolesPlantados.forEach({arbol => game.removeVisual(arbol)})
+			arbolesPlantados = []
+		}
 	}
 	
 	//DIVISION DE SEMBRAR
