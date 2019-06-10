@@ -14,6 +14,7 @@ object bosque {
 	//POLIMORFISMO 
 	method jugar() {
 		if (not fuisteSalvado) {
+			personaje.ecosistemaActual(self)
 			self.inicializar()
 			self.sembrar(personaje)
 		}
@@ -56,7 +57,7 @@ object bosque {
 	
 	//DIVISION DE SEMBRAR
 	method sembrarArbol(personaje) {
-		if (game.colliders(personaje).isEmpty()) {
+		if (game.colliders(personaje).isEmpty() and personaje.ecosistemaActual() == self) {
 			arbolesPlantados.add(new Arbol())
 			arbolesPlantados.last().estasSiendoSembrado(personaje)
 		}

@@ -34,6 +34,7 @@ object selva {
 			fuisteSalvado = true
 			self.moverse()
 			mundo.irAPantallaInicial()
+			mundo.elEcosistemaFueSalvadoSumarVida(self)
 		}
 	}
 //

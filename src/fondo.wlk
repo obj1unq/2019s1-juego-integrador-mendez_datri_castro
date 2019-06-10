@@ -3,6 +3,7 @@ import	ciudad.*
 import	agua.*
 import	bosque.*
 import	selva.*
+import personaje.*
 object fondo {
 	var property position = game.at(0,0)
 	var property image = "ecosistemaFondo1.png"
@@ -12,12 +13,11 @@ object fondo {
 	method ponerInicioLimpio() {
 		self.image("ecosistemaFondo1.png")
 		self.agregarCandadosAPantalla()
+		personaje.ecosistemaActual(null)
 		ciudad.eliminarNubes()
 		bosque.eliminarArboles() 
 		agua.eliminarMugre()
 		selva.eliminarAnimales()
-		selva.eliminarFlechas()
-		
 	}
 
 // SOBRE CANDADOS
