@@ -7,7 +7,7 @@ class Nube {
 	
 	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
 	method estasSiendoProcesada(){
-		self.desactivar()
+		ciudad.quitar(self)
 		game.removeVisual(self)
 	//	ciudad.quitarNube(self)
 		

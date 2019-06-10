@@ -7,7 +7,7 @@ import mugre.*
 //ECOSISTEMA AGUA
 object agua {
 	var property position = game.at(0,0)
-	var property mugres = []
+	var property elementos = []
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(14,1))
 	
@@ -40,8 +40,8 @@ object agua {
 		self.limpiarAgua(personaje)
 	}
 	//DIVISION DE SUCIEDAD EN AGUA
-	method agregarMugre(_mugre) {mugres.add(_mugre) } 
-	method sacarMugre(_mugre) {mugres.remove(_mugre) } 
+	method agregarMugre(_mugre) {elementos.add(_mugre) } 
+	method sacarMugre(_mugre) {elementos.remove(_mugre) } 
 	method limpiarAgua(personaje) {
 		game.colliders(personaje).forEach{mugre => mugre.estasSiendoLimpiada()}
 
@@ -49,7 +49,7 @@ object agua {
 	
 	//DIVISION DE LIMPIAR AGUA
 	method estasSiendoSalvado() {
-		if (mugres.size() == 0){
+		if (elementos.size() == 0){
 			fuisteSalvado = true
 			mundo.irAPantallaInicial()
 			mundo.elEcosistemaFueSalvadoSumarVida(self)
@@ -58,9 +58,9 @@ object agua {
 	
 	//POR si se vuelve al inicio
 	method eliminarMugre() {	
-		if(not mugres.isEmpty()) {
-		mugres.forEach{mugre => game.removeVisual(mugre)}
-		mugres = []
+		if(not elementos.isEmpty()) {
+		elementos.forEach{mugre => game.removeVisual(mugre)}
+		elementos = []
 		}
 	}
 }

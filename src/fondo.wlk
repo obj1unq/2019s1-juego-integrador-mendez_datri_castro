@@ -3,23 +3,37 @@ import	ciudad.*
 import	agua.*
 import	bosque.*
 import	selva.*
+import mundo.*
 import personaje.*
 object fondo {
 	var property position = game.at(0,0)
 	var property image = "ecosistemaFondo1.png"
 	var property candados = []
+	var property ecosistemas = [agua, bosque, ciudad, selva]
 	
 //Volver a Inicio del Personaje
 	method ponerInicioLimpio() {
 		self.image("ecosistemaFondo1.png")
 		self.agregarCandadosAPantalla()
 		personaje.ecosistemaActual(null)
-		ciudad.eliminarNubes()
-		bosque.eliminarArboles() 
-		agua.eliminarMugre()
-		selva.eliminarAnimales()
-		selva.eliminarFlechas()
+		self.eliminarTodo()
+		mundo.meSalvaste()
+//		ciudad.eliminarNubes()
+//		bosque.eliminarArboles() 
+//		agua.eliminarMugre()
+//		selva.eliminarAnimales()
+//		selva.eliminarFlechas()
 
+	}
+	method eliminarTodo(){
+		ecosistemas.forEach({ ecosistema => self.eliminarElementos(ecosistema) })
+	}
+	
+	method eliminarElementos(ecosistema){
+		if(not ecosistema.elementos().isEmpty()) {
+		ecosistema.elementos().forEach{elemento => game.removeVisual(elemento)}
+		ecosistema.elementos().clear()
+		}
 	}
 
 // SOBRE CANDADOS

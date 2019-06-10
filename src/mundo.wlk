@@ -2,7 +2,7 @@ import wollok.game.*
 object mundo {
 	var property aniosDeVida = 12
 	var property position = game.at(1,0)
-	method image() = if (aniosDeVida <= 14) {"mundoInicial.png"} else "mundoSegundo.png"
+	method image() = if (aniosDeVida < 16) {"mundoInicial.png"} else "mundoSegundo.png"
 	
 	//VOLVER A PANTALLA INICIAL al finalizar el juego.
 	method irAPantallaInicial() {
@@ -22,7 +22,7 @@ object mundo {
 	
 	//FINAL???
 	method meSalvaste() {
-		if (aniosDeVida == 15)	{game.say(self, "MUCHAS GRACIAS, me has salvado")}
+		if (aniosDeVida == 16)	{game.say(self, "MUCHAS GRACIAS, me has salvado")}
 		else {}
 	}
 }

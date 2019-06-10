@@ -9,8 +9,8 @@ import candado.*
 object selva {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
-	var property animales = []
-	var property spots = []
+	var property elementos = []
+	//var property spots = []
 	
 	//POLIMORFSMO
 	method jugar() {
@@ -20,7 +20,6 @@ object selva {
 		}
 		else {game.say(candado, "Ya jugaste este nivel") candado.estaCerrado(true)}	
 	}
-	
 	method inicializar() {
 		fondo.sacarCandadosDePantalla()
 		candado.estaCerrado(true)
@@ -30,7 +29,7 @@ object selva {
 	}
 	
 	method estasSiendoSalvado() {
-		if (spots.isEmpty()){
+		if (self.listaSpot().isEmpty()) {
 			fuisteSalvado = true
 			self.moverse()
 			mundo.irAPantallaInicial()
@@ -39,24 +38,28 @@ object selva {
 	}
 //
 
+method listaSpot() {
+	return elementos.filter{elemento => elemento.image() == "flecha.png"}
+}
+
 	method ponerSpots(){ 
-		spots.add(spot1)
-		spots.add(spot2)
-		spots.add(spot3)
-		spots.add(spot4)
-		spots.forEach({spot => game.addVisual(spot)})
+		elementos.add(spot1)
+		elementos.add(spot2)
+		elementos.add(spot3)
+		elementos.add(spot4)
+		elementos.forEach({spot => game.addVisual(spot)})
 	}
 
-	method sacarSpot(spot){spots.remove(spot)}
-	method agregarAnimal(animal) {animales.add(animal)}
-	method moverse(){animales.forEach({animal => animal.moverse()})}
+	method sacarSpot(spot){elementos.remove(spot)}
+	method agregarAnimal(animal) {elementos.add(animal)}
+	method moverse(){elementos.forEach({animal => animal.moverse()})}
 	method eliminarAnimales() {
-		animales.forEach({animal => game.removeVisual(animal)})
-		animales = []
+		elementos.forEach({animal => game.removeVisual(animal)})
+		elementos = []
 	}
 	method eliminarFlechas(){
-		spots.forEach({spot => game.removeVisual(spot)})
-		spots = []
+		elementos.forEach({spot => game.removeVisual(spot)})
+		elementos = []
 	}
 	
 }
