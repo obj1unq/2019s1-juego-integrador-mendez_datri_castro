@@ -18,9 +18,10 @@ object fondo {
 		bosque.eliminarArboles() 
 		agua.eliminarMugre()
 		selva.eliminarAnimales()
+		selva.eliminarFlechas()
 
 	}
-	
+
 // SOBRE CANDADOS
 	method agregarCandado(ecosistema) 	{ candados.add(ecosistema.candado()) }
 	method sacarCandadoDe(ecosistema) 	{	candados.remove(ecosistema.candado())}
