@@ -30,7 +30,7 @@ object bosque {
 	
 	//PARA QUE NO SIEMBRE EN CUALQUIER LADO.
 	method sembrar(personaje) {				
-		keyboard.e().onPressDo 	  { //SIGUE SEMBRANDO DESPUES DE TERMINADO EL JUEGO
+		keyboard.s().onPressDo 	  { //SIGUE SEMBRANDO DESPUES DE TERMINADO EL JUEGO
 			self.sembrarArbol(personaje)
 		}	
 	}

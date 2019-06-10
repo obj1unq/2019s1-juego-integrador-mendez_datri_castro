@@ -50,8 +50,8 @@ class Botella inherits Mugre {
 	override method image() = "basura3.png"
 	
 override	method moverse() {
-		game.onTick(2000, "botellaMoviendose", {=> self.move(self.position().right(1))})
-		game.onTick(1500, "botellaMoviendose", {=> self.move(self.position().left(1))})
+		game.onTick(2000, "botellaMoviendose", {=> self.move(self.position().left(1))})
+		game.onTick(1500, "botellaMoviendose", {=> self.move(self.position().right(1))})
 	}
 
 }

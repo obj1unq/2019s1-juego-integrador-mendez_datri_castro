@@ -11,7 +11,7 @@ object mundo {
 	
 	//CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) {
-		game.say(self, "Ayudame a salvar el planeta") //Se tilda y nunca se sale
+//		game.say(self, "Ayudame a salvar el planeta") //Se tilda y nunca se sale
 	}
 	
 	//Para que los arboles no sumen vida
