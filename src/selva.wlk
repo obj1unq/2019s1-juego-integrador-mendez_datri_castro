@@ -18,7 +18,7 @@ object selva {
 			self.inicializar()
 			self.ponerSpots()
 		}
-		else {game.say(candado, "Ya jugaste este nivel") candado.estaCerrado(true)}	
+		else {game.say(candado, "Ya jugaste este nivel")}	
 	}
 	
 	method inicializar() {
