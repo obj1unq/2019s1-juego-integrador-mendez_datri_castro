@@ -17,6 +17,8 @@ program SaveMe {
 	game.addVisual(selva.candado())
 	game.addVisual(agua.candado())
 	game.addVisual(bosque.candado())
+	game.addVisual(ciudad.candado())
+	fondo.agregarCandado(ciudad)
 	fondo.agregarCandado(selva)
 	fondo.agregarCandado(agua)
 	fondo.agregarCandado(bosque)
@@ -30,7 +32,7 @@ program SaveMe {
 	keyboard.left().onPressDo { personaje.move(personaje.position().left(1)) }
 	keyboard.right().onPressDo{ personaje.move(personaje.position().right(1)) }
 	keyboard.space().onPressDo{ personaje.volverAInicio() }
-	keyboard.e().onPessDo {personaje.interactuar()}
+	keyboard.e().onPressDo {personaje.interactuar()}
 	
 // START
 	game.start()

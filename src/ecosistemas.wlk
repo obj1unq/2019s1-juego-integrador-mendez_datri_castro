@@ -4,6 +4,7 @@ import mundo.*
 import personaje.*
 import candado.*
 import mugre.*
+import nube.*
 import animales.*
 
 //ECOSISTEMA BOSQUE
@@ -247,10 +248,14 @@ object nieve {
 			mundo.irAPantallaInicial()
 			fuisteSalvado = true
 	}
+}
 	
 	//ECOSISTEMA CIUDAD
 object ciudad {
-	var property nubes = [new Nube(position = game.at(6,7))]
+	var property nubes = [ 	new Nube(position = game.at(4,2)), new Nube(position = game.at(15,9)),
+							new Nube(position = game.at(6,10)), new Nube(position = game.at(2,8)),
+							new Nube(position = game.at(9,6)), new Nube(position = game.at(14,2))
+	]
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(8,7))
 	
@@ -264,30 +269,39 @@ object ciudad {
 	
 	method inicializar() {
 		fondo.sacarCandadosDePantalla()
-		self.agregarToadasLasNubes()
 		candado.estaCerrado(true)
 		personaje.position(game.origin())
 		fondo.image("ciudadSucia.png")
-		game.say(mundo,"")
+		self.agregarTodasLasNubes()
+		game.say(mundo,"quita todas las nubes malas con la E")
 	}
-	method agregarToadasLasNubes(){
+	method agregarTodasLasNubes(){
+		self.activarNubes()
 		nubes.forEach({ nube => game.addVisual(nube) })
 	}
+	method activarNubes(){
+		nubes.forEach({ nube => nube.activar() })
+	}
 
-//	method estasSiendoSalvado() {
-//		if ("algo" == "algo")
-//			mundo.irAPantallaInicial()
-//			fuisteSalvado = true
-//	}
-//	
-	
 	//CAMBIO DE IMAGEN
 	method estasSiendoSalvado() {
-		if (nubes == null)
+		if (self.nubesEstanDesactivadas()){
 			fuisteSalvado = true
 			fondo.image("ciudadLimpia.jpg")
-			mundo.irAPantallaInicial() 
+			mundo.irAPantallaInicial()}
+			 
 	}	
+	method nubesEstanDesactivadas(){
+		return nubes.all({ nube => not nube.estaActivada()})
+	}
+	
+	//POR SI VUELVE A INICIO Y NO TERMINO EL MINIJUEGO
+	method eliminarNubes() {
+		self.nubesEnPantalla().forEach{nube => game.removeVisual(nube)}
+	}
+	method nubesEnPantalla(){
+		return nubes.filter({ nube => nube.estaActivada() })
+	}
 }
 
 
