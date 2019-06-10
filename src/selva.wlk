@@ -26,7 +26,7 @@ object selva {
 		candado.estaCerrado(true)
 		personaje.position(game.origin())
 		fondo.image("selva.jpg")
-		game.say(mundo,"Pon los animales en los lugares indicados con la tecla d")
+		game.say(mundo,"Pon los animales en los lugares indicados")
 	}
 	
 	method estasSiendoSalvado() {
