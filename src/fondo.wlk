@@ -49,10 +49,8 @@ object fondo {
 	}
 	
 	method agregarCandados() {
-		self.agregarCandado(ciudad)
-		self.agregarCandado(selva)
-		self.agregarCandado(agua)
-		self.agregarCandado(bosque)
+		ecosistemas.forEach({ ecosistema => self.agregarCandado(ecosistema) })
+		self.agregarCandadosAPantalla()
 	}
 // CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) { /* No hace nada */}

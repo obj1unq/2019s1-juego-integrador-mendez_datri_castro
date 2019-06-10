@@ -17,11 +17,8 @@ program SaveMe {
 	game.addVisual(fondo)
 	game.addVisual(personaje)
 	game.addVisual(mundo)
-	game.addVisual(selva.candado())
-	game.addVisual(agua.candado())
-	game.addVisual(bosque.candado())
-	game.addVisual(ciudad.candado())
 	fondo.agregarCandados()
+	
 
 //COLISIONES
 	game.whenCollideDo(personaje, {cosa => cosa.fuisteChocadaPor(personaje)})
