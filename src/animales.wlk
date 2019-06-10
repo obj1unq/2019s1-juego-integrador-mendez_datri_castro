@@ -1,14 +1,14 @@
 import wollok.game.*
 import selva.*
 
-const leon = new Animal(position = game.at(3,2), image = "leon.png")
+const leon = new Animal(position = game.at(6,2), image = "leon.png")
 const mono = new Animal(position = game.at(3,8), image = "mono.png")
-const ave = new Animal(position = game.at(9,9), image = "pepita1.png")
-const elefante = new Animal(position = game.at(8,2), image = "elefante.png")
-const spot1 = new LugarParaPonerAnimal(animalCorrespondiente = leon, position = game.at(3,2))
+const ave = new Animal(position = game.at(14,8), image = "pepita1.png")
+const elefante = new Animal(position = game.at(14,2), image = "elefante.png")
+const spot1 = new LugarParaPonerAnimal(animalCorrespondiente = leon, position = game.at(6,2))
 const spot2 = new LugarParaPonerAnimal(animalCorrespondiente = mono, position = game.at(3,8))
-const spot3 = new LugarParaPonerAnimal(animalCorrespondiente = ave, position = game.at(9,9))
-const spot4 = new LugarParaPonerAnimal(animalCorrespondiente = elefante, position = game.at(8,2))
+const spot3 = new LugarParaPonerAnimal(animalCorrespondiente = ave, position = game.at(14,8))
+const spot4 = new LugarParaPonerAnimal(animalCorrespondiente = elefante, position = game.at(14,2))
 
 class Animal {
 	var property image
@@ -16,7 +16,7 @@ class Animal {
 	var movimientos = 0
 	method fuisteChocadaPor(personaje){}
 	method moverse(){
-		game.onTick(2000, "animal moviendose", {=> self.mover()})
+		game.onTick(1500, "animal moviendose", {=> self.mover()})
 	}
 	method mover() {
 		if (movimientos < 3){
