@@ -1,12 +1,12 @@
 import wollok.game.*
 import selva.*
 
-const leon = new Animal(position = game.at(2,4), image = "leon.png")
-const mono = new Animal(position = game.at(2,8), image = "mono.png")
+const leon = new Animal(position = game.at(3,2), image = "leon.png")
+const mono = new Animal(position = game.at(3,8), image = "mono.png")
 const ave = new Animal(position = game.at(9,9), image = "pepita1.png")
 const elefante = new Animal(position = game.at(8,2), image = "elefante.png")
-const spot1 = new LugarParaPonerAnimal(animalCorrespondiente = leon, position = game.at(2,4))
-const spot2 = new LugarParaPonerAnimal(animalCorrespondiente = mono, position = game.at(2,8))
+const spot1 = new LugarParaPonerAnimal(animalCorrespondiente = leon, position = game.at(3,2))
+const spot2 = new LugarParaPonerAnimal(animalCorrespondiente = mono, position = game.at(3,8))
 const spot3 = new LugarParaPonerAnimal(animalCorrespondiente = ave, position = game.at(9,9))
 const spot4 = new LugarParaPonerAnimal(animalCorrespondiente = elefante, position = game.at(8,2))
 
