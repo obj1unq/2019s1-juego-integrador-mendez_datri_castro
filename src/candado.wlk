@@ -1,4 +1,5 @@
 import wollok.game.*
+import fondo.*
 class Candado {
 	var ecosistema
 	var property estaCerrado = true
@@ -8,7 +9,7 @@ class Candado {
 //CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) {
 		estaCerrado = false
-		ecosistema.jugar()
+		self.inicializar()
 		personaje.ecosistemaActual(ecosistema)
 	}
 	
@@ -17,5 +18,13 @@ class Candado {
 		if ( ecosistema.fuisteSalvado()) {
 			estaCerrado = false
 		}
+	}
+	
+	method inicializar() {
+	if (not ecosistema.fuisteSalvado()) {
+			fondo.inicializar(ecosistema)
+			ecosistema.jugar()
+		}
+		else {game.say(self, "Ya jugaste este nivel")}	
 	}
 }

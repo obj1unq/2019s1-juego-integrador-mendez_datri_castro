@@ -10,22 +10,33 @@ object selva {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
 	var property elementos = []
+	
 	//var property spots = []
 	
 	//POLIMORFSMO
-	method jugar() {
-	if (not fuisteSalvado) {
-			self.inicializar()
-			self.ponerSpots()
-		}
-		else {game.say(candado, "Ya jugaste este nivel")}	
+	method image(){
+		return "selva.jpg"
 	}
-	method inicializar() {
-		fondo.sacarCandadosDePantalla()
-		candado.estaCerrado(true)
-		personaje.position(game.origin())
-		fondo.image("selva.jpg")
-		game.say(mundo,"Pon los animales en los lugares indicados")
+	
+	
+	
+//	method jugar() 
+//	
+//	if (not fuisteSalvado) {
+//			fondo.inicializar(self)
+//			self.ponerSpots()
+//		}
+//		else {game.say(candado, "Ya jugaste este nivel")}	
+//	}
+//	method inicializar() {
+//		fondo.sacarCandadosDePantalla()
+//		candado.estaCerrado(true)
+//		personaje.position(game.origin())
+//		fondo.image("selva.jpg")
+//		game.say(mundo, self.mensaje())
+//	}
+	method mensaje(){
+		return "Pon los animales en los lugares indicados con la E"
 	}
 	
 	method estasSiendoSalvado() {
@@ -42,7 +53,7 @@ method listaSpot() {
 	return elementos.filter{elemento => elemento.image() == "flecha.png"}
 }
 
-	method ponerSpots(){ 
+	method jugar(){ 
 		elementos.add(spot1)
 		elementos.add(spot2)
 		elementos.add(spot3)

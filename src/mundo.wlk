@@ -25,6 +25,8 @@ object mundo {
 		if (aniosDeVida == 16)	{game.say(self, "MUCHAS GRACIAS, me has salvado")}
 		else {}
 	}
+	
+	
 }
 
 

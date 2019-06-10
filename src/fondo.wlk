@@ -18,13 +18,16 @@ object fondo {
 		personaje.ecosistemaActual(null)
 		self.eliminarTodo()
 		mundo.meSalvaste()
-//		ciudad.eliminarNubes()
-//		bosque.eliminarArboles() 
-//		agua.eliminarMugre()
-//		selva.eliminarAnimales()
-//		selva.eliminarFlechas()
-
 	}
+	
+	method inicializar(ecosistema) {
+		self.sacarCandadosDePantalla()
+		ecosistema.candado().estaCerrado(true)
+		personaje.position(game.origin())
+		self.image(ecosistema.image())
+		game.say(mundo, ecosistema.mensaje())
+	}
+	
 	method eliminarTodo(){
 		ecosistemas.forEach({ ecosistema => self.eliminarElementos(ecosistema) })
 	}
