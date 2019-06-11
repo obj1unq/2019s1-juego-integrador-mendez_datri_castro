@@ -14,7 +14,7 @@ object bosque {
 	
 	//POLIMORFISMO
 	method image() = "sinArboles.jpg"
-	method mensaje() = "Planta y riega arboles con la E"
+	method mensaje() = "Planta con S y riega arboles con la E"
 	method jugar() {self.sembrar(personaje)}
 	
 	//DIVISION DE JUGAR

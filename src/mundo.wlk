@@ -1,4 +1,5 @@
 import wollok.game.*
+import fondo.*
 object mundo {
 	var property aniosDeVida = 12
 	var property position = game.at(1,0)
@@ -17,7 +18,12 @@ object mundo {
 	}
 	
 	//FINAL
-	method meSalvaste() { if (aniosDeVida == 16)	{game.say(self, "MUCHAS GRACIAS, me has salvado")} }
+	method meSalvaste() { 
+		if (aniosDeVida == 16)	{
+			game.say(self, "MUCHAS GRACIAS, me has salvado")
+			fondo.sacarCandadosDePantalla()
+		} 
+	}
 	
 	
 }
