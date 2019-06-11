@@ -11,56 +11,25 @@ object agua {
 	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(14,1))
 	
-	//POLIMORFISMO 		
+	//POLIMORFISMO 
+	method image() = "fondoDeAgua.jpg"		
+	method mensaje() = "Limpia la basura del oceano con la E"
 	method jugar() {
-		if (not fuisteSalvado) {
-			self.inicializar()
-			self.suciedadEnAgua()
-		}
-		else {game.say(candado, "Ya jugaste este nivel")}	 
-	}
-	
-	//DIVISION DE JUGAR (POLIMORFICO)
-	method inicializar() {
-		fondo.sacarCandadosDePantalla()
-		candado.estaCerrado(true)		
-		personaje.position(game.origin())
-		fondo.image("fondoDeAgua.jpg")
-		game.say(mundo,"Limpia la basura del oceano con la E")
-	}
-	
-	//PARA JUGAR
-	method suciedadEnAgua() { //Como hacerlo mejor?
 		basura.aparecer()
 		botella.aparecer()
 		tablaDeComida.aparecer()
 	}
 	
-	method estasInteractuandoCon(personaje) {
-		self.limpiarAgua(personaje)
-	}
 	//DIVISION DE SUCIEDAD EN AGUA
 	method agregarMugre(_mugre) {elementos.add(_mugre) } 
 	method sacarMugre(_mugre) {elementos.remove(_mugre) } 
-	method limpiarAgua(personaje) {
-		game.colliders(personaje).forEach{mugre => mugre.estasSiendoLimpiada()}
-
-	}
 	
-	//DIVISION DE LIMPIAR AGUA
+	//DIVISION DE ESTAS INTERACTUANDO CON
 	method estasSiendoSalvado() {
 		if (elementos.size() == 0){
 			fuisteSalvado = true
 			mundo.irAPantallaInicial()
 			mundo.elEcosistemaFueSalvadoSumarVida(self)
-		}
-	}
-	
-	//POR si se vuelve al inicio
-	method eliminarMugre() {	
-		if(not elementos.isEmpty()) {
-		elementos.forEach{mugre => game.removeVisual(mugre)}
-		elementos = []
 		}
 	}
 }

@@ -14,10 +14,16 @@ class Animal {
 	var property image
 	var property position
 	var movimientos = 0
-	method fuisteChocadaPor(personaje){}
+	
+	//POR SI CHOCA CON EL PERSONAJE
+	method fuisteChocadaPor(personaje){/* NO HACE NADA */}
+	
+	//DIVISION DEL MOVERSE de SELVA
 	method moverse(){
 		game.onTick(1500, "animal moviendose", {=> self.mover()})
 	}
+	
+	//DIVISION DE MOVERSE
 	method mover() {
 		if (movimientos < 3){
 			position = position.left(1)
@@ -29,14 +35,18 @@ class Animal {
 		}
 		else {movimientos = 0}
 	}
-	method estasInteractuandoCon(personaj){}
+	method estasInteractuandoCon(personaje){/* NO HACE NADA */}
 }
 
 class LugarParaPonerAnimal {
 	var property animalCorrespondiente
 	var property position
 	var property image = "flecha.png"
-	method fuisteChocadaPor(personaje) {}
+	
+	//POR SI CHOCA CON EL PERSONAJE
+	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
+	
+	//POLIMORFiSMO CON LA E
 	method estasInteractuandoCon(personaje){
 		game.addVisual(animalCorrespondiente)
 		selva.agregarAnimal(animalCorrespondiente)

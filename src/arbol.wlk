@@ -19,7 +19,8 @@ class Arbol {
 	
 	//POLIMORFISMO CON LA E
 	method estasInteractuandoCon(personaje)  {
-		bosque.regarArbol(personaje)
+		game.colliders(personaje).forEach({arbol => arbol.estasSiendoRegado()})
+		bosque.estasSiendoSalvado()	
 	}
 	
 	// CUANDO EL PERSONAJE COLISIONA

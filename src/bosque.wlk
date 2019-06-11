@@ -12,7 +12,23 @@ object bosque {
 	var property elementos = []
 	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	
+	//POLIMORFISMO
+	method image() = "sinArboles.jpg"
+	method mensaje() = "Planta y riega arboles con la E"
 	method jugar() {self.sembrar(personaje)}
+	
+	//DIVISION DE JUGAR
+	method sembrar(personaje) {keyboard.s().onPressDo{self.sembrarArbol(personaje)}}
+	
+	//DIVISION DE SEMBRAR
+	method sembrarArbol(personaje) {
+		if (game.colliders(personaje).isEmpty() and personaje.ecosistemaActual() == self) {
+			elementos.add(new Arbol())
+			elementos.last().estasSiendoSembrado(personaje)
+		}
+	}
+	
+	//DIVISION DEL ESTAS INTERACTUANDO CON de ARBOL
 	method estasSiendoSalvado() {
 		if (vida == 3){
 			fuisteSalvado = true
@@ -21,20 +37,9 @@ object bosque {
 			mundo.irAPantallaInicial() 
 		}
 	}
-	method image() = "sinArboles.jpg"
-	method mensaje() = "Planta y riega arboles con la E"
-	method sembrar(personaje) {keyboard.s().onPressDo{self.sembrarArbol(personaje)}}
+	
+	//DIVISION DE ESTAS SIENDO REGADA de ARBOL
 	method sumarVida() { vida += 1}
-	method sembrarArbol(personaje) {
-		if (game.colliders(personaje).isEmpty() and personaje.ecosistemaActual() == self) {
-			elementos.add(new Arbol())
-			elementos.last().estasSiendoSembrado(personaje)
-		}
-	}
-	method regarArbol(personaje)   {
-		game.colliders(personaje).forEach({arbol => arbol.estasSiendoRegado()})
-		self.estasSiendoSalvado()		
-	}
 	
 }
 

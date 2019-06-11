@@ -11,15 +11,16 @@ object fondo {
 	var property candados = []
 	var property ecosistemas = [agua, bosque, ciudad, selva]
 	
-//Volver a Inicio del Personaje
+//VOLVER AL INICIO DEL PERSONAJE
 	method ponerInicioLimpio() {
 		self.image("ecosistemaFondo1.png")
 		self.agregarCandadosAPantalla()
-		personaje.ecosistemaActual(null)
 		self.eliminarTodo()
+		personaje.ecosistemaActual(null)
 		mundo.meSalvaste()
 	}
 	
+	//INICIALIZA LOS ECOSISTEMAS
 	method inicializar(ecosistema) {
 		self.sacarCandadosDePantalla()
 		ecosistema.candado().estaCerrado(true)
@@ -28,10 +29,10 @@ object fondo {
 		game.say(mundo, ecosistema.mensaje())
 	}
 	
-	method eliminarTodo(){
-		ecosistemas.forEach({ ecosistema => self.eliminarElementos(ecosistema) })
-	}
+	//SACA TODO PARA VOLVER A LA PNATALLA INICIAL
+	method eliminarTodo(){ ecosistemas.forEach({ ecosistema => self.eliminarElementos(ecosistema) }) }
 	
+	//DIVISION DE ELIMINAR TODOS
 	method eliminarElementos(ecosistema){
 		if(not ecosistema.elementos().isEmpty()) {
 		ecosistema.elementos().forEach{elemento => game.removeVisual(elemento)}
@@ -40,7 +41,7 @@ object fondo {
 	}
 	
 
-// SOBRE CANDADOS
+	// SOBRE CANDADOS
 	method agregarCandado(ecosistema) 	{ candados.add(ecosistema.candado()) }
 	method sacarCandadoDe(ecosistema) 	{	candados.remove(ecosistema.candado())}
 	method sacarCandadosDePantalla() 	{ candados.forEach{candado => game.removeVisual(candado)} }
@@ -48,11 +49,11 @@ object fondo {
 		candados.forEach{candado => candado.fueSalvado()}
 		candados.forEach{candado => game.addVisual(candado)}
 	}
-	
 	method agregarCandados() {
 		ecosistemas.forEach({ ecosistema => self.agregarCandado(ecosistema) })
 		self.agregarCandadosAPantalla()
 	}
-// CUANDO COLISIONA CON EL PERSONAJE
+	
+	// CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) { /* No hace nada */}
 }

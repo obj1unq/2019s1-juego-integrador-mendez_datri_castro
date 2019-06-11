@@ -7,12 +7,12 @@ const tablaDeComida = new TablaDeComida()
 class Mugre {
 	var property position
 	var property image
+	
 	// CUANDO EL PERSONAJE COLISIONA
 	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
 	
-	//DIVISION DE LIMPIAR AGUA
+	//POLIMORFISMO CON LA E
 	method estasInteractuandoCon(personaje){
-		console.println(agua)
 		game.removeVisual(self)
 		agua.sacarMugre(self)
 		agua.estasSiendoSalvado()
