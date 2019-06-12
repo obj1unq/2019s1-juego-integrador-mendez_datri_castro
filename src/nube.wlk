@@ -1,5 +1,7 @@
 import wollok.game.*
 import ciudad.*
+import mundo.*
+
 class Nube {
 	var property image = "nubeNegra.png"
 	var property position
@@ -10,7 +12,7 @@ class Nube {
 	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje){
 		self.estasSiendoProcesada()
-		ciudad.estasSiendoSalvado()
+		mundo.estaSiendoSalvado(ciudad)
 	}
 	
 	// DIVISION DE ESTAS INTERACTUANDO CON 

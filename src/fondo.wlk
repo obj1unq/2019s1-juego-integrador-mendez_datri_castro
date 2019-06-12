@@ -56,16 +56,4 @@ object fondo {
 		ecosistemas.forEach({ ecosistema => self.agregarCandado(ecosistema) })
 		self.agregarCandadosAPantalla()
 	}
-/*	method elNivelTermino() {
-		if (elementos.size() == 0){
-			fuisteSalvado = true    		
-			mundo.irAPantallaInicial()
-			mundo.elEcosistemaFueSalvadoSumarVida(self)
-		}
-	} 
-	* SALVA TIENE EL SELF.MOVERSE...
-	*  AGUA y CIUDAD COMPARAN LA MISMA LISTA, SALVA COMPARA OTRA y BOSQUE COMPARA SU VIDA
-	* CIUDAD y BOSQUE TIENEN EL CAMBIO DE IMAGEN 
-	* 
-*/
 }

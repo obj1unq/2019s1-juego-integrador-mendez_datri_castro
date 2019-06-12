@@ -16,7 +16,7 @@ object mundo {
 		if (ecosistema.fuisteSalvado()) {aniosDeVida ++}
 		else aniosDeVida
 	}
-	
+
 	//FINAL
 	method meSalvaste() { 
 		if (aniosDeVida == 16)	{

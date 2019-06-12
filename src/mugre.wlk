@@ -1,5 +1,6 @@
 import wollok.game.*
 import agua.*
+import mundo.*
 
 const botella = new Botella()
 const basura = new Basura()
@@ -15,7 +16,7 @@ class Mugre {
 	method estasInteractuandoCon(personaje){
 		game.removeVisual(self)
 		agua.sacarMugre(self)
-		agua.estasSiendoSalvado()
+		mundo.estaSiendoSalvado(agua)
 	}
 	
 	//PARA EL JUGAR DEL ECOSISTEMA
