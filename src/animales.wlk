@@ -18,6 +18,9 @@ class Animal {
 	//POR SI CHOCA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje){/* NO HACE NADA */}
 	
+	//DIVISION DE INTERACTUAR de PERSONAJE
+	method estasInteractuandoCon(personaje){/* NO HACE NADA */}
+	
 	//DIVISION DEL MOVERSE de SELVA
 	method moverse(){
 		game.onTick(1500, "animal moviendose", {=> self.mover()})
@@ -35,7 +38,7 @@ class Animal {
 		}
 		else {movimientos = 0}
 	}
-	method estasInteractuandoCon(personaje){/* NO HACE NADA */}
+
 }
 
 class LugarParaPonerAnimal {
@@ -46,7 +49,7 @@ class LugarParaPonerAnimal {
 	//POR SI CHOCA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
 	
-	//POLIMORFiSMO CON LA E
+	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje){
 		game.addVisual(animalCorrespondiente)
 		selva.agregarAnimal(animalCorrespondiente)

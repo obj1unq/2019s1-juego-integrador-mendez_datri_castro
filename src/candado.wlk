@@ -6,20 +6,21 @@ class Candado {
 	var property position 
 	method image() = if(not estaCerrado){"candadoAbierto.png"} else {"candadoCerrado.png"}
 	
-//CUANDO COLISIONA CON EL PERSONAJE
+	//CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) {
 		estaCerrado = false
 		self.inicializar()
 		personaje.ecosistemaActual(ecosistema)
 	}
 	
-//PARA QUE EL CADADO QUEDE ABIERTO. SE INICIALIZA EN LOS ECOSISTEMAS
+	//PARA QUE EL CADADO QUEDE ABIERTO. SE INICIALIZA EN LOS ECOSISTEMAS
 	method fueSalvado() {
 		if ( ecosistema.fuisteSalvado()) {
 			estaCerrado = false
 		}
 	}
 	
+	//DIVISION DE INICIALIZAR de FONDO
 	method inicializar() {
 	if (not ecosistema.fuisteSalvado()) {
 			fondo.inicializar(ecosistema)

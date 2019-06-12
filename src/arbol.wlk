@@ -6,10 +6,16 @@ class Arbol {
 	var property image = "corn_baby.png"
 	var property esAdulto = false
 	
-	// DIVISION DE SEMBRAR DEL PERSONAJE
-	method estasSiendoSembrado(personaje) { game.addVisualIn(self, personaje.position()) }
+	// CUANDO EL PERSONAJE COLISIONA
+	method fuisteChocadaPor(personaje) { /* No hace nada */}
 	
-	// DIVISION DE REGAR DEL PERSONAJE
+	//DIVISION DE INTERACTUAR de PERSONAJE
+	method estasInteractuandoCon(personaje)  {
+		game.colliders(personaje).forEach({arbol => arbol.estasSiendoRegado()})
+		bosque.estasSiendoSalvado()	
+	}
+	
+	// DIVISION DE ESTAS INTERACTUANDO CON 
 	method estasSiendoRegado() { 
 		if (not esAdulto){
 			image = "arbolSanoCHiquito.png"	
@@ -17,12 +23,8 @@ class Arbol {
 			bosque.sumarVida()}		
 	}
 	
-	//POLIMORFISMO CON LA E
-	method estasInteractuandoCon(personaje)  {
-		game.colliders(personaje).forEach({arbol => arbol.estasSiendoRegado()})
-		bosque.estasSiendoSalvado()	
-	}
+	// DIVISION DE SEMBRAR DEL PERSONAJE
+	method estasSiendoSembrado(personaje) { game.addVisualIn(self, personaje.position()) }
 	
-	// CUANDO EL PERSONAJE COLISIONA
-	method fuisteChocadaPor(personaje) { /* No hace nada */}
+
 }

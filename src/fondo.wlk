@@ -11,7 +11,10 @@ object fondo {
 	var property candados = []
 	var property ecosistemas = [agua, bosque, ciudad, selva]
 	
-//VOLVER AL INICIO DEL PERSONAJE
+	// CUANDO COLISIONA CON EL PERSONAJE
+	method fuisteChocadaPor(personaje) { /* No hace nada */}
+	
+	//VOLVER AL INICIO DEL PERSONAJE
 	method ponerInicioLimpio() {
 		self.image("ecosistemaFondo1.png")
 		self.agregarCandadosAPantalla()
@@ -29,7 +32,7 @@ object fondo {
 		game.say(mundo, ecosistema.mensaje())
 	}
 	
-	//SACA TODO PARA VOLVER A LA PNATALLA INICIAL
+	//SACA TODO PARA VOLVER A LA PANTALLA INICIAL
 	method eliminarTodo(){ ecosistemas.forEach({ ecosistema => self.eliminarElementos(ecosistema) }) }
 	
 	//DIVISION DE ELIMINAR TODOS
@@ -41,7 +44,7 @@ object fondo {
 	}
 	
 
-	// SOBRE CANDADOS
+	//SOBRE CANDADOS
 	method agregarCandado(ecosistema) 	{ candados.add(ecosistema.candado()) }
 	method sacarCandadoDe(ecosistema) 	{	candados.remove(ecosistema.candado())}
 	method sacarCandadosDePantalla() 	{ candados.forEach{candado => game.removeVisual(candado)} }
@@ -53,7 +56,16 @@ object fondo {
 		ecosistemas.forEach({ ecosistema => self.agregarCandado(ecosistema) })
 		self.agregarCandadosAPantalla()
 	}
-	
-	// CUANDO COLISIONA CON EL PERSONAJE
-	method fuisteChocadaPor(personaje) { /* No hace nada */}
+/*	method elNivelTermino() {
+		if (elementos.size() == 0){
+			fuisteSalvado = true    		
+			mundo.irAPantallaInicial()
+			mundo.elEcosistemaFueSalvadoSumarVida(self)
+		}
+	} 
+	* SALVA TIENE EL SELF.MOVERSE...
+	*  AGUA y CIUDAD COMPARAN LA MISMA LISTA, SALVA COMPARA OTRA y BOSQUE COMPARA SU VIDA
+	* CIUDAD y BOSQUE TIENEN EL CAMBIO DE IMAGEN 
+	* 
+*/
 }

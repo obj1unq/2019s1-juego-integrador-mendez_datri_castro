@@ -5,6 +5,7 @@ import personaje.*
 import candado.*
 import arbol.*
 
+//ECOSISTEMA BOSQUE
 object bosque {
 	var property position = game.at(0,0)
 	var property vida = 0
@@ -12,8 +13,8 @@ object bosque {
 	var property elementos = []
 	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	
-	//POLIMORFISMO
-	method image() = "sinArboles.jpg"
+	//POLIMORFICO CON FONDO
+	method image() 	 = "sinArboles.jpg"
 	method mensaje() = "Planta con S y riega arboles con la E"
 	method jugar() {self.sembrar(personaje)}
 	
@@ -28,6 +29,9 @@ object bosque {
 		}
 	}
 	
+	//DIVISION DE ESTAS SIENDO REGADA de ARBOL
+	method sumarVida() { vida += 1}
+	
 	//DIVISION DEL ESTAS INTERACTUANDO CON de ARBOL
 	method estasSiendoSalvado() {
 		if (vida == 3){
@@ -38,8 +42,7 @@ object bosque {
 		}
 	}
 	
-	//DIVISION DE ESTAS SIENDO REGADA de ARBOL
-	method sumarVida() { vida += 1}
+	
 	
 }
 

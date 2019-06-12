@@ -11,14 +11,14 @@ class Mugre {
 	// CUANDO EL PERSONAJE COLISIONA
 	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
 	
-	//POLIMORFISMO CON LA E
+	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje){
 		game.removeVisual(self)
 		agua.sacarMugre(self)
 		agua.estasSiendoSalvado()
 	}
 	
-	// PARA EL JUGAR DEL ECOSISTEMA
+	//PARA EL JUGAR DEL ECOSISTEMA
 	method aparecer() {
 		agua.agregarMugre(self)	
 		game.addVisual(self)

@@ -7,18 +7,20 @@ object personaje {
 	
 	method move(nuevaPosicion)	{ position = nuevaPosicion }
 
-//REGRESAR A INICIO
+	//REGRESAR A INICIO
 	method volverAInicio() {
 		fondo.ponerInicioLimpio()
 		self.position(game.origin())
 	}
 	
+	//PAR USAR LA E
 	method interactuar(){
 		if (self.estaSobreUnObjeto()){
 			self.objetoDebajo().estasInteractuandoCon(self)
 		}
 	}
 	
+	//DIVISION DE INTERACTUAR
 	method estaSobreUnObjeto() = not game.colliders(self).isEmpty()
 	method objetoDebajo() = game.colliders(self).head() //TIENE QUE TOCAR A TODOS
 }
