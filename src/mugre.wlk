@@ -16,7 +16,7 @@ class Mugre {
 	method estasInteractuandoCon(personaje){
 		game.removeVisual(self)
 		agua.sacarMugre(self)
-		mundo.estasSiendoSalvado(agua)
+		mundo.estaSiendoSalvado(agua)
 	}
 	
 	//PARA EL JUGAR DEL ECOSISTEMA

@@ -8,7 +8,7 @@ import candado.*
 //ECOSISTEMA CIUDAD
 object ciudad {
 	var property elementos = []
-	var property fuisteSalvado = false
+	var property seSalvo = false
 	const property candado = new Candado(ecosistema = self, position = game.at(8,7))
 	
 	//POLIMORFICO CON FONDO
@@ -31,5 +31,5 @@ object ciudad {
 	
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
 	method fuisteSalvado() = elementos.isEmpty()
-	method terminaste() = 	fondo.image("ciudadLimpia.jpg")
+	method termino() = 	fondo.image("ciudadLimpia.jpg")
 }

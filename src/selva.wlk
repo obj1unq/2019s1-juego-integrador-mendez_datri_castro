@@ -7,7 +7,7 @@ import candado.*
 
 //ECOSISTEMA SELVA
 object selva {
-	var fuisteSalvado = false
+	var property seSalvo = false
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
 	var property elementos = []
 	

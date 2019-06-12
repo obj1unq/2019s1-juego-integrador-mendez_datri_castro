@@ -15,7 +15,7 @@ class Candado {
 	
 	//PARA QUE EL CADADO QUEDE ABIERTO. SE INICIALIZA EN LOS ECOSISTEMAS
 	method fueSalvado() {
-		if ( ecosistema.fuisteSalvado()) {
+		if ( ecosistema.seSalvo()) {
 			estaCerrado = false
 		}
 	}

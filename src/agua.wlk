@@ -9,7 +9,7 @@ import mugre.*
 object agua {
 	var property position = game.at(0,0)
 	var property elementos = []
-	var fuisteSalvado = false
+	var property seSalvo = false
 	const property candado = new Candado(ecosistema = self, position = game.at(14,1))
 	
 	//POLIMORFICO CON FONDO
@@ -26,6 +26,6 @@ object agua {
 	
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
 	method fuisteSalvado()  = elementos.isEmpty()
-	method terminaste() 	= fondo.image("aguaSalvada.jpg")
+	method termino() 	= fondo.image("aguaSalvada.jpg")
 	method sacarMugre(_mugre) {elementos.remove(_mugre) }
 }
