@@ -7,7 +7,10 @@ import candado.*
 
 //ECOSISTEMA SELVA
 object selva {
+<<<<<<< HEAD
 	var property fuisteSalvado = false
+=======
+>>>>>>> branch 'master' of https://github.com/obj1unq/2019s1-juego-integrador-mendez_datri_castro.git
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
 	var property elementos = []
 	
