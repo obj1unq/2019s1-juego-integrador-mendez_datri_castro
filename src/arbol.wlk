@@ -1,5 +1,6 @@
 import wollok.game.*
 import bosque.*
+import mundo.*
 // PARA EL BOSQUE
 class Arbol {
 	var property position
@@ -12,7 +13,7 @@ class Arbol {
 	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje)  {
 		game.colliders(personaje).forEach({arbol => arbol.estasSiendoRegado()})
-		bosque.estasSiendoSalvado()	
+		mundo.estaSiendoSalvado(bosque)
 	}
 	
 	// DIVISION DE ESTAS INTERACTUANDO CON 

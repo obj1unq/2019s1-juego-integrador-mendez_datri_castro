@@ -1,5 +1,6 @@
 import wollok.game.*
 import selva.*
+import mundo.*
 
 const leon = new Animal(position = game.at(6,2), image = "leon.png")
 const mono = new Animal(position = game.at(3,8), image = "mono.png")
@@ -55,6 +56,6 @@ class LugarParaPonerAnimal {
 		selva.agregarAnimal(animalCorrespondiente)
 		game.removeVisual(self)
 		selva.sacarSpot(self)
-		selva.estasSiendoSalvado()
+		mundo.estaSiendoSalvado(selva)
 	}
 }
