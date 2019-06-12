@@ -9,10 +9,7 @@ import arbol.*
 object bosque {
 	var property position = game.at(0,0)
 	var property vida = 0
-<<<<<<< HEAD
 	var property fuisteSalvado = false
-=======
->>>>>>> branch 'master' of https://github.com/obj1unq/2019s1-juego-integrador-mendez_datri_castro.git
 	var property elementos = []
 	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	
