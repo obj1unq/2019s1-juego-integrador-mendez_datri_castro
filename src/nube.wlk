@@ -10,7 +10,7 @@ class Nube {
 	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje){
 		self.estasSiendoProcesada()
-		ciudad.estasSiendoSalvado()
+		mundo.estasSiendoSalvado(ciudad)
 	}
 	
 	// DIVISION DE ESTAS INTERACTUANDO CON 

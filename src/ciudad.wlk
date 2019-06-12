@@ -29,15 +29,7 @@ object ciudad {
 	//DIVISION DE ESTAS SIENDO PROCESADA de NUBE
 	method quitar(nube){ elementos.remove(nube) }
 	
-	//DIVISION DE ESTAS INTERACTUANDO CON de Nube
-	method estasSiendoSalvado() {
-		if (elementos.isEmpty()){
-			fuisteSalvado = true
-			fondo.image("ciudadLimpia.jpg")
-			mundo.irAPantallaInicial()
-			mundo.elEcosistemaFueSalvadoSumarVida(self)
-		}
-	}	
-
-	
+	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
+	method fuisteSalvado() = elementos.isEmpty()
+	method terminaste() = 	fondo.image("ciudadLimpia.jpg")
 }
