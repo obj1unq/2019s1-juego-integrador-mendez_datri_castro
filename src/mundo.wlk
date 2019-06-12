@@ -24,6 +24,13 @@ object mundo {
 			fondo.sacarCandadosDePantalla()
 		} 
 	}
+	method estaSiendoSalvado(ecosistema) {
+		if (ecosistema.fuisteSalvado()){
+			self.irAPantallaInicial()
+			self.elEcosistemaFueSalvadoSumarVida(self)
+			ecosistema.termino()
+		}
+	} 
 }
 
 
