@@ -33,16 +33,8 @@ object bosque {
 	method sumarVida() { vida += 1}
 	
 	//DIVISION DEL ESTAS INTERACTUANDO CON de ARBOL
-	method estasSiendoSalvado() {
-		if (vida == 3){
-			fuisteSalvado = true
-			fondo.image("bosqueSano.jpg")
-			mundo.elEcosistemaFueSalvadoSumarVida(self)
-			mundo.irAPantallaInicial() 
-		}
-	}
-	
-	
+	method fuisteSalvado() = vida == 3
+	method termino(){fondo.image("bosqueSano.jpg")}
 	
 }
 
