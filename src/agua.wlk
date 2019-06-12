@@ -9,7 +9,7 @@ import mugre.*
 object agua {
 	var property position = game.at(0,0)
 	var property elementos = []
-	var property fuisteSalvado = false
+//	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(14,1))
 	
 	//POLIMORFICO CON FONDO

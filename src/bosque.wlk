@@ -9,7 +9,7 @@ import arbol.*
 object bosque {
 	var property position = game.at(0,0)
 	var property vida = 0
-	var property fuisteSalvado = false
+	//var property fuisteSalvado = false
 	var property elementos = []
 	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	

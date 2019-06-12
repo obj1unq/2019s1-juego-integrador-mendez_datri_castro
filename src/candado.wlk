@@ -8,21 +8,19 @@ class Candado {
 	
 	//CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) {
-		estaCerrado = false
+//		estaCerrado = false
 		self.inicializar()
 		personaje.ecosistemaActual(ecosistema)
 	}
 	
-	//PARA QUE EL CADADO QUEDE ABIERTO. SE INICIALIZA EN LOS ECOSISTEMAS
-	method fueSalvado() {
-		if ( ecosistema.fuisteSalvado()) {
-			estaCerrado = false
-		}
+	//ABRIR EL CANDADO 
+	method abrir(){
+		estaCerrado = false
 	}
 	
 	//DIVISION DE INICIALIZAR de FONDO
 	method inicializar() {
-	if (not ecosistema.fuisteSalvado()) {
+	if (estaCerrado) {
 			fondo.inicializar(ecosistema)
 			ecosistema.jugar()
 		}

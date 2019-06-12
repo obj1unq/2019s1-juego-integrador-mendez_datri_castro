@@ -8,7 +8,7 @@ import candado.*
 //ECOSISTEMA CIUDAD
 object ciudad {
 	var property elementos = []
-	var property fuisteSalvado = false
+//	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(8,7))
 	
 	//POLIMORFICO CON FONDO

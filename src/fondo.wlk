@@ -11,6 +11,10 @@ object fondo {
 	var property candados = []
 	var property ecosistemas = [agua, bosque, ciudad, selva]
 	
+	
+	//POLIMORFISMO CON LOS ELEMENTOD DE CADA JUEGO 
+	method estasInteractuandoCon(personaje){/* No hace nada */}
+	
 	// CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) { /* No hace nada */}
 	
@@ -26,7 +30,7 @@ object fondo {
 	//INICIALIZA LOS ECOSISTEMAS
 	method inicializar(ecosistema) {
 		self.sacarCandadosDePantalla()
-		ecosistema.candado().estaCerrado(true)
+	//	ecosistema.candado().estaCerrado(true)
 		personaje.position(game.origin())
 		self.image(ecosistema.image())
 		game.say(mundo, ecosistema.mensaje())
@@ -49,7 +53,6 @@ object fondo {
 	method sacarCandadoDe(ecosistema) 	{	candados.remove(ecosistema.candado())}
 	method sacarCandadosDePantalla() 	{ candados.forEach{candado => game.removeVisual(candado)} }
 	method agregarCandadosAPantalla() {
-		candados.forEach{candado => candado.fueSalvado()}
 		candados.forEach{candado => game.addVisual(candado)}
 	}
 	method agregarCandados() {

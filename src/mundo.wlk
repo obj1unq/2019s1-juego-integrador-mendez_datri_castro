@@ -27,8 +27,9 @@ object mundo {
 	method estaSiendoSalvado(ecosistema) {
 		if (ecosistema.fuisteSalvado()){
 			self.irAPantallaInicial()
-			self.elEcosistemaFueSalvadoSumarVida(self)
+			self.elEcosistemaFueSalvadoSumarVida(ecosistema)
 			ecosistema.termino()
+			ecosistema.candado().abrir()
 		}
 	} 
 }
