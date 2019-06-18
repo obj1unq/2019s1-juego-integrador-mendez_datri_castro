@@ -32,6 +32,8 @@ object mundo {
 			ecosistema.candado().abrir()
 		}
 	} 
+	//DIVISION DE INTERACTUAR de PERSONAJE
+	method estasInteractuandoCon(personaje){/* No hace nada */}
 }
 
 
