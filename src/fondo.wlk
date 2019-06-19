@@ -10,7 +10,7 @@ object fondo {
 	var property image = "ecosistemaFondo1.png"
 	var property candados = []
 	var property ecosistemas = [agua, bosque, ciudad, selva]
-	
+	var property ecosistemaActual = null
 	
 	//POLIMORFISMO CON LOS ELEMENTOD DE CADA JUEGO 
 	method estasInteractuandoCon(personaje){/* No hace nada */}
@@ -23,14 +23,13 @@ object fondo {
 		self.image("ecosistemaFondo1.png")
 		self.agregarCandadosAPantalla()
 		self.eliminarTodo()
-		personaje.ecosistemaActual(null)
+		self.ecosistemaActual(null)
 		mundo.meSalvaste()
 	}
 	
 	//INICIALIZA LOS ECOSISTEMAS
 	method inicializar(ecosistema) {
 		self.sacarCandadosDePantalla()
-	//	ecosistema.candado().estaCerrado(true)
 		personaje.position(game.origin())
 		self.image(ecosistema.image())
 		game.say(mundo, ecosistema.mensaje())

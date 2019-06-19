@@ -8,9 +8,8 @@ class Candado {
 	
 	//CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) {
-//		estaCerrado = false
 		self.inicializar()
-		personaje.ecosistemaActual(ecosistema)
+		fondo.ecosistemaActual(ecosistema)
 	}
 	
 	//ABRIR EL CANDADO 
