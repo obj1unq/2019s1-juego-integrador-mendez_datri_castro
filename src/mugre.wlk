@@ -3,7 +3,7 @@ import agua.*
 import mundo.*
 
 const botella = new Mugre(position= game.at(13,3), image = "basura3.png")
-const botellaArena = new Mugre(position= game.at(8, 1), image = "basura3.png")
+//const botellaArena = new Mugre(position= game.at(8, 1), image = "basura3.png")
 const basura = new Mugre(position = game.at(10,4), image = "basura1.png")
 const tablaDeComida = new Mugre(position= game.at(15,4), image = "basura2.png")
 class Mugre {
@@ -28,8 +28,8 @@ class Mugre {
 	
 	// DIVISION DEL APARECER
 	method moverse() {
-		game.onTick(2000, "mugreMoviendose", {=> self.move(self.position().right(1))})
-		game.onTick(1500, "mugreMoviendose", {=> self.move(self.position().left(1))})
+		game.onTick(2000, "mugreMoviendoseD", {=> self.move(self.position().right(1))})
+		game.onTick(1500, "mugreMoviendoseI", {=> self.move(self.position().left(1))})
 	}
 	
 	// DIVISION DE ESTAS INTERACTUANDO CON
@@ -40,3 +40,7 @@ class Mugre {
 	//DIVISION DEL MOVERSE
 	method move(nuevaPosicion)	{ position = nuevaPosicion }
 }
+
+//class MugreQueNoSeMueve inherits Mugre {
+//	override method moverse() {}
+//} 
