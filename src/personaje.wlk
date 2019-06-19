@@ -22,5 +22,5 @@ object personaje {
 	
 	//DIVISION DE INTERACTUAR
 	method estaSobreUnObjeto() = not game.colliders(self).isEmpty()
-	method objetoDebajo() = game.colliders(self).head() //TIENE QUE TOCAR A TODOS
+	method objetoDebajo() = game.colliders(self).head()
 }

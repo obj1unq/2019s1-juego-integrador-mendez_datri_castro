@@ -2,9 +2,9 @@ import wollok.game.*
 import agua.*
 import mundo.*
 
-const botella = new Botella()
-const basura = new Basura()
-const tablaDeComida = new TablaDeComida()
+const botella = new Mugre(position= game.at(13,3), image = "basura3.png")
+const basura = new Mugre(position = game.at(10,4), image = "basura1.png")
+const tablaDeComida = new Mugre(position= game.at(15,4), image = "basura2.png")
 class Mugre {
 	var property position
 	var property image
@@ -14,8 +14,7 @@ class Mugre {
 	
 	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje){
-		game.removeVisual(self)
-		agua.sacarMugre(self)
+		self.estasSiendoProcesada()
 		mundo.estaSiendoSalvado(agua)
 	}
 	
@@ -32,27 +31,11 @@ class Mugre {
 		game.onTick(1500, "mugreMoviendose", {=> self.move(self.position().left(1))})
 	}
 	
+	// DIVISION DE ESTAS INTERACTUANDO CON
+	method estasSiendoProcesada() {
+		agua.sacarMugre(self)
+		game.removeVisual(self)
+	}
 	//DIVISION DEL MOVERSE
 	method move(nuevaPosicion)	{ position = nuevaPosicion }
-}
-
-class Basura inherits Mugre {
-	override method position() = game.at(10,4) 
-	override method image() = "basura1.png"
-}
-
-class TablaDeComida inherits Mugre {
-	override method position() = game.at(15,4) 
-	override method image() = "basura2.png"
-}
-
-class Botella inherits Mugre {
-	override method position() = game.at(13,3)
-	override method image() = "basura3.png"
-	
-override	method moverse() {
-		game.onTick(2000, "botellaMoviendose", {=> self.move(self.position().left(1))})
-		game.onTick(1500, "botellaMoviendose", {=> self.move(self.position().right(1))})
-	}
-
 }

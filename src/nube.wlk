@@ -20,5 +20,4 @@ class Nube {
 		ciudad.quitar(self)
 		game.removeVisual(self)
 	}
-	
 }
