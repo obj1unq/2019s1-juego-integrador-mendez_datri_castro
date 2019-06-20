@@ -12,8 +12,9 @@ class Arbol {
 	
 	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje)  {
-		game.colliders(personaje).forEach({arbol => arbol.estasSiendoRegado()})
-		mundo.estaSiendoSalvado(bosque)
+		self.estasSiendoRegado()
+		if (not bosque.fuisteSalvado()) {mundo.estaSiendoSalvado(bosque)}
+		
 	}
 	
 	// DIVISION DE ESTAS INTERACTUANDO CON 

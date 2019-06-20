@@ -50,11 +50,9 @@ object fondo {
 
 	//SOBRE CANDADOS
 	method agregarCandado(ecosistema) 	{ candados.add(ecosistema.candado()) }
-	method sacarCandadoDe(ecosistema) 	{	candados.remove(ecosistema.candado())}
+	method sacarCandadoDe(ecosistema) 	{ candados.remove(ecosistema.candado())}
 	method sacarCandadosDePantalla() 	{ candados.forEach{candado => game.removeVisual(candado)} }
-	method agregarCandadosAPantalla() {
-		candados.forEach{candado => game.addVisual(candado)}
-	}
+	method agregarCandadosAPantalla()   { candados.forEach{candado => game.addVisual(candado)} }
 	method agregarCandados() {
 //		ecosistemas.forEach({ ecosistema => self.agregarCandado(ecosistema) })
 		self.agregarCandado(agua)
