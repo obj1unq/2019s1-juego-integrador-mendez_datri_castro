@@ -9,7 +9,7 @@ object fondo {
 	var property position = game.at(0,0)
 	var property image = "ecosistemaFondo1.png"
 	var property candados = []
-	var property ecosistemas = [agua, bosque, ciudad, selva]
+//	var property ecosistemas = [agua, bosque, ciudad, selva]
 	var property ecosistemaActual = null
 	
 	//POLIMORFISMO CON LOS ELEMENTOD DE CADA JUEGO 
@@ -36,7 +36,8 @@ object fondo {
 	}
 	
 	//SACA TODO PARA VOLVER A LA PANTALLA INICIAL
-	method eliminarTodo(){ ecosistemas.forEach({ ecosistema => self.eliminarElementos(ecosistema) }) }
+//	method eliminarTodo(){ ecosistemas.forEach({ ecosistema => self.eliminarElementos(ecosistema) }) }
+	method eliminarTodo(){ ecosistemaActual.eliminarElelemtos()}
 	
 	//DIVISION DE ELIMINAR TODOS
 	method eliminarElementos(ecosistema){
@@ -55,7 +56,11 @@ object fondo {
 		candados.forEach{candado => game.addVisual(candado)}
 	}
 	method agregarCandados() {
-		ecosistemas.forEach({ ecosistema => self.agregarCandado(ecosistema) })
+//		ecosistemas.forEach({ ecosistema => self.agregarCandado(ecosistema) })
+		self.agregarCandado(agua)
+		self.agregarCandado(bosque)
+		self.agregarCandado(selva)
+		self.agregarCandado(ciudad)
 		self.agregarCandadosAPantalla()
 	}
 }
