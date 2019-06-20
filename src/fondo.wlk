@@ -37,7 +37,7 @@ object fondo {
 	
 	//SACA TODO PARA VOLVER A LA PANTALLA INICIAL
 //	method eliminarTodo(){ ecosistemas.forEach({ ecosistema => self.eliminarElementos(ecosistema) }) }
-	method eliminarTodo(){ ecosistemaActual.eliminarElelemtos()}
+	method eliminarTodo(){ self.eliminarElementos(ecosistemaActual)}
 	
 	//DIVISION DE ELIMINAR TODOS
 	method eliminarElementos(ecosistema){
