@@ -12,17 +12,17 @@ class Arbol {
 	
 	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje)  {
-		self.estasSiendoRegado()
-		if (not bosque.fuisteSalvado()) {mundo.estaSiendoSalvado(bosque)}
-		
+		if (not esAdulto){
+			self.estasSiendoRegado()
+			mundo.estaSiendoSalvado(bosque)
+		}	
 	}
 	
 	// DIVISION DE ESTAS INTERACTUANDO CON 
 	method estasSiendoRegado() { 
-		if (not esAdulto){
-			image = "arbolSanoCHiquito.png"	
-			esAdulto = true
-			bosque.sumarVida()}		
+		image = "arbolSanoCHiquito.png"	
+		esAdulto = true
+		bosque.sumarVida()	
 	}
 	
 	// DIVISION DE SEMBRAR DEL PERSONAJE
