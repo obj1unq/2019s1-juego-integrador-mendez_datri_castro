@@ -12,16 +12,17 @@ class Arbol {
 	
 	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje)  {
-		game.colliders(personaje).forEach({arbol => arbol.estasSiendoRegado()})
-		mundo.estaSiendoSalvado(bosque)
+		if (not esAdulto){
+			self.estasSiendoRegado()
+			mundo.estaSiendoSalvado(bosque)
+		}	
 	}
 	
 	// DIVISION DE ESTAS INTERACTUANDO CON 
 	method estasSiendoRegado() { 
-		if (not esAdulto){
-			image = "arbolSanoCHiquito.png"	
-			esAdulto = true
-			bosque.sumarVida()}		
+		image = "arbolSanoCHiquito.png"	
+		esAdulto = true
+		bosque.sumarVida()	
 	}
 	
 	// DIVISION DE SEMBRAR DEL PERSONAJE

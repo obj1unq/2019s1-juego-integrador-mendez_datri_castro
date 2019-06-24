@@ -26,12 +26,15 @@ object mundo {
 	}
 	method estaSiendoSalvado(ecosistema) {
 		if (ecosistema.fuisteSalvado()){
+			aniosDeVida ++
 			self.irAPantallaInicial()
-			self.elEcosistemaFueSalvadoSumarVida(ecosistema)
+		//	self.elEcosistemaFueSalvadoSumarVida(ecosistema)
 			ecosistema.termino()
 			ecosistema.candado().abrir()
 		}
 	} 
+	//DIVISION DE INTERACTUAR de PERSONAJE
+	method estasInteractuandoCon(personaje){/* No hace nada */}
 }
 
 

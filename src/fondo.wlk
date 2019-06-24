@@ -9,8 +9,7 @@ object fondo {
 	var property position = game.at(0,0)
 	var property image = "ecosistemaFondo1.png"
 	var property candados = []
-	var property ecosistemas = [agua, bosque, ciudad, selva]
-	
+	var property ecosistemaActual = null
 	
 	//POLIMORFISMO CON LOS ELEMENTOS DE CADA JUEGO 
 	method estasInteractuandoCon(personaje){/* No hace nada */}
@@ -20,24 +19,25 @@ object fondo {
 	
 	//VOLVER AL INICIO DEL PERSONAJE
 	method ponerInicioLimpio() {
-		self.image("ecosistemaFondo1.png")
-		self.agregarCandadosAPantalla()
-		self.eliminarTodo()
-		personaje.ecosistemaActual(null)
-		mundo.meSalvaste()
-	}
+		if (ecosistemaActual != null) {
+			self.image("ecosistemaFondo1.png")
+			self.agregarCandadosAPantalla()
+			self.eliminarTodo()
+			self.ecosistemaActual(null)
+			mundo.meSalvaste()
+		}
+}
 	
 	//INICIALIZA LOS ECOSISTEMAS
 	method inicializar(ecosistema) {
 		self.sacarCandadosDePantalla()
-	//	ecosistema.candado().estaCerrado(true)
 		personaje.position(game.origin())
 		self.image(ecosistema.image())
 		game.say(mundo, ecosistema.mensaje())
 	}
 	
 	//SACA TODO PARA VOLVER A LA PANTALLA INICIAL
-	method eliminarTodo(){ ecosistemas.forEach({ ecosistema => self.eliminarElementos(ecosistema) }) }
+	method eliminarTodo(){ self.eliminarElementos(ecosistemaActual)}
 	
 	//DIVISION DE ELIMINAR TODOS
 	method eliminarElementos(ecosistema){
@@ -50,13 +50,14 @@ object fondo {
 
 	//SOBRE CANDADOS
 	method agregarCandado(ecosistema) 	{ candados.add(ecosistema.candado()) }
-	method sacarCandadoDe(ecosistema) 	{	candados.remove(ecosistema.candado())}
+	method sacarCandadoDe(ecosistema) 	{ candados.remove(ecosistema.candado())}
 	method sacarCandadosDePantalla() 	{ candados.forEach{candado => game.removeVisual(candado)} }
-	method agregarCandadosAPantalla() {
-		candados.forEach{candado => game.addVisual(candado)}
-	}
+	method agregarCandadosAPantalla()   { candados.forEach{candado => game.addVisual(candado)} }
 	method agregarCandados() {
-		ecosistemas.forEach({ ecosistema => self.agregarCandado(ecosistema) })
+		self.agregarCandado(agua)
+		self.agregarCandado(bosque)
+		self.agregarCandado(selva)
+		self.agregarCandado(ciudad)
 		self.agregarCandadosAPantalla()
 	}
 }

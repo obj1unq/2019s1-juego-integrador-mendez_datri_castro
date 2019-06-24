@@ -7,7 +7,6 @@ import candado.*
 
 //ECOSISTEMA SELVA
 object selva {
-//	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
 	var property elementos = []
 	
@@ -26,8 +25,14 @@ object selva {
 	method fuisteSalvado() = self.listaSpot().isEmpty()
 	//DIVISION DE ESTAS INTERACTUANDO CON de LUGARAPARAPONERANIMALES
 	
-	method sacarSpot(spot)		 { elementos.remove(spot)}
-	method agregarAnimal(animal) { elementos.add(animal)}
+	method sacarSpot(spot)		 { 
+		game.removeVisual(spot)
+		elementos.remove(spot)
+	}
+	method agregarAnimal(animal) { 
+		game.addVisual(animal)
+		elementos.add(animal)
+	}
 	
 	//DIVISION DE ESTAS SIENDO SALVADO
 	method listaSpot() = elementos.filter{elemento => elemento.image() == "flecha.png"}

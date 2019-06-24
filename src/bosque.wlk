@@ -9,7 +9,6 @@ import arbol.*
 object bosque {
 	var property position = game.at(0,0)
 	var property vida = 0
-	//var property fuisteSalvado = false
 	var property elementos = []
 	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	
@@ -23,7 +22,7 @@ object bosque {
 	
 	//DIVISION DE SEMBRAR
 	method sembrarArbol(personaje) {
-		if (game.colliders(personaje).isEmpty() and personaje.ecosistemaActual() == self) {
+		if (game.colliders(personaje).isEmpty() and fondo.ecosistemaActual() == self) {
 			elementos.add(new Arbol())
 			elementos.last().estasSiendoSembrado(personaje)
 		}

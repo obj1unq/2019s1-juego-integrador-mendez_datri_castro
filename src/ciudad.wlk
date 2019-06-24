@@ -8,7 +8,6 @@ import candado.*
 //ECOSISTEMA CIUDAD
 object ciudad {
 	var property elementos = []
-//	var property fuisteSalvado = false
 	const property candado = new Candado(ecosistema = self, position = game.at(8,7))
 	
 	//POLIMORFICO CON FONDO
@@ -27,7 +26,10 @@ object ciudad {
 	}
 	
 	//DIVISION DE ESTAS SIENDO PROCESADA de NUBE
-	method quitar(nube){ elementos.remove(nube) }
+	method quitar(nube){ 
+		game.removeVisual(nube)
+		elementos.remove(nube)
+	}
 	
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
 	method fuisteSalvado() = elementos.isEmpty()
