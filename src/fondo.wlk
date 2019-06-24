@@ -19,12 +19,14 @@ object fondo {
 	
 	//VOLVER AL INICIO DEL PERSONAJE
 	method ponerInicioLimpio() {
-		self.image("ecosistemaFondo1.png")
-		self.agregarCandadosAPantalla()
-		self.eliminarTodo()
-		self.ecosistemaActual(null)
-		mundo.meSalvaste()
-	}
+		if (ecosistemaActual != null) {
+			self.image("ecosistemaFondo1.png")
+			self.agregarCandadosAPantalla()
+			self.eliminarTodo()
+			self.ecosistemaActual(null)
+			mundo.meSalvaste()
+		}
+}
 	
 	//INICIALIZA LOS ECOSISTEMAS
 	method inicializar(ecosistema) {
