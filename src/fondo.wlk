@@ -12,7 +12,7 @@ object fondo {
 	var property ecosistemas = [agua, bosque, ciudad, selva]
 	
 	
-	//POLIMORFISMO CON LOS ELEMENTOD DE CADA JUEGO 
+	//POLIMORFISMO CON LOS ELEMENTOS DE CADA JUEGO 
 	method estasInteractuandoCon(personaje){/* No hace nada */}
 	
 	// CUANDO COLISIONA CON EL PERSONAJE
