@@ -18,7 +18,6 @@ object agua {
 		basura.aparecer()
 		botella.aparecer()
 		tablaDeComida.aparecer()
-//		botellaArena.aparecer()
 	}
 	
 	//DIVISION DE APARECER de MUGRE
