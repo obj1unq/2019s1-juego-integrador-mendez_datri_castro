@@ -26,5 +26,8 @@ object agua {
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
 	method fuisteSalvado()  = elementos.isEmpty()
 	method termino() 		= fondo.image("aguaSalvada.jpg")
-	method sacarMugre(_mugre) {elementos.remove(_mugre)}
+	method sacarMugre(_mugre) {
+		game.removeVisual(_mugre)
+		elementos.remove(_mugre)
+	}
 }

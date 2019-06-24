@@ -18,6 +18,5 @@ class Nube {
 	// DIVISION DE ESTAS INTERACTUANDO CON 
 	method estasSiendoProcesada(){
 		ciudad.quitar(self)
-		game.removeVisual(self)
 	}
 }

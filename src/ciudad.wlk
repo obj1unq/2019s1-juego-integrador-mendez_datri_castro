@@ -26,7 +26,10 @@ object ciudad {
 	}
 	
 	//DIVISION DE ESTAS SIENDO PROCESADA de NUBE
-	method quitar(nube){ elementos.remove(nube) }
+	method quitar(nube){ 
+		game.removeVisual(nube)
+		elementos.remove(nube)
+	}
 	
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
 	method fuisteSalvado() = elementos.isEmpty()

@@ -28,7 +28,7 @@ class Mugre {
 	
 	// DIVISION DEL APARECER
 		method moverse(){
-		game.onTick(1500, "animal moviendose", {=> self.mover()})
+		game.onTick(1500, "mugre moviendose", {=> self.mover()})
 	}
 	
 	//DIVISION DE MOVERSE
@@ -47,7 +47,6 @@ class Mugre {
 	// DIVISION DE ESTAS INTERACTUANDO CON
 	method estasSiendoProcesada() {
 		agua.sacarMugre(self)
-		game.removeVisual(self)
 	}
 	
 	//DIVISION DEL MOVERSE
