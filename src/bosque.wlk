@@ -15,7 +15,10 @@ object bosque {
 	//POLIMORFICO CON FONDO
 	method image() 	 = "sinArboles.jpg"
 	method mensaje() = "Planta con S y riega arboles con la E"
-	method jugar() {self.sembrar(personaje)}
+	method jugar() {
+		vida = 0
+		self.sembrar(personaje)
+	}
 	
 	//DIVISION DE JUGAR
 	method sembrar(personaje) {keyboard.s().onPressDo{self.sembrarArbol(personaje)}}
