@@ -4,12 +4,11 @@ import mundo.*
 import personaje.*
 import candado.*
 import arbol.*
+import ecosistema.*
 
 //ECOSISTEMA BOSQUE
-object bosque {
-	var property position = game.at(0,0)
+object bosque inherits Ecosistema{
 	var property vida = 0
-	var property elementos = []
 	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	
 	//POLIMORFICO CON FONDO

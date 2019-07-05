@@ -4,11 +4,11 @@ import mundo.*
 import animales.*
 import fondo.*
 import candado.*
+import ecosistema.*
 
 //ECOSISTEMA SELVA
-object selva {
+object selva inherits Ecosistema{
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))
-	var property elementos = []
 	
 	//POLIMORFICO CON EL FONDO
 	method image(){ return "selva.jpg" } 
@@ -37,7 +37,7 @@ object selva {
 	method listaSpot() = elementos.filter{elemento => elemento.image() == "flecha.png"}
 
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
-	method termino(){self.moverse()}
+	override method termino(){self.moverse()}
 	method fuisteSalvado() = self.listaSpot().isEmpty()
 	
 	// MOVIMIENTOS DE ANIMALES AL CUANDO SE SALVO	

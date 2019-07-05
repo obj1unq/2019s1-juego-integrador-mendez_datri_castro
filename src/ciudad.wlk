@@ -4,10 +4,10 @@ import mundo.*
 import nube.*
 import fondo.*
 import candado.*
+import ecosistema.*
 
 //ECOSISTEMA CIUDAD
-object ciudad {
-	var property elementos = []
+object ciudad inherits Ecosistema{
 	const property candado = new Candado(ecosistema = self, position = game.at(8,7))
 	
 	//POLIMORFICO CON FONDO
