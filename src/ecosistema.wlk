@@ -5,4 +5,5 @@ class Ecosistema {
 	var property elementos = []
 	
 	method termino(){}
+	method fuisteSalvado()  = elementos.isEmpty()
 }

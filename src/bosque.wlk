@@ -39,7 +39,7 @@ object bosque inherits Ecosistema{
 	method sumarVida() { vida += 1}
 	
 	//DIVISION DEL ESTAS INTERACTUANDO CON de ARBOL
-	method fuisteSalvado() = vida >= 3
+	override method fuisteSalvado() = vida >= 3
 
 	
 }
