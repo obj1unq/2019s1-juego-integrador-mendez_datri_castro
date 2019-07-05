@@ -19,15 +19,6 @@ class Mugre {
 		mundo.estaSiendoSalvado(agua)
 	}
 	
-	//PARA EL JUGAR DEL ECOSISTEMA
-	method aparecer() {
-<<<<<<< HEAD
-=======
-		agua.agregar(self)	
->>>>>>> branch 'master' of https://github.com/obj1unq/2019s1-juego-integrador-mendez_datri_castro.git
-		self.moverse()
-	}	
-	
 	// DIVISION DEL APARECER
 		method moverse(){
 		game.onTick(1500, "mugre moviendose", {=> self.mover()})
