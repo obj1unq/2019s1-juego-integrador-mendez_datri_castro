@@ -17,31 +17,34 @@ object bosque inherits Ecosistema{
 			return "sinArboles.jpg"
 		} 
 		else{ return "bosqueSano.jpg" }
-	}  
+	} 
+
+	override method crearElementos() {
+		elementos = [semilla1, semilla2, semilla3]
+	}
+
 	method mensaje() = "Planta con S y riega arboles con la E"
 	override method jugar(){
-		vida = 0
+		self.crearElementos()
 		self.sembrar(personaje)
 	}
 	
 	//DIVISION DE JUGAR
 	method sembrar(personaje) {keyboard.s().onPressDo{self.sembrarArbol(personaje)}}
+	method  semillaQueCorresponde() = elementos.first()
 	
 	//DIVISION DE SEMBRAR
 	method sembrarArbol(personaje) {
 		if (game.colliders(personaje).isEmpty() and fondo.ecosistemaActual() == self) {
-			elementos.add(new Arbol())
-			elementos.last().estasSiendoSembrado(personaje)
+			self.semillaQueCorresponde().plantar(personaje)
+			self.mantenerLaLista()
 		}
 	}
-	
-	//DIVISION DE ESTAS SIENDO REGADA de ARBOL
-	method sumarVida() { vida += 1}
-	
-	//DIVISION DEL ESTAS INTERACTUANDO CON de ARBOL
-	override method fuisteSalvado() = vida >= 3
+	method mantenerLaLista() {
+		elementos.add(self.semillaQueCorresponde())
+		elementos.remove(self.semillaQueCorresponde())
+	}
 
-	
 }
 
 

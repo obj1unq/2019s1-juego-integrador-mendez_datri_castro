@@ -24,6 +24,11 @@ object selva inherits Ecosistema{
 	override method fuisteSalvado() = self.listaSpot().isEmpty()
 	
 	// MOVIMIENTOS DE ANIMALES AL CUANDO SE SALVO	
+	method agregar(elemento){
+		elementos.add(elemento)
+		game.addVisual(elemento)
+	}
+	
 	method moverse(){ elementos.forEach{ animal => animal.moverse() } }
 	
 }

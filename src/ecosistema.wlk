@@ -10,11 +10,7 @@ class Ecosistema {
 		game.removeVisual(elemento)
 		elementos.remove(elemento)
 	}
-	method agregar(elemento){
-		elementos.add(elemento)
-		game.addVisual(elemento)
-	}
-	
+
 		//SACA TODO PARA VOLVER A LA PANTALLA INICIAL
 	method eliminarTodo(){ self.eliminarElementos()}
 	
