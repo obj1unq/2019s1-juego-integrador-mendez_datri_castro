@@ -24,14 +24,6 @@ object selva inherits Ecosistema{
 
 	//DIVISION DE ESTAS INTERACTUANDO CON de LUGARAPARAPONERANIMALES
 	
-	method sacarSpot(spot)		 { 
-		game.removeVisual(spot)
-		elementos.remove(spot)
-	}
-	method agregarAnimal(animal) { 
-		game.addVisual(animal)
-		elementos.add(animal)
-	}
 	
 	//DIVISION DE ESTAS SIENDO SALVADO
 	method listaSpot() = elementos.filter{elemento => elemento.image() == "flecha.png"}

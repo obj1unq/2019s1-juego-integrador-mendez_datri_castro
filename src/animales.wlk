@@ -49,8 +49,8 @@ class LugarParaPonerAnimal {
 	
 	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje){
-		selva.agregarAnimal(animalCorrespondiente)
-		selva.sacarSpot(self)
+		selva.agregar(animalCorrespondiente)
+		selva.quitar(self)
 		mundo.estaSiendoSalvado(selva)
 	}
 }

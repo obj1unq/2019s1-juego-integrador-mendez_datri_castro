@@ -21,6 +21,10 @@ class Mugre {
 	
 	//PARA EL JUGAR DEL ECOSISTEMA
 	method aparecer() {
+<<<<<<< HEAD
+=======
+		agua.agregar(self)	
+>>>>>>> branch 'master' of https://github.com/obj1unq/2019s1-juego-integrador-mendez_datri_castro.git
 		self.moverse()
 	}	
 	
@@ -44,7 +48,7 @@ class Mugre {
 	
 	// DIVISION DE ESTAS INTERACTUANDO CON
 	method estasSiendoProcesada() {
-		agua.sacarMugre(self)
+		agua.quitar(self)
 	}
 	
 	//DIVISION DEL MOVERSE

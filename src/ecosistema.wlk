@@ -6,15 +6,12 @@ class Ecosistema {
 	
 	method termino(){}
 	method fuisteSalvado()  = elementos.isEmpty()
-	
-		//SACA TODO PARA VOLVER A LA PANTALLA INICIAL
-	method eliminarTodo(){ self.eliminarElementos()}
-	
-	//DIVISION DE ELIMINAR TODOS
-	method eliminarElementos(){
-		if(not elementos.isEmpty()) {
-		elementos.forEach{elemento => game.removeVisual(elemento)}
-		elementos.clear()
-		}
+	method quitar(elemento){
+		game.removeVisual(elemento)
+		elementos.remove(elemento)
+	}
+	method agregar(elemento){
+		elementos.add(elemento)
+		game.addVisual(elemento)
 	}
 }
