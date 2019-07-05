@@ -25,7 +25,7 @@ object agua inherits Ecosistema{
 	}
 	override method agregarElementos(){
 		elementos.forEach({ mugre => game.addVisual(mugre) })
-		elementos.forEach({ mugre => mugre.moverse() })
+		elementos.forEach({ mugre => mugre.moverse() }) 
 	}
 
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO

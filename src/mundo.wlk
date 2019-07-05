@@ -25,7 +25,7 @@ object mundo {
 		} 
 	}
 	//CAMBIO DE ASPECTO CUANDO SE SALVO EL MUNDO	
-	method estaSiendoSalvado(ecosistema) {
+	method estaSiendoSalvado(ecosistema) { 
 			self.irAPantallaInicial()
 			ecosistema.termino()
 			ecosistema.candado().abrir()

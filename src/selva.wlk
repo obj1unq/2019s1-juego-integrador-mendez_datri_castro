@@ -5,7 +5,7 @@ import animales.*
 import fondo.*
 import candado.*
 import ecosistema.*
-
+  
 //ECOSISTEMA SELVA
 object selva inherits Ecosistema{
 	const property candado = new Candado(ecosistema = self, position = game.at(4,4))

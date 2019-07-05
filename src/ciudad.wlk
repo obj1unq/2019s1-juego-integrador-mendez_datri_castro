@@ -16,7 +16,7 @@ object ciudad inherits Ecosistema{
 			return "ciudadSucia.png"
 		} 
 		else{ return "ciudadLimpia.jpg" }
-	} 
+	}  
 	
 	
 	method mensaje()= "Quita todas las nubes malas con la E"
