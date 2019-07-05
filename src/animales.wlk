@@ -2,20 +2,23 @@ import wollok.game.*
 import selva.*
 import mundo.*
 
-const leon = new Animal(position = game.at(6,2), image = "leon.png")
-const mono = new Animal(position = game.at(3,8), image = "mono.png")
-const ave = new Animal(position = game.at(14,8), image = "pepita1.png")
-const elefante = new Animal(position = game.at(14,2), image = "elefante.png")
-const spot1 = new LugarParaPonerAnimal(animalCorrespondiente = leon, position = game.at(6,2))
-const spot2 = new LugarParaPonerAnimal(animalCorrespondiente = mono, position = game.at(3,8))
-const spot3 = new LugarParaPonerAnimal(animalCorrespondiente = ave, position = game.at(14,8))
-const spot4 = new LugarParaPonerAnimal(animalCorrespondiente = elefante, position = game.at(14,2))
 
-class Animal {
-	var property image
+const spot1 = new LugarParaPonerAnimal(animal = "leon", position = game.at(6,2))
+const spot2 = new LugarParaPonerAnimal(animal = "mono", position = game.at(3,8))
+const spot3 = new LugarParaPonerAnimal(animal = "ave", position = game.at(14,8))
+const spot4 = new LugarParaPonerAnimal(animal = "elefante", position = game.at(14,2))
+
+class LugarParaPonerAnimal {
+	var property animal
+	var property elAnimalFuePuesto = false
 	var property position
 	var movimientos = 0
 	
+	method image() = if (not elAnimalFuePuesto){
+		"flecha.png"
+	} else {
+		animal + ".png"
+	}
 	//POR SI CHOCA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje){ /* NO HACE NADA */ }
 	
@@ -36,16 +39,24 @@ class Animal {
 		}
 		else {movimientos = 0}
 	}
+	
+	//DIVISION DE INTERACTUAR de PERSONAJE
+	method estasInteractuandoCon(personaje){
+		if(not elAnimalFuePuesto){
+			elAnimalFuePuesto = true
+			mundo.estaSiendoSalvado(selva)
+		}
+	}
 
 }
-
+/* 
 class LugarParaPonerAnimal {
 	var property animalCorrespondiente
 	var property position
 	var property image = "flecha.png"
 	
 	//POR SI CHOCA CON EL PERSONAJE
-	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
+	method fuisteChocadaPor(personaje) {/* NO HACE NADA }
 	
 	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje){
@@ -54,3 +65,4 @@ class LugarParaPonerAnimal {
 		mundo.estaSiendoSalvado(selva)
 	}
 }
+*/

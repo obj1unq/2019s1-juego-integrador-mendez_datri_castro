@@ -17,7 +17,7 @@ object selva inherits Ecosistema{
 	}
 
 	//DIVISION DE ESTAS SIENDO SALVADO
-	method listaSpot() = elementos.filter{elemento => elemento.image() == "flecha.png"}
+	method listaSpot() = elementos.filter{elemento => not elemento.elAnimalFuePuesto()}
 
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
 	method termino(){self.moverse()}
