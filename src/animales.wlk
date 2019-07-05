@@ -17,7 +17,7 @@ class Animal {
 	var movimientos = 0
 	
 	//POR SI CHOCA CON EL PERSONAJE
-	method fuisteChocadaPor(personaje){/* NO HACE NADA */}
+	method fuisteChocadaPor(personaje){ /* NO HACE NADA */ }
 	
 	//DIVISION DEL MOVERSE de SELVA
 	method moverse(){

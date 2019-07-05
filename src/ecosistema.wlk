@@ -4,18 +4,15 @@ class Ecosistema {
 	var property position = game.at(0,0)
 	var property elementos = []
 	
-	method termino(){}
-	method fuisteSalvado()  = elementos.isEmpty()
-	method quitar(elemento){
-		game.removeVisual(elemento)
-		elementos.remove(elemento)
-	}
-	method agregar(elemento){
-		elementos.add(elemento)
-		game.addVisual(elemento)
-	}
-	
-		//SACA TODO PARA VOLVER A LA PANTALLA INICIAL
+	// PARA JUGAR EL ECOSISTEMA
+	method jugar(){
+		self.crearElementos()
+		self.agregarElementos() 
+	}	
+	method crearElementos(){}
+	method agregarElementos(){ elementos.forEach({ elemento => game.addVisual(elemento) })}
+
+	//SACA TODO PARA VOLVER A LA PANTALLA INICIAL
 	method eliminarTodo(){ self.eliminarElementos()}
 	
 	//DIVISION DE ELIMINAR TODOS
@@ -25,10 +22,17 @@ class Ecosistema {
 			elementos.clear()
 		}	
 	}
-	method jugar(){
-		self.crearElementos()
-		self.agregarElementos() 
-	}	
-	method crearElementos(){}
-	method agregarElementos(){elementos.forEach({ elemento => game.addVisual(elemento) })}
+	
+	// PARA TERMINAR DE JUGAR
+	method fuisteSalvado()  = elementos.isEmpty()
+	
+	method quitar(elemento){
+		game.removeVisual(elemento)
+		elementos.remove(elemento)
+	}
+	
+	method agregar(elemento){
+		elementos.add(elemento)
+		game.addVisual(elemento)
+	}
 }
