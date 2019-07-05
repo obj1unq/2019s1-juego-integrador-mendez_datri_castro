@@ -27,7 +27,7 @@ program SaveMe {
 	keyboard.down().onPressDo { personaje.move(personaje.position().down(1)) }
 	keyboard.left().onPressDo { personaje.move(personaje.position().left(1)) }
 	keyboard.right().onPressDo{ personaje.move(personaje.position().right(1)) }
-	keyboard.space().onPressDo{ personaje.volverAInicio() }
+	keyboard.space().onPressDo{ fondo.volverAInicio() }
 	keyboard.e().onPressDo 	  { personaje.interactuar() }
 	
 // START

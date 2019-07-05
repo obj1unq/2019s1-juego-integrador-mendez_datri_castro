@@ -13,7 +13,7 @@ object mundo {
 
 	//PARA SABER CUANDO FUE SALVADO EL MUNDO
 	method elEcosistemaFueSalvadoSumarVida(ecosistema) {
-		if (ecosistema.fuisteSalvado()) {aniosDeVida ++}
+		if (ecosistema.fuisteSalvado()) { aniosDeVida ++ }
 		else aniosDeVida
 	}
 
@@ -24,15 +24,20 @@ object mundo {
 			fondo.sacarCandadosDePantalla()
 		} 
 	}
+	//CAMBIO DE ASPECTO CUANDO SE SALVO EL MUNDO	
 	method estaSiendoSalvado(ecosistema) {
-		if (ecosistema.fuisteSalvado()){
-			aniosDeVida ++
 			self.irAPantallaInicial()
-		//	self.elEcosistemaFueSalvadoSumarVida(ecosistema)
 			ecosistema.termino()
 			ecosistema.candado().abrir()
+	}
+	
+	//SUMA DE AÑOS DE VIDA 
+	method sumarAniosDeVidaSiFueSalvado(ecosistema){
+		if (ecosistema.fuisteSalvado()){
+			aniosDeVida ++
 		}
-	} 
+	}
+	
 	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje){/* No hace nada */}
 }

@@ -11,7 +11,14 @@ object ciudad {
 	const property candado = new Candado(ecosistema = self, position = game.at(8,7))
 	
 	//POLIMORFICO CON FONDO
-	method image()	= "ciudadSucia.png" 
+	method image()	{ 
+		if(not self.fuisteSalvado()){
+			return "ciudadSucia.png"
+		} 
+		else{ return "ciudadLimpia.jpg" }
+	} 
+	
+	
 	method mensaje()= "Quita todas las nubes malas con la E"
 	method jugar(){
 		self.todasLasNubes()
@@ -33,5 +40,5 @@ object ciudad {
 	
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
 	method fuisteSalvado() = elementos.isEmpty()
-	method termino() = 	fondo.image("ciudadLimpia.jpg")
+	method termino() { /* No hace nada */ }
 }

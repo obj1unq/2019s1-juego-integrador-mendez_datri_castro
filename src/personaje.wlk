@@ -6,12 +6,6 @@ object personaje {
 	
 	method move(nuevaPosicion)	{ position = nuevaPosicion }
 
-	//REGRESAR A INICIO
-	method volverAInicio() {
-		fondo.ponerInicioLimpio()
-		self.position(game.origin())
-	}
-	
 	//PAR USAR LA E
 	method interactuar(){
 		if (self.estaSobreUnObjeto()){

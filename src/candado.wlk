@@ -8,9 +8,10 @@ class Candado {
 	
 	//CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) {
-		self.inicializar()
-		fondo.ecosistemaActual(ecosistema)
+		self.inicializar()	
 	}
+	//CUANDO SE INTERACTUA CON EL PERSONAJE
+	method estasInteractuandoCon(personaje){/* NO HACE NADA */}
 	
 	//ABRIR EL CANDADO 
 	method abrir(){
@@ -21,6 +22,7 @@ class Candado {
 	method inicializar() {
 	if (estaCerrado) {
 			fondo.inicializar(ecosistema)
+//			fondo.ecosistemaActual(ecosistema)
 			ecosistema.jugar()
 		}
 		else {game.say(self, "Ya jugaste este nivel")}	

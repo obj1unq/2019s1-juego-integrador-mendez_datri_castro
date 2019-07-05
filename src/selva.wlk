@@ -11,7 +11,7 @@ object selva {
 	var property elementos = []
 	
 	//POLIMORFICO CON EL FONDO
-	method image() 	 = "selva.jpg"
+	method image(){ return "selva.jpg" } 
 	method mensaje() = "Pon los animales en los lugares indicados con la E"
 	method jugar(){ 
 		elementos.add(spot1)
@@ -21,8 +21,7 @@ object selva {
 		elementos.forEach({spot => game.addVisual(spot)})
 	}
 	
-	method termino(){self.moverse()}
-	method fuisteSalvado() = self.listaSpot().isEmpty()
+
 	//DIVISION DE ESTAS INTERACTUANDO CON de LUGARAPARAPONERANIMALES
 	
 	method sacarSpot(spot)		 { 
@@ -36,6 +35,12 @@ object selva {
 	
 	//DIVISION DE ESTAS SIENDO SALVADO
 	method listaSpot() = elementos.filter{elemento => elemento.image() == "flecha.png"}
-	method moverse()	{elementos.forEach{animal => animal.moverse()}}
+
+	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
+	method termino(){self.moverse()}
+	method fuisteSalvado() = self.listaSpot().isEmpty()
+	
+	// MOVIMIENTOS DE ANIMALES AL CUANDO SE SALVO	
+	method moverse(){ elementos.forEach{ animal => animal.moverse() } }
 	
 }

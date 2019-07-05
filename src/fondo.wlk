@@ -7,32 +7,44 @@ import mundo.*
 import personaje.*
 object fondo {
 	var property position = game.at(0,0)
-	var property image = "ecosistemaFondo1.png"
+	//var property image = "ecosistemaFondo1.png"
 	var property candados = []
 	var property ecosistemaActual = null
 	
+	// IMAGEN DE LA PANTALLA
+	method image(){
+		if (ecosistemaActual == null){
+			return "ecosistemaFondo1.png"
+		}
+		else { return ecosistemaActual.image() }
+	} 
+	
 	//POLIMORFISMO CON LOS ELEMENTOS DE CADA JUEGO 
 	method estasInteractuandoCon(personaje){/* No hace nada */}
-	
-	// CUANDO COLISIONA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje) { /* No hace nada */}
 	
 	//VOLVER AL INICIO DEL PERSONAJE
 	method ponerInicioLimpio() {
 		if (ecosistemaActual != null) {
-			self.image("ecosistemaFondo1.png")
 			self.agregarCandadosAPantalla()
 			self.eliminarTodo()
 			self.ecosistemaActual(null)
 			mundo.meSalvaste()
 		}
-}
+	}
+	
+	//REGRESAR A INICIO
+	method volverAInicio() {
+		personaje.position(game.origin())
+		mundo.sumarAniosDeVidaSiFueSalvado(ecosistemaActual)
+		self.ponerInicioLimpio()
+	}
 	
 	//INICIALIZA LOS ECOSISTEMAS
 	method inicializar(ecosistema) {
+		ecosistemaActual = ecosistema
 		self.sacarCandadosDePantalla()
 		personaje.position(game.origin())
-		self.image(ecosistema.image())
 		game.say(mundo, ecosistema.mensaje())
 	}
 	

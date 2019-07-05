@@ -13,7 +13,12 @@ object bosque {
 	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	
 	//POLIMORFICO CON FONDO
-	method image() 	 = "sinArboles.jpg"
+	method image()	{ 
+		if(not self.fuisteSalvado()){
+			return "sinArboles.jpg"
+		} 
+		else{ return "bosqueSano.jpg" }
+	} 
 	method mensaje() = "Planta con S y riega arboles con la E"
 	method jugar() {
 		vida = 0
@@ -35,8 +40,8 @@ object bosque {
 	method sumarVida() { vida += 1}
 	
 	//DIVISION DEL ESTAS INTERACTUANDO CON de ARBOL
-	method fuisteSalvado() = vida == 3
-	method termino(){fondo.image("bosqueSano.jpg")}
+	method fuisteSalvado() = vida >= 3
+	method termino() { /* No hace nada */ }
 	
 }
 

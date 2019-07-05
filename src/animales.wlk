@@ -19,9 +19,6 @@ class Animal {
 	//POR SI CHOCA CON EL PERSONAJE
 	method fuisteChocadaPor(personaje){/* NO HACE NADA */}
 	
-	//DIVISION DE INTERACTUAR de PERSONAJE
-	method estasInteractuandoCon(personaje){/* NO HACE NADA */}
-	
 	//DIVISION DEL MOVERSE de SELVA
 	method moverse(){
 		game.onTick(1500, "animal moviendose", {=> self.mover()})
