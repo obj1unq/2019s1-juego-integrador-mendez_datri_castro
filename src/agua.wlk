@@ -23,8 +23,8 @@ object agua inherits Ecosistema{
 	override method crearElementos() {
 		elementos = [basura, botella, tablaDeComida]
 	}
-	override method agregarElementos(){
-		elementos.forEach({ mugre => game.addVisual(mugre) })
+	override method agregarElementos() {
+		super()
 		elementos.forEach({ mugre => mugre.moverse() }) 
 	}
 

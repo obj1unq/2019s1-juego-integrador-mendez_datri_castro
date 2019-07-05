@@ -30,5 +30,5 @@ class Ecosistema {
 		self.agregarElementos() 
 	}	
 	method crearElementos(){}
-	method agregarElementos(){}
+	method agregarElementos(){elementos.forEach({ elemento => game.addVisual(elemento) })}
 }

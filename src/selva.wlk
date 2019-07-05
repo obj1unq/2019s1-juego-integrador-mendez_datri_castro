@@ -14,27 +14,10 @@ object selva inherits Ecosistema{
 	method image(){ return "selva.jpg" } 
 	method mensaje() = "Pon los animales en los lugares indicados con la E"
 	
-//	method jugar(){ 
-//		elementos.add(spot1)
-//		elementos.add(spot2)
-//		elementos.add(spot3)
-//		elementos.add(spot4)
-//		elementos.forEach({spot => game.addVisual(spot)})
-//	}
 	//DIVISION DE JUGAR
 	override method crearElementos(){
-		elementos.add(spot1)
-		elementos.add(spot2)
-		elementos.add(spot3)
-		elementos.add(spot4)
-		
-	}
-	override method agregarElementos(){
-		elementos.forEach({spot => game.addVisual(spot)})
-	}
-
-	method todosLosSpots() {
 		elementos = [spot1, spot2, spot3, spot4]
+		
 	}
 
 	//DIVISION DE ESTAS SIENDO SALVADO

@@ -18,20 +18,13 @@ object ciudad inherits Ecosistema{
 		else{ return "ciudadLimpia.jpg" }
 	}  
 	
-	
 	method mensaje()= "Quita todas las nubes malas con la E"
-//	method jugar(){
-//		self.crearElementos()
-//		self.agregarElementos()
-//	}
+
 	
 	//DIVISION DE JUGAR
 	override method crearElementos(){
 	elementos =	[ 	new Nube(position = game.at(4,2)), new Nube(position = game.at(15,9)),
 					new Nube(position = game.at(6,10)), new Nube(position = game.at(2,8)),
 		 			new Nube(position = game.at(9,6)), new Nube(position = game.at(14,2)) ]
-	}
-	override method agregarElementos(){
-		elementos.forEach({ nube => game.addVisual(nube) })
 	}
 }

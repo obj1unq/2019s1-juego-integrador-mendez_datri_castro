@@ -26,9 +26,11 @@ object mundo {
 	}
 	//CAMBIO DE ASPECTO CUANDO SE SALVO EL MUNDO	
 	method estaSiendoSalvado(ecosistema) { 
+		if(ecosistema.fuisteSalvado()){
 			self.irAPantallaInicial()
 			ecosistema.termino()
 			ecosistema.candado().abrir()
+		}
 	}
 	
 	//SUMA DE AÑOS DE VIDA 
