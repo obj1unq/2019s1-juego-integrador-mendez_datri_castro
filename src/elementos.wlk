@@ -20,3 +20,25 @@ class Elemento {
 	}
 	
 }
+
+class ElementoQueSeMueve inherits Elemento{
+	var movimientos = 0
+	
+	// DIVISION DEL APARECER
+	method moverse(){
+		game.onTick(1500, "basura moviendose", {=> self.mover()})
+	}
+	
+	//DIVISION DE MOVERSE
+	method mover() {
+		if (movimientos < 3){
+			position = position.left(1)
+			movimientos ++
+		}
+		else if (movimientos >= 3 and movimientos <= 5){
+			position = position.right(1)
+			movimientos ++
+		}
+		else {movimientos = 0}
+	}
+}
