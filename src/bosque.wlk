@@ -11,6 +11,8 @@ object bosque inherits Ecosistema{
 	var property vida = 0
 	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	
+	method semillas() = elementos.filter{arbol => not arbol.esAdulto()}
+	override method fuisteSalvado()  = self.semillas().isEmpty()
 	//POLIMORFICO CON FONDO
 	method image()	{ 
 		if(not self.fuisteSalvado()){
@@ -40,6 +42,8 @@ object bosque inherits Ecosistema{
 			self.mantenerLaLista()
 		}
 	}
+	
+	//DIVISION DE SEMBRAR ARBOL
 	method mantenerLaLista() {
 		elementos.add(self.semillaQueCorresponde())
 		elementos.remove(self.semillaQueCorresponde())
