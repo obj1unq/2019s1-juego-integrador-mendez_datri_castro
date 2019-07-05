@@ -40,5 +40,5 @@ object ciudad inherits Ecosistema{
 	
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
 	method fuisteSalvado() = elementos.isEmpty()
-	method termino() { /* No hace nada */ }
+
 }

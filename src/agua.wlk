@@ -29,7 +29,6 @@ object agua inherits Ecosistema{
 	
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
 	method fuisteSalvado()  = elementos.isEmpty()
-	method termino() { /* No hace nada */ }
 	method sacarMugre(_mugre) {
 		game.removeVisual(_mugre)
 		elementos.remove(_mugre)
