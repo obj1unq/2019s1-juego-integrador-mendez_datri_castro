@@ -3,6 +3,7 @@ import mundo.*
 import fondo.*
 
 class Elemento {
+	var property position
 	
 	// CUANDO EL PERSONAJE COLISIONA
 	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}

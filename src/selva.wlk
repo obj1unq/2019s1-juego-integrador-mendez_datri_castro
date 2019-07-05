@@ -20,7 +20,7 @@ object selva inherits Ecosistema{
 	method listaSpot() = elementos.filter{elemento => not elemento.elAnimalFuePuesto()}
 
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
-	method termino(){self.moverse()}
+	override method termino(){self.moverse()}
 	override method fuisteSalvado() = self.listaSpot().isEmpty()
 	
 	// MOVIMIENTOS DE ANIMALES AL CUANDO SE SALVO	
