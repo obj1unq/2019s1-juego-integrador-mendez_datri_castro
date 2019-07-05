@@ -19,13 +19,15 @@ object agua inherits Ecosistema{
 	} 		
 	method mensaje() = "Limpia la basura del oceano con la E"
 	method jugar() {
-		basura.aparecer()
-		botella.aparecer()
-		tablaDeComida.aparecer()
+		self.todaLaMugre()
+		elementos.forEach({ mugre => game.addVisual(mugre) })
+		elementos.forEach({ mugre => mugre.moverse() })
 	}
 	
 	//DIVISION DE APARECER de MUGRE
-	method agregarMugre(_mugre) {elementos.add(_mugre) } 
+	method todaLaMugre() {
+		elementos = [basura, botella, tablaDeComida]
+	}
 	
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
 	method sacarMugre(_mugre) {

@@ -21,8 +21,6 @@ class Mugre {
 	
 	//PARA EL JUGAR DEL ECOSISTEMA
 	method aparecer() {
-		agua.agregarMugre(self)	
-		game.addVisual(self)
 		self.moverse()
 	}	
 	
