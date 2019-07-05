@@ -6,4 +6,12 @@ class Ecosistema {
 	
 	method termino(){}
 	method fuisteSalvado()  = elementos.isEmpty()
+	method quitar(elemento){
+		game.removeVisual(elemento)
+		elementos.remove(elemento)
+	}
+	method agregar(elemento){
+		elementos.add(elemento)
+		game.addVisual(elemento)
+	}
 }

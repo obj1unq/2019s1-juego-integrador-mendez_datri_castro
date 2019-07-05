@@ -33,10 +33,7 @@ object ciudad inherits Ecosistema{
 	}
 	
 	//DIVISION DE ESTAS SIENDO PROCESADA de NUBE
-	method quitar(nube){ 
-		game.removeVisual(nube)
-		elementos.remove(nube)
-	}
+
 	
 	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
 

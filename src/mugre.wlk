@@ -21,8 +21,7 @@ class Mugre {
 	
 	//PARA EL JUGAR DEL ECOSISTEMA
 	method aparecer() {
-		agua.agregarMugre(self)	
-		game.addVisual(self)
+		agua.agregar(self)	
 		self.moverse()
 	}	
 	
@@ -46,7 +45,7 @@ class Mugre {
 	
 	// DIVISION DE ESTAS INTERACTUANDO CON
 	method estasSiendoProcesada() {
-		agua.sacarMugre(self)
+		agua.quitar(self)
 	}
 	
 	//DIVISION DEL MOVERSE
