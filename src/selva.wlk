@@ -1,8 +1,5 @@
 import wollok.game.*
-import personaje.*
-import mundo.*
 import animales.*
-import fondo.*
 import candado.*
 import ecosistema.*
   
@@ -17,7 +14,6 @@ object selva inherits Ecosistema{
 	//DIVISION DE JUGAR
 	override method crearElementos(){
 		elementos = [spot1, spot2, spot3, spot4]
-		
 	}
 
 	//DIVISION DE ESTAS SIENDO SALVADO

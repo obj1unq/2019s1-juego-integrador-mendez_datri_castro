@@ -1,7 +1,4 @@
 import wollok.game.*
-import fondo.*
-import mundo.*
-import personaje.*
 import candado.*
 import mugre.*
 import ecosistema.*
@@ -12,11 +9,11 @@ object agua inherits Ecosistema{
 	
 	//POLIMORFICO CON FONDO
 	method image()	{ 
-		if(not self.fuisteSalvado()){
-			return "fondoDeAgua.jpg"
-		} 
+		if(not self.fuisteSalvado()){ return "fondoDeAgua.jpg" } 
 		else{ return "aguaSalvada.jpg" }
-	} 		
+	}
+	
+	//MENSAJE DE COMO JUGAR  		
 	method mensaje() = "Limpia la basura del oceano con la E"
 	
 	//DIVISION DE APARECER de MUGRE
@@ -27,7 +24,4 @@ object agua inherits Ecosistema{
 		super()
 		elementos.forEach({ mugre => mugre.moverse() }) 
 	}
-
-	//DIVISION DE ESTAS SIENDO SALVADO de MUNDO
-	
 }

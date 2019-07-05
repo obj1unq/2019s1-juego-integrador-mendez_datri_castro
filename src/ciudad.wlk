@@ -1,8 +1,5 @@
 import wollok.game.*
-import personaje.*
-import mundo.*
 import nube.*
-import fondo.*
 import candado.*
 import ecosistema.*
 
@@ -12,12 +9,11 @@ object ciudad inherits Ecosistema{
 	
 	//POLIMORFICO CON FONDO
 	method image()	{ 
-		if(not self.fuisteSalvado()){
-			return "ciudadSucia.png"
-		} 
+		if(not self.fuisteSalvado()){ return "ciudadSucia.png" } 
 		else{ return "ciudadLimpia.jpg" }
-	}  
-	
+	} 
+	 
+	//MENSAJE DE COMO JUGAR 
 	method mensaje()= "Quita todas las nubes malas con la E"
 
 	
