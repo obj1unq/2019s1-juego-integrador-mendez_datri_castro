@@ -27,7 +27,7 @@ object fondo {
 	method ponerInicioLimpio() {
 		if (ecosistemaActual != null) {
 			self.agregarCandadosAPantalla()
-			self.eliminarTodo()
+			ecosistemaActual.eliminarTodo()
 			self.ecosistemaActual(null)
 			mundo.meSalvaste()
 		}
@@ -49,15 +49,15 @@ object fondo {
 	}
 	
 	//SACA TODO PARA VOLVER A LA PANTALLA INICIAL
-	method eliminarTodo(){ self.eliminarElementos(ecosistemaActual)}
+//	method eliminarTodo(){ self.eliminarElementos(ecosistemaActual)}
 	
 	//DIVISION DE ELIMINAR TODOS
-	method eliminarElementos(ecosistema){
-		if(not ecosistema.elementos().isEmpty()) {
-		ecosistema.elementos().forEach{elemento => game.removeVisual(elemento)}
-		ecosistema.elementos().clear()
-		}
-	}
+//	method eliminarElementos(ecosistema){
+//		if(not ecosistema.elementos().isEmpty()) {
+//		ecosistema.elementos().forEach{elemento => game.removeVisual(elemento)}
+//		ecosistema.elementos().clear()
+//		}
+//	}
 	
 
 	//SOBRE CANDADOS
