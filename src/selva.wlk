@@ -13,6 +13,7 @@ object selva inherits Ecosistema{
 	//POLIMORFICO CON EL FONDO
 	method image(){ return "selva.jpg" } 
 	method mensaje() = "Pon los animales en los lugares indicados con la E"
+	
 //	method jugar(){ 
 //		elementos.add(spot1)
 //		elementos.add(spot2)
@@ -32,9 +33,10 @@ object selva inherits Ecosistema{
 		elementos.forEach({spot => game.addVisual(spot)})
 	}
 
-	//DIVISION DE ESTAS INTERACTUANDO CON de LUGARAPARAPONERANIMALES
-	
-	
+	method todosLosSpots() {
+		elementos = [spot1, spot2, spot3, spot4]
+	}
+
 	//DIVISION DE ESTAS SIENDO SALVADO
 	method listaSpot() = elementos.filter{elemento => elemento.image() == "flecha.png"}
 
