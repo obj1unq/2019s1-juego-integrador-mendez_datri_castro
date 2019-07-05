@@ -13,14 +13,24 @@ object selva inherits Ecosistema{
 	//POLIMORFICO CON EL FONDO
 	method image(){ return "selva.jpg" } 
 	method mensaje() = "Pon los animales en los lugares indicados con la E"
-	method jugar(){ 
+//	method jugar(){ 
+//		elementos.add(spot1)
+//		elementos.add(spot2)
+//		elementos.add(spot3)
+//		elementos.add(spot4)
+//		elementos.forEach({spot => game.addVisual(spot)})
+//	}
+	//DIVISION DE JUGAR
+	override method crearElementos(){
 		elementos.add(spot1)
 		elementos.add(spot2)
 		elementos.add(spot3)
 		elementos.add(spot4)
+		
+	}
+	override method agregarElementos(){
 		elementos.forEach({spot => game.addVisual(spot)})
 	}
-	
 
 	//DIVISION DE ESTAS INTERACTUANDO CON de LUGARAPARAPONERANIMALES
 	

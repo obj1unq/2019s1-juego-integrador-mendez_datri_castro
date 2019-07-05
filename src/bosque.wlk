@@ -19,7 +19,7 @@ object bosque inherits Ecosistema{
 		else{ return "bosqueSano.jpg" }
 	} 
 	method mensaje() = "Planta con S y riega arboles con la E"
-	method jugar() {
+	override method jugar(){
 		vida = 0
 		self.sembrar(personaje)
 	}

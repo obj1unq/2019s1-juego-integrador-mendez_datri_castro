@@ -25,4 +25,10 @@ class Ecosistema {
 			elementos.clear()
 		}	
 	}
+	method jugar(){
+		self.crearElementos()
+		self.agregarElementos()
+	}	
+	method crearElementos(){}
+	method agregarElementos(){}
 }
