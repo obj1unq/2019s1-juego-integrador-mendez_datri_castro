@@ -1,23 +1,15 @@
 import wollok.game.*
 import agua.*
 import mundo.*
+import elementos.*
 
 const botella = new Mugre(position= game.at(13,3), image = "basura3.png")
 const basura = new Mugre(position = game.at(10,4), image = "basura1.png")
 const tablaDeComida = new Mugre(position= game.at(15,4), image = "basura2.png")
-class Mugre {
+class Mugre inherits Elemento {
 	var property position
 	var property image
 	var movimientos = 0
-	
-	// CUANDO EL PERSONAJE COLISIONA
-	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
-	
-	//DIVISION DE INTERACTUAR de PERSONAJE
-	method estasInteractuandoCon(personaje){
-		self.estasSiendoProcesada()
-		mundo.estaSiendoSalvado(agua)
-	}
 	
 	// DIVISION DEL APARECER
 		method moverse(){
@@ -35,11 +27,6 @@ class Mugre {
 			movimientos ++
 		}
 		else {movimientos = 0}
-	}
-	
-	// DIVISION DE ESTAS INTERACTUANDO CON
-	method estasSiendoProcesada() {
-		agua.quitar(self)
 	}
 	
 	//DIVISION DEL MOVERSE

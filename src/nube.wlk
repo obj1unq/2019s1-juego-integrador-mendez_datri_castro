@@ -1,22 +1,10 @@
 import wollok.game.*
 import ciudad.*
 import mundo.*
+import elementos.*
 
-class Nube {
+class Nube inherits Elemento {
 	var property image = "nubeNegra.png"
 	var property position
 	
-	// CUANDO EL PERSONAJE COLISIONA
-	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
-	
-	//DIVISION DE INTERACTUAR de PERSONAJE
-	method estasInteractuandoCon(personaje){
-		self.estasSiendoProcesada()
-		mundo.estaSiendoSalvado(ciudad)
-	}
-	
-	// DIVISION DE ESTAS INTERACTUANDO CON 
-	method estasSiendoProcesada(){
-		ciudad.quitar(self)
-	}
 }
