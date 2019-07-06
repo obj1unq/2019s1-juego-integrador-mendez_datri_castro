@@ -29,5 +29,6 @@ class Ecosistema {
 			elementos.clear()
 		}	
 	}
+	method termino(){}
 	
 }

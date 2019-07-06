@@ -29,7 +29,7 @@ program SaveMe {
 	keyboard.right().onPressDo{ personaje.move(personaje.position().right(1)) }
 	keyboard.space().onPressDo{ fondo.volverAInicio() }
 	keyboard.e().onPressDo 	  { personaje.interactuar() }
-	
+		
 // START
 	game.start()
 
