@@ -11,7 +11,7 @@ class Ecosistema {
 	}
 	method crearElementos(){}	
 	method agregarElementos(){elementos.forEach({ elemento => game.addVisual(elemento) })}
-	
+	method termino () {/* NO HACE NADA */}
 	// PARA JUGAR
 	method fuisteSalvado()  = elementos.isEmpty()
 	method quitar(elemento){
@@ -29,6 +29,6 @@ class Ecosistema {
 			elementos.clear()
 		}	
 	}
-	method termino(){}
+
 	
 }

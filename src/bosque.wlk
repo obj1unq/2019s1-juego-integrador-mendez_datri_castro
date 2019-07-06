@@ -34,18 +34,13 @@ object bosque inherits Ecosistema{
 	
 	//DIVISION DE JUGAR
 	method sembrar(personaje) {keyboard.s().onPressDo{self.sembrarArbol(personaje)}}
-	method semillaQueCorresponde(){
 	
-			return self.semillasParaPlantar().first()
-		
-	}
-	
+	method semillaQueCorresponde(){ return self.semillasParaPlantar().first() }
+
 	//DIVISION DE SEMBRAR
 	method sembrarArbol(personaje) {
 		if (game.colliders(personaje).isEmpty() and fondo.ecosistemaActual() == self and not self.semillasParaPlantar().isEmpty()) {
 			self.semillaQueCorresponde().plantar(personaje)
-		} else {
-			game.say(personaje, "No me quedan semillas para plantar")
 		}
 	}
 	
@@ -54,7 +49,6 @@ object bosque inherits Ecosistema{
 		elementos.add(self.semillaQueCorresponde())
 		elementos.remove(self.semillaQueCorresponde())
 	}
-//	method terminado(){}
 
 }
 
