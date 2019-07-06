@@ -13,9 +13,9 @@ class Arbol {
 	method estasInteractuandoCon(personaje) { /* NO HACE NADA */ }
 	method tipo(){ return "arbol" }
 }
+  
 
-
-class Semilla inherits Arbol{
+class Semilla inherits Arbol{ 
 	var property position
 	//var property image = "corn_baby.png"
 //	var property esAdulto = false
@@ -33,7 +33,4 @@ class Semilla inherits Arbol{
 		mundo.estaSiendoSalvado(bosque)
 	}
 	
-	method regar(personaje) {
-		
-	}
 }	
