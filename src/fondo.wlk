@@ -23,7 +23,7 @@ object fondo {
 	method estasInteractuandoCon(personaje){/* No hace nada */}
 	method fuisteChocadaPor(personaje) { /* No hace nada */}
 	
-	//VOLVER AL INICIO DEL PERSONAJE
+	//VOLVER AL INICIO 
 	method ponerInicioLimpio() {
 		if (ecosistemaActual != null) {
 			self.agregarCandadosAPantalla()
@@ -47,18 +47,6 @@ object fondo {
 		personaje.position(game.origin())
 		game.say(mundo, ecosistema.mensaje())
 	}
-	
-	//SACA TODO PARA VOLVER A LA PANTALLA INICIAL
-//	method eliminarTodo(){ self.eliminarElementos(ecosistemaActual)}
-	
-	//DIVISION DE ELIMINAR TODOS
-//	method eliminarElementos(ecosistema){
-//		if(not ecosistema.elementos().isEmpty()) {
-//		ecosistema.elementos().forEach{elemento => game.removeVisual(elemento)}
-//		ecosistema.elementos().clear()
-//		}
-//	}
-	
 
 	//SOBRE CANDADOS
 	method agregarCandado(ecosistema) 	{ candados.add(ecosistema.candado()) }

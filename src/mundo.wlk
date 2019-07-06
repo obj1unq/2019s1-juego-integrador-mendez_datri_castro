@@ -5,11 +5,9 @@ object mundo {
 	var property position = game.at(1,0)
 	method image() = if (aniosDeVida < 16) {"mundoInicial.png"} else "mundoSegundo.png"
 	
-	//CUANDO COLISIONA CON EL PERSONAJE
-	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
 	
 	//DIVISION estasSiendoSalvado de los ecosistemas
-	method irAPantallaInicial() { game.say(self, "GRACIAS! Apreta espacio para continuar") }
+	method mensajeDeVolver() { game.say(self, "GRACIAS! Apreta espacio para continuar") }
 
 	//PARA SABER CUANDO FUE SALVADO EL MUNDO
 	method elEcosistemaFueSalvadoSumarVida(ecosistema) {
@@ -17,17 +15,10 @@ object mundo {
 		else aniosDeVida
 	}
 
-	//FINAL
-	method meSalvaste() { 
-		if (aniosDeVida == 16)	{
-			game.say(self, "MUCHAS GRACIAS, me has salvado")
-			fondo.sacarCandadosDePantalla()
-		} 
-	}
-	//CAMBIO DE ASPECTO CUANDO SE SALVO EL MUNDO	
+	//CAMBIOs CUANDO SE SALVA EL MUNDO	
 	method estaSiendoSalvado(ecosistema) { 
 		if(ecosistema.fuisteSalvado()){
-			self.irAPantallaInicial()
+			self.mensajeDeVolver()
 			ecosistema.termino()
 			ecosistema.candado().abrir()
 		}
@@ -40,8 +31,19 @@ object mundo {
 		}
 	}
 	
+	//CUANDO COLISIONA CON EL PERSONAJE
+	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
+	
 	//DIVISION DE INTERACTUAR de PERSONAJE
 	method estasInteractuandoCon(personaje){/* No hace nada */}
+	
+	//FINAL
+	method meSalvaste() { 
+		if (aniosDeVida == 16)	{
+			game.say(self, "MUCHAS GRACIAS, me has salvado")
+			fondo.sacarCandadosDePantalla()
+		} 
+	}
 }
 
 

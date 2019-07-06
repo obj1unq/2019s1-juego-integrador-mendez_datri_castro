@@ -4,6 +4,7 @@ object personaje {
 	var property position = game.at(0,0)
 	method image() = "player.png"
 	
+	//MOVIMIENTO EL PERSONAJE
 	method move(nuevaPosicion)	{ position = nuevaPosicion }
 
 	//PAR USAR LA E
