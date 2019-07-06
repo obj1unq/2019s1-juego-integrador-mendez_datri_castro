@@ -12,6 +12,7 @@ object bosque inherits Ecosistema{
 	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	
 	method semillas() = elementos.filter{arbol => not arbol.esAdulto()}
+	method semillasParaPlantar() = self.semillas().filter{semilla => not semilla.fuePlantado()}
 	override method fuisteSalvado()  = self.semillas().isEmpty()
 	//POLIMORFICO CON FONDO
 	method image()	{ 
@@ -33,11 +34,11 @@ object bosque inherits Ecosistema{
 	
 	//DIVISION DE JUGAR
 	method sembrar(personaje) {keyboard.s().onPressDo{self.sembrarArbol(personaje)}}
-	method semillaQueCorresponde() {
-		return if(not self.semillas().isEmpty()){
-			self.semillas().first()
+	method semillaQueCorresponde(){
+		return if (not self.semillasParaPlantar().isEmpty()){
+			self.semillasParaPlantar().first()
 		} else {
-			game.say(personaje, "No me quedan mas semillas para plantar")
+			game.say(personaje, "No me quedan semillas para plantar")
 		}
 	}
 	
@@ -47,18 +48,12 @@ object bosque inherits Ecosistema{
 			self.semillaQueCorresponde().plantar(personaje)
 		}
 	}
-	method agregar(arbol, posicion){
-		elementos.add(arbol)
-		game.addVisualIn(arbol, posicion)
-	}
-	/* 
+	
 	//DIVISION DE SEMBRAR ARBOL
 	method mantenerLaLista() {
 		elementos.add(self.semillaQueCorresponde())
 		elementos.remove(self.semillaQueCorresponde())
 	}
-	*/
-	
 
 }
 

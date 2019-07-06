@@ -11,28 +11,28 @@ const semilla3 = new Semilla()
 
 class Semilla inherits Elemento{
 	//var property image = "corn_baby.png"
+	var property esAdulto = false
+	var property fuePlantado = false
 	
-	method esAdulto() = false
-	
-	method image() = "corn_baby.png"
+	method image() = if (not esAdulto){
+		"corn_baby.png"
+	} else {
+		"arbolSanoCHiquito.png"
+	}
 	
 	method plantar(personaje) {
 		game.addVisualIn(self, personaje.position())
+		fuePlantado = true
 	}
+	
 	override method estasInteractuandoCon(personaje){
 		self.regar(personaje)
 		mundo.estaSiendoSalvado(bosque)
 	}
 	
 	method regar(personaje) {
-		bosque.agregar(new Arbol(), self.position())
-		bosque.quitar(self)
+		if (not esAdulto)  {
+			esAdulto = true
+		}
 	}
 }	
-
-class Arbol inherits Semilla{
-	override method esAdulto() = true
-	override method image() = "arbolSanoCHiquito.png"
-	override method regar(personaje){}
-	override method estasInteractuandoCon(personaje){}
-}
