@@ -22,22 +22,23 @@ object fondo {
 	method estasInteractuandoCon(personaje){/* No hace nada */}
 	method fuisteChocadaPor(personaje) { /* No hace nada */}
 	
+	//AL APRETAR ESPACIO
+	method volverAInicio() {
+		if (ecosistemaActual != null) {
+			personaje.position(game.origin())
+			mundo.sumarAniosDeVidaSiFueSalvado(ecosistemaActual)
+			self.ponerInicioLimpio()
+		}
+	}
 	//VOLVER AL INICIO 
 	method ponerInicioLimpio() {
-		if (ecosistemaActual != null) {
 			self.agregarCandadosAPantalla()
 			ecosistemaActual.eliminarTodo()
 			self.ecosistemaActual(null)
 			mundo.meSalvaste()
-		}
 	}
 	
-	//REGRESAR A INICIO
-	method volverAInicio() {
-		personaje.position(game.origin())
-		mundo.sumarAniosDeVidaSiFueSalvado(ecosistemaActual)
-		self.ponerInicioLimpio()
-	}
+	
 	
 	//INICIALIZA LOS ECOSISTEMAS
 	method inicializar(ecosistema) {

@@ -1,5 +1,5 @@
 import wollok.game.*
-import animales.*
+import elementos.*
 import candado.*
 import ecosistema.*
   

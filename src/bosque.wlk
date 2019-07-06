@@ -3,18 +3,13 @@ import fondo.*
 import mundo.*
 import personaje.*
 import candado.*
-import arbol.*
+import elementos.*
 import ecosistema.*
 
 //ECOSISTEMA BOSQUE
 object bosque inherits Ecosistema{
-	var property vida = 0
 	const property candado = new Candado(ecosistema = self, position =game.at(14,9))
 	
-	method semillas() = elementos.filter{arbol => not arbol.esAdulto()}
-	override method elementos() = elementos.filter{semilla => semilla.fuePlantado()}
-	method semillasParaPlantar() = self.semillas().filter{semilla => not semilla.fuePlantado()}
-	override method fuisteSalvado()  = self.semillas().isEmpty()
 	//POLIMORFICO CON FONDO
 	method image()	{ 
 		if(not self.fuisteSalvado()){
@@ -22,22 +17,30 @@ object bosque inherits Ecosistema{
 		} 
 		else{ return "bosqueSano.jpg" }
 	} 
-
-	override method crearElementos() {
-		elementos = [semilla1, semilla2, semilla3]
-	}
-
+	
 	method mensaje() = "Planta con S y riega arboles con la E"
+	
+	//PARA SALVAR EL ECOSISTEMA
+	override method fuisteSalvado()  = self.semillas().isEmpty()
+	
+	//PARA ELIMINAR TODOS
+	override method elementos() = elementos.filter{semilla => semilla.fuePlantado()}
+	
+
+
+	//PARA INICIALIZAR EL JUEGO
 	override method jugar(){
 		self.crearElementos()
 		self.sembrar(personaje)
 	}
 	
 	//DIVISION DE JUGAR
+	override method crearElementos() {
+		elementos = [semilla1, semilla2, semilla3]
+	}
+	
 	method sembrar(personaje) {keyboard.s().onPressDo{self.sembrarArbol(personaje)}}
 	
-	method semillaQueCorresponde(){ return self.semillasParaPlantar().first() }
-
 	//DIVISION DE SEMBRAR
 	method sembrarArbol(personaje) {
 		if (game.colliders(personaje).isEmpty() and fondo.ecosistemaActual() == self and not self.semillasParaPlantar().isEmpty()) {
@@ -46,11 +49,13 @@ object bosque inherits Ecosistema{
 	}
 	
 	//DIVISION DE SEMBRAR ARBOL
-	method mantenerLaLista() {
-		elementos.add(self.semillaQueCorresponde())
-		elementos.remove(self.semillaQueCorresponde())
-	}
-
+	method semillaQueCorresponde() = self.semillasParaPlantar().first()
+	
+	//DIVISION DE SEMILLAS QUE CORRESPONDEN
+	method semillasParaPlantar() = self.semillas().filter{semilla => not semilla.fuePlantado()}
+	
+	//DIVISION DE SEMILLAS PARA PLANTAR
+	method semillas() = elementos.filter{arbol => not arbol.esAdulto()}
 }
 
 

@@ -16,11 +16,8 @@ object ciudad inherits Ecosistema{
 	//MENSAJE DE COMO JUGAR 
 	method mensaje()= "Quita todas las nubes malas con la E"
 
-	
 	//DIVISION DE JUGAR
 	override method crearElementos(){
-	elementos =	[ 	new Elemento(image= "nubeNegra.png", position = game.at(4,2)), new Elemento(image= "nubeNegra.png", position = game.at(15,9)),
-					new Elemento(image= "nubeNegra.png", position = game.at(6,10)), new Elemento(image= "nubeNegra.png", position = game.at(2,8)),
-		 			new Elemento(image= "nubeNegra.png", position = game.at(9,6)), new Elemento(image= "nubeNegra.png", position = game.at(14,2)) ]
+	elementos =	[ nube1, nube2, nube3, nube4, nube5, nube6 ]
 	}
 }
