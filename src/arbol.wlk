@@ -12,9 +12,9 @@ class Arbol {
 	method fuisteChocadaPor(personaje) { /* NO HACE NADA */ }
 	method estasInteractuandoCon(personaje) { /* NO HACE NADA */ }
 	method tipo(){ return "arbol" }
-}
+} 
   
-
+ 
 class Semilla inherits Arbol{ 
 	var property position
 	//var property image = "corn_baby.png"
