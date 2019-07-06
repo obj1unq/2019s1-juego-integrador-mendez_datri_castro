@@ -8,11 +8,14 @@ class Ecosistema {
 	method jugar(){
 		self.crearElementos()
 		self.agregarElementos() 
-	}
-	method crearElementos(){}	
+	}	
+	
+	// PARA JUGAR
+	method crearElementos(){ /*CADA JUEGO PONE SUS ELEMENTOS */}	
 	method agregarElementos(){elementos.forEach({ elemento => game.addVisual(elemento) })}
 	method termino () {/* NO HACE NADA */}
-	// PARA JUGAR
+
+	//PARA estaSiendoSalvado(ecosistema) de MUNDO
 	method fuisteSalvado()  = elementos.isEmpty()
 	method quitar(elemento){
 		game.removeVisual(elemento)

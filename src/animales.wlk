@@ -1,4 +1,4 @@
-import wollok.game.*
+ import wollok.game.*
 import selva.*
 import mundo.*
 import elementos.*

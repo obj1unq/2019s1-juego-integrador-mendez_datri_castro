@@ -7,7 +7,6 @@ import mundo.*
 import personaje.*
 object fondo {
 	var property position = game.at(0,0)
-	//var property image = "ecosistemaFondo1.png"
 	var property candados = []
 	var property ecosistemaActual = null
 	

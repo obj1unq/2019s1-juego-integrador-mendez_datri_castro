@@ -4,7 +4,7 @@ import fondo.*
 
 class Elemento {
 	var property position
-	
+	var image = null
 	// CUANDO EL PERSONAJE COLISIONA
 	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
 	

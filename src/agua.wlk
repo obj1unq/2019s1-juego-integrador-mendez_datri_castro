@@ -16,7 +16,7 @@ object agua inherits Ecosistema{
 	//MENSAJE DE COMO JUGAR  		
 	method mensaje() = "Limpia la basura del oceano con la E"
 	
-	//DIVISION DE APARECER de MUGRE
+	//DIVISION DE JUGAR de MUGRE
 	override method crearElementos() {
 		elementos = [basura, botella, tablaDeComida]
 	}

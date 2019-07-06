@@ -15,7 +15,7 @@ object mundo {
 		else aniosDeVida
 	}
 
-	//CAMBIOs CUANDO SE SALVA EL MUNDO	
+	//CAMBIOS CUANDO SE SALVA EL MUNDO	
 	method estaSiendoSalvado(ecosistema) { 
 		if(ecosistema.fuisteSalvado()){
 			self.mensajeDeVolver()

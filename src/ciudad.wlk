@@ -1,5 +1,5 @@
 import wollok.game.*
-import nube.*
+import elementos.*
 import candado.*
 import ecosistema.*
 
@@ -19,8 +19,8 @@ object ciudad inherits Ecosistema{
 	
 	//DIVISION DE JUGAR
 	override method crearElementos(){
-	elementos =	[ 	new Nube(position = game.at(4,2)), new Nube(position = game.at(15,9)),
-					new Nube(position = game.at(6,10)), new Nube(position = game.at(2,8)),
-		 			new Nube(position = game.at(9,6)), new Nube(position = game.at(14,2)) ]
+	elementos =	[ 	new Elemento(image= "nubeNegra.png", position = game.at(4,2)), new Elemento(image= "nubeNegra.png", position = game.at(15,9)),
+					new Elemento(image= "nubeNegra.png", position = game.at(6,10)), new Elemento(image= "nubeNegra.png", position = game.at(2,8)),
+		 			new Elemento(image= "nubeNegra.png", position = game.at(9,6)), new Elemento(image= "nubeNegra.png", position = game.at(14,2)) ]
 	}
 }
