@@ -7,30 +7,33 @@ const semilla1 = new Semilla()
 const semilla2 = new Semilla()
 const semilla3 = new Semilla()
 
-class Semilla {
+class Arbol {
+	var property image = "arbolSanoCHiquito.png"
+	method fuisteChocadaPor(personaje) { /* NO HACE NADA */ }
+	method estasInteractuandoCon(personaje) { /* NO HACE NADA */ }
+	method tipo(){ return "arbol" }
+}
+
+
+class Semilla inherits Arbol{
 	var property position
 	//var property image = "corn_baby.png"
-	var property esAdulto = false
+//	var property esAdulto = false
 	
-	method image() = if (not esAdulto){
-		"corn_baby.png"
-	} else {
-		"arbolSanoCHiquito.png"
-	}
+	override method image() = "corn_baby.png"
 	
-	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
+	override method tipo(){ return "planta" }
+//	method fuisteChocadaPor(personaje) {/* NO HACE NADA */}
 	
 	method plantar(personaje) {
 		game.addVisualIn(self, personaje.position())
 	}
-	method estasInteractuandoCon(personaje){
-		self.regar(personaje)
+	override method estasInteractuandoCon(personaje){
+		bosque.regar(self)
 		mundo.estaSiendoSalvado(bosque)
 	}
 	
 	method regar(personaje) {
-		if (not esAdulto)  {
-			esAdulto = true
-		}
+		
 	}
 }	
